@@ -1,0 +1,52 @@
+{
+  "name": "ng-alain-vscode",
+  "displayName": "ng-alain snippets",
+  "description": "基于ng-alain的代码片断",
+  "version": "1.0.0",
+  "icon": "ng-alain.png",
+  "publisher": "cipchk",
+  "license": "MIT",
+  "licenseUrl": "LICENSE",
+  "homepage": "https://github.com/cipchk/ng-alain-vscode/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cipchk/ng-alain-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cipchk/ng-alain-vscode/issues",
+    "email": "cipchk@qq.com"
+  },
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "galleryBanner": {
+    "color": "#ffffff",
+    "theme": "light"
+  },
+  "categories": ["Snippets"],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./snippets.json"
+      }
+    ]
+  },
+  "scripts": {
+    "publish": "run-s build package",
+    "package": "vsce package",
+    "start": "run-s build watch",
+    "watch": "gulp watch",
+    "build": "gulp prod"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-hb": "^6.0.2",
+    "gulp-mustache": "^3.0.0",
+    "gulp-sequence": "^0.4.6",
+    "gulp-wrap": "^0.13.0",
+    "lodash": "^4.17.4",
+    "map-stream": "0.0.7"
+  }
+}

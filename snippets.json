@@ -1,0 +1,212 @@
+{
+ 
+     "html desc-list currency": {
+        "prefix": "na-desc-list.currency",
+        "body": "<desc-list-item term=\"${1|单价,金额,订单金额,支付金额,市场价|}\">{{ ${2:i.price} | _currency }}</desc-list-item>",
+        "description": "描述列表：货币示例",
+        "scope": ""
+    }
+
+    , "html desc-list": {
+        "prefix": "na-desc-list",
+        "body": "<desc-list${1: col=\"${2|2,3,4|}\"}>\n  <desc-list-item term=\"$3\">$4</desc-list-item>\n</desc-list>\n$0",
+        "description": "描述列表（常见于详情页的信息展示）",
+        "scope": ""
+    }
+
+    , "html desc-list item": {
+        "prefix": "na-desc-list.item",
+        "body": "<desc-list-item term=\"${1|编号,名称,电话,手机,地址,备注,数量|}\">$2</desc-list-item>\n$0",
+        "description": "描述列表：单项",
+        "scope": ""
+    }
+
+    , "html desc-list layout": {
+        "prefix": "na-desc-list.layout",
+        "body": "layout=\"${1|vertical,horizontal|}\"",
+        "description": "描述列表属性：布局",
+        "scope": ""
+    }
+
+    , "html desc-list size": {
+        "prefix": "na-desc-list.size",
+        "body": "size=\"${1|small,large|}\"",
+        "description": "描述列表属性：大小",
+        "scope": ""
+    }
+
+    , "html desc-list status": {
+        "prefix": "na-desc-list.status",
+        "body": "<desc-list-item term=\"状态\">\n  <nz-badge *ngIf=\"i.status === 1\" nzStatus=\"default\" nzText=\"未提交\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 2\" nzStatus=\"processing\" nzText=\"运行中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 4\" nzStatus=\"warning\" nzText=\"上线审核中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 6\" nzStatus=\"error\" nzText=\"已删除\"></nz-badge>\n</desc-list-item>",
+        "description": "描述列表：状态示例",
+        "scope": ""
+    }
+
+    , "html desc-list time": {
+        "prefix": "na-desc-list.time",
+        "body": "<desc-list-item term=\"${1|时间,开始时间,结束时间,生效时间,创建时间,更新时间|}\">{{ ${2:i.time} | _date }}</desc-list-item>",
+        "description": "描述列表：时间示例",
+        "scope": ""
+    }
+
+    , "html ellipsis": {
+        "prefix": "na-ellipsis",
+        "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
+        "description": "文本自动省略号",
+        "scope": ""
+    }
+
+    , "html error-collect": {
+        "prefix": "na-error-collect",
+        "body": "<error-collect>$0</error-collect>",
+        "description": "表单异常消息采集器",
+        "scope": ""
+    }
+
+    , "html footer-toolbar": {
+        "prefix": "na-footer-toolbar",
+        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
+        "description": "底部工具栏",
+        "scope": ""
+    }
+
+    , "html form": {
+        "prefix": "na-form",
+        "body": "<sf #sf [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:i}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
+        "description": "动态表单",
+        "scope": ""
+    }
+
+    , "html form edit": {
+        "prefix": "na-form.edit",
+        "body": "<sf mode=\"edit\" [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:params}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
+        "description": "动态表单：编辑模式",
+        "scope": ""
+    }
+
+    , "html form search": {
+        "prefix": "na-form.search",
+        "body": "<sf mode=\"search\" [schema]=\"${1:searchSchema}\" [formData]=\"${2:params}\" (formSubmit)=\"${3:st}.reset(\\$event)\" (formReset)=\"$3.reset($2)\"></sf>",
+        "description": "动态表单：搜索模式",
+        "scope": ""
+    }
+
+    , "html header action": {
+        "prefix": "na-header.action",
+        "body": "<page-header>\n  <ng-template #action>\n    <button (click)=\"${2:add()}\" nz-button nzType=\"primary\">${1:新建}</button>\n  </ng-template>\n</page-header>\n$0",
+        "description": "页头：操作区域",
+        "scope": ""
+    }
+
+    , "html header": {
+        "prefix": "na-header",
+        "body": "<page-header${1: [title]=\"'$2'\"}></page-header>\n$0",
+        "description": "页头",
+        "scope": ""
+    }
+
+    , "html header full": {
+        "prefix": "na-header.full",
+        "body": "<page-header [title]=\"'$0'\">\n  <ng-template #breadcrumb>面包屑</ng-template>\n  <ng-template #logo>\n    <div class=\"logo\">logo</div>\n  </ng-template>\n  <ng-template #action>\n    <div class=\"action\">action</div>\n  </ng-template>\n  <ng-template #content>\n    <div class=\"desc\">content</div>\n  </ng-template>\n  <ng-template #extra>\n    <div class=\"extra\">extra</div>\n  </ng-template>\n  <ng-template #tab>\n    <nz-tabset nzSize=\"default\">\n      <nz-tab nzTitle=\"页签一\"></nz-tab>\n      <nz-tab nzTitle=\"页签二\"></nz-tab>\n      <nz-tab nzTitle=\"页签三\"></nz-tab>\n    </nz-tabset>\n  </ng-template>\n</page-header>\n$0",
+        "description": "页头：完整模式",
+        "scope": ""
+    }
+
+    , "html header-css": {
+        "prefix": "na-header-css",
+        "body": "<div class=\"content__title\">\r\n  <h1>${1}</h1>\r\n</div>\r\n$0",
+        "description": "CSS页头",
+        "scope": ""
+    }
+
+    , "html header-css right input": {
+        "prefix": "na-header-css.right-input",
+        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <button nz-button (click)=\"${2}()\" [nzType]=\"'primary'\">${2:添加}</button>\r\n</div>\r\n$0",
+        "description": "CSS页头：右边表单",
+        "scope": ""
+    }
+
+    , "html header-css right inputgroup": {
+        "prefix": "na-header-css.right-inputgroup",
+        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <nz-input-group [nzCompact]=\"true\">\r\n    <nz-input [(ngModel)]=\"${4:val}\"></nz-input>\r\n    <button nz-button (click)=\"${3}\" [nzLoading]=\"http.loading\" [disabled]=\"!${4}\">${2:切换}</button>\r\n  </nz-input-group>\r\n</div>\r\n$0",
+        "description": "CSS页头：右边表单组",
+        "scope": ""
+    }
+
+    , "html modal": {
+        "prefix": "na-modal",
+        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n$0\r\n<div class=\"modal-footer\"></div>",
+        "description": "模态框",
+        "scope": ""
+    }
+
+    , "html modal edit": {
+        "prefix": "na-modal.edit",
+        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<sf *ngIf=\"$2\" #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$2\" button=\"none\">\r\n  <div class=\"modal-footer\">\r\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\r\n  </div>\r\n</sf>",
+        "description": "模态框：编辑模式",
+        "scope": ""
+    }
+
+    , "html modal view": {
+        "prefix": "na-modal.view",
+        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<desc-list *ngIf=\"$2\">\r\n  $0\r\n</desc-list>\r\n<div class=\"modal-footer\">\r\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n</div>",
+        "description": "模态框：查看模式",
+        "scope": ""
+    }
+
+    , "html simple-table custom title": {
+        "prefix": "na-simple-table.custom-title",
+        "body": "<ng-template st-row=\"${1:custom}\" type=\"title\" let-c let-index=\"index\">\n  $0\n</ng-template>",
+        "description": "简易表格：自定义标题头",
+        "scope": ""
+    }
+
+    , "html simple-table custom": {
+        "prefix": "na-simple-table.custom",
+        "body": "<ng-template st-row=\"${1:custom}\" let-item let-index=\"index\">\n  $0\n</ng-template>",
+        "description": "简易表格：自定义列",
+        "scope": ""
+    }
+
+    , "html simple-table": {
+        "prefix": "na-simple-table",
+        "body": "<simple-table [data]=\"${1:url}\" [columns]=\"${2:columns}\"${3: [extraParams]=\"${4:params}\"}></simple-table>\n$0",
+        "description": "简易表格",
+        "scope": ""
+    }
+
+    , "html standard-form-row block": {
+        "prefix": "na-standard-form-row.block",
+        "body": "<standard-form-row title=\"$1\" block>$0</standard-form-row>",
+        "description": "标准表单行：行布局",
+        "scope": ""
+    }
+
+    , "html standard-form-row": {
+        "prefix": "na-standard-form-row",
+        "body": "<standard-form-row title=\"$1\"${2: grid}${3: block}${4: last}>$0</standard-form-row>",
+        "description": "标准表单行",
+        "scope": ""
+    }
+
+    , "html standard-form-row grid": {
+        "prefix": "na-standard-form-row.grid",
+        "body": "<standard-form-row title=\"$1\" grid>$0</standard-form-row>",
+        "description": "标准表单行：网格布局",
+        "scope": ""
+    }
+
+    , "html standard-form-row last": {
+        "prefix": "na-standard-form-row.last",
+        "body": "<standard-form-row title=\"$1\"${2: grid} last>$0</standard-form-row>",
+        "description": "标准表单行：最后一行",
+        "scope": ""
+    }
+
+    , "html tag-select": {
+        "prefix": "na-tag-select",
+        "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
+        "description": "标签选择器",
+        "scope": ""
+    }  
+}
