@@ -1,0 +1,12 @@
+<form nz-form #f="ngForm" (ngSubmit)="${1:save}()">
+  <div shf-wrap="${2|1,2,3|}">
+    <shf-item label="${3:名称}">
+      <input nz-input [(ngModel)]="i.${4:name}" name="${4}" required>
+    </shf-item>
+    $0
+  </div>
+  <div class="modal-footer">
+    <button nz-button type="button" (click)="close()">${5:关闭}</button>
+    <button nz-button nzType="primary" [disabled]="f.invalid" [nzLoading]="http.loading">${6:保存}</button>
+  </div>
+</form>

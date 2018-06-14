@@ -1,0 +1,8 @@
+<form nz-form nzLayout="inline" (ngSubmit)="${1:save}()" shf-wrap>
+  <shf-item label="${2:名称}">
+    <input nz-input [(ngModel)]="i.${3:name}" name="${3}">
+  </shf-item>
+  <shf-item>
+    <button nz-button nzType="primary">${4:搜索}</button>
+  </shf-item>
+</form>
