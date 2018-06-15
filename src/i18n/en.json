@@ -4,6 +4,7 @@
 		"list": {
 			"na-desc-list.currency": "html desc-list currency",
 			"na-desc-list": "html desc-list",
+			"na-desc-list.detailClass": "html desc-list detailClass",
 			"na-desc-list.item": "html desc-list item",
 			"na-desc-list.layout": "html desc-list layout",
 			"na-desc-list.size": "html desc-list size",
@@ -26,6 +27,7 @@
 			"na-modal.view": "html modal view",
 			"na-simple-html-form.checkbox": "html simple-html-form checkbox",
 			"na-simple-html-form.col-1": "html simple-html-form col 1",
+			"na-simple-html-form.controlClass": "html simple-html-form controlClass",
 			"na-simple-html-form": "html simple-html-form",
 			"na-simple-html-form.help": "html simple-html-form help",
 			"na-simple-html-form.input-group": "html simple-html-form input group",

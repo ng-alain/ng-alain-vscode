@@ -4,6 +4,7 @@
 		"list": {
 			"na-desc-list.currency": "描述列表：货币示例",
 			"na-desc-list": "描述列表（常见于详情页的信息展示）",
+			"na-desc-list.detailClass": "描述列表属性：列表内容样式",
 			"na-desc-list.item": "描述列表：单项",
 			"na-desc-list.layout": "描述列表属性：布局",
 			"na-desc-list.size": "描述列表属性：大小",
@@ -26,6 +27,7 @@
 			"na-modal.view": "模态框：查看模式",
 			"na-simple-html-form.checkbox": "简易HTML模板表单：单选框",
 			"na-simple-html-form.col-1": "简易HTML模板表单：单列",
+			"na-simple-html-form.controlClass": "简易HTML模板表单属性：控件内容样式",
 			"na-simple-html-form": "简易HTML模板表单",
 			"na-simple-html-form.help": "简易HTML模板表单：帮助信息",
 			"na-simple-html-form.input-group": "简易HTML模板表单：后置标签文本框",

@@ -14,6 +14,13 @@
         "scope": ""
     }
 
+    , "html desc-list detailClass": {
+        "prefix": "na-desc-list.detailClass",
+        "body": "detailClass=\"${1|text-error,text-primary,text-success|}\"",
+        "description": "描述列表属性：列表内容样式",
+        "scope": ""
+    }
+
     , "html desc-list item": {
         "prefix": "na-desc-list.item",
         "body": "<desc-list-item term=\"${1|编号,名称,电话,手机,地址,备注,数量|}\">$2</desc-list-item>\n$0",
@@ -165,6 +172,13 @@
         "prefix": "na-simple-html-form.col-1",
         "body": "<shf-item label=\"${1:名称}\" col=\"1\">\n  $0\n</shf-item>",
         "description": "简易HTML模板表单：单列",
+        "scope": ""
+    }
+
+    , "html simple-html-form controlClass": {
+        "prefix": "na-simple-html-form.controlClass",
+        "body": "controlClass=\"${1|text-error,text-primary,text-success|}\"",
+        "description": "简易HTML模板表单属性：控件内容样式",
         "scope": ""
     }
 
