@@ -9,7 +9,7 @@
 
     , "html desc-list": {
         "prefix": "na-desc-list",
-        "body": "<desc-list${1: col=\"${2|2,3,4|}\"}>\n  <desc-list-item term=\"$3\">$4</desc-list-item>\n</desc-list>\n$0",
+        "body": "<desc-list${1: col=\"${2|2,3,4|}\"}${3: [title]=\"'${4}'\"}>\n  <desc-list-item term=\"$5\">$6</desc-list-item>\n</desc-list>\n$0",
         "description": "描述列表（常见于详情页的信息展示）",
         "scope": ""
     }
