@@ -1,6 +1,13 @@
 {
  
-     "html desc-list currency": {
+     "html desc-list color": {
+        "prefix": "na-desc-list.color",
+        "body": "<desc-list-item term=\"${1|失败,取消,重写|}\" detailClass=\"${2|text-error,text-primary,text-success|}\">$3</desc-list-item>\n$0",
+        "description": "描述列表：指定内容颜色样式",
+        "scope": ""
+    }
+
+    , "html desc-list currency": {
         "prefix": "na-desc-list.currency",
         "body": "<desc-list-item term=\"${1|单价,金额,订单金额,支付金额,市场价|}\">{{ ${2:i.price} | _currency }}</desc-list-item>",
         "description": "描述列表：货币示例",

@@ -2,6 +2,8 @@
 	"html": {
 		"title": "",
 		"list": {
+			"na-ellipsis": "文本自动省略号",
+			"na-desc-list.color": "描述列表：指定内容颜色样式",
 			"na-desc-list.currency": "描述列表：货币示例",
 			"na-desc-list": "描述列表（常见于详情页的信息展示）",
 			"na-desc-list.detailClass": "描述列表属性：列表内容样式",
@@ -10,7 +12,6 @@
 			"na-desc-list.size": "描述列表属性：大小",
 			"na-desc-list.status": "描述列表：状态示例",
 			"na-desc-list.time": "描述列表：时间示例",
-			"na-ellipsis": "文本自动省略号",
 			"na-error-collect": "表单异常消息采集器",
 			"na-footer-toolbar": "底部工具栏",
 			"na-form": "动态表单",

@@ -2,6 +2,8 @@
 	"html": {
 		"title": "",
 		"list": {
+			"na-ellipsis": "html ellipsis",
+			"na-desc-list.color": "html desc-list color",
 			"na-desc-list.currency": "html desc-list currency",
 			"na-desc-list": "html desc-list",
 			"na-desc-list.detailClass": "html desc-list detailClass",
@@ -10,7 +12,6 @@
 			"na-desc-list.size": "html desc-list size",
 			"na-desc-list.status": "html desc-list status",
 			"na-desc-list.time": "html desc-list time",
-			"na-ellipsis": "html ellipsis",
 			"na-error-collect": "html error-collect",
 			"na-footer-toolbar": "html footer-toolbar",
 			"na-form": "html form",

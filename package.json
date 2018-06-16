@@ -2,7 +2,7 @@
   "name": "ng-alain-vscode",
   "displayName": "ng-alain snippets",
   "description": "基于ng-alain的代码片断",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
