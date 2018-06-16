@@ -16,6 +16,8 @@
 			"na-footer-toolbar": "html footer-toolbar",
 			"na-form": "html form",
 			"na-form.edit": "html form edit",
+			"na-form.modal": "html form modal",
+			"na-form.page": "html form page",
 			"na-form.search": "html form search",
 			"na-header.action": "html header action",
 			"na-header": "html header",

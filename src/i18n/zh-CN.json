@@ -16,6 +16,8 @@
 			"na-footer-toolbar": "底部工具栏",
 			"na-form": "动态表单",
 			"na-form.edit": "动态表单：编辑模式",
+			"na-form.modal": "动态表单：模态页示例",
+			"na-form.page": "动态表单：页面示例",
 			"na-form.search": "动态表单：搜索模式",
 			"na-header.action": "页头：操作区域",
 			"na-header": "页头",

@@ -77,13 +77,6 @@
         "scope": ""
     }
 
-    , "html footer-toolbar": {
-        "prefix": "na-footer-toolbar",
-        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
-        "description": "底部工具栏",
-        "scope": ""
-    }
-
     , "html form": {
         "prefix": "na-form",
         "body": "<sf #sf [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:i}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
@@ -98,10 +91,31 @@
         "scope": ""
     }
 
+    , "html form modal": {
+        "prefix": "na-form.modal",
+        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </div>\n</sf>",
+        "description": "动态表单：模态页示例",
+        "scope": ""
+    }
+
+    , "html form page": {
+        "prefix": "na-form.page",
+        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <footer-toolbar>\n    <button nz-button type=\"submit\" nzType=\"primary\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </footer-toolbar>\n</sf>",
+        "description": "动态表单：页面示例",
+        "scope": ""
+    }
+
     , "html form search": {
         "prefix": "na-form.search",
         "body": "<sf mode=\"search\" [schema]=\"${1:searchSchema}\" [formData]=\"${2:params}\" (formSubmit)=\"${3:st}.reset(\\$event)\" (formReset)=\"$3.reset($2)\"></sf>",
         "description": "动态表单：搜索模式",
+        "scope": ""
+    }
+
+    , "html footer-toolbar": {
+        "prefix": "na-footer-toolbar",
+        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
+        "description": "底部工具栏",
         "scope": ""
     }
 
