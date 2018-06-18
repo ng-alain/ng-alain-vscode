@@ -25,7 +25,6 @@
 
 Trigger | Description
 --- | ---
-na-ellipsis | 文本自动省略号
 na-desc-list.color | 描述列表：指定内容颜色样式
 na-desc-list.currency | 描述列表：货币示例
 na-desc-list | 描述列表（常见于详情页的信息展示）
@@ -35,6 +34,7 @@ na-desc-list.layout | 描述列表属性：布局
 na-desc-list.size | 描述列表属性：大小
 na-desc-list.status | 描述列表：状态示例
 na-desc-list.time | 描述列表：时间示例
+na-ellipsis | 文本自动省略号
 na-error-collect | 表单异常消息采集器
 na-footer-toolbar | 底部工具栏
 na-form | 动态表单
@@ -58,6 +58,7 @@ na-simple-html-form | 简易HTML模板表单
 na-simple-html-form.help | 简易HTML模板表单：帮助信息
 na-simple-html-form.input-group | 简易HTML模板表单：后置标签文本框
 na-simple-html-form.modal | 简易HTML模板表单：模态示例
+na-simple-html-form.number | 简易HTML模板表单：数字框示例
 na-simple-html-form.page | 简易HTML模板表单：单页示例
 na-simple-html-form.search | 简易HTML模板表单：搜索示例
 na-simple-html-form.select | 简易HTML模板表单：选择器

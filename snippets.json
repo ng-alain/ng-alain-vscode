@@ -77,6 +77,13 @@
         "scope": ""
     }
 
+    , "html footer-toolbar": {
+        "prefix": "na-footer-toolbar",
+        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
+        "description": "底部工具栏",
+        "scope": ""
+    }
+
     , "html form": {
         "prefix": "na-form",
         "body": "<sf #sf [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:i}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
@@ -109,13 +116,6 @@
         "prefix": "na-form.search",
         "body": "<sf mode=\"search\" [schema]=\"${1:searchSchema}\" [formData]=\"${2:params}\" (formSubmit)=\"${3:st}.reset(\\$event)\" (formReset)=\"$3.reset($2)\"></sf>",
         "description": "动态表单：搜索模式",
-        "scope": ""
-    }
-
-    , "html footer-toolbar": {
-        "prefix": "na-footer-toolbar",
-        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
-        "description": "底部工具栏",
         "scope": ""
     }
 
@@ -205,7 +205,7 @@
 
     , "html simple-html-form": {
         "prefix": "na-simple-html-form",
-        "body": "<shf-item label=\"${1:名称}\">\n  <input nz-input [(ngModel)]=\"i.${2:name}\" name=\"${2}\"${3: required}${4: maxlength=\"${5|10,20,30,32|}\"}>\n</shf-item>\n$0",
+        "body": "<shf-item label=\"${1:名称}\">\n  <input nz-input [(ngModel)]=\"i.${2:name}\" name=\"${2}\"${3: required}${4: maxlength=\"${5|10,20,30,32,50,100|}\"}>\n</shf-item>\n$0",
         "description": "简易HTML模板表单",
         "scope": ""
     }
@@ -231,6 +231,13 @@
         "scope": ""
     }
 
+    , "html simple-html-form number": {
+        "prefix": "na-simple-html-form.number",
+        "body": "<shf-item label=\"${1:数量}\">\n  <nz-input-number [(ngModel)]=\"i.${2:num}\" name=\"${2}\"${3: required}${4: nzPlaceHolder=\"${5}\"}></nz-input-number>\n</shf-item>\n$0",
+        "description": "简易HTML模板表单：数字框示例",
+        "scope": ""
+    }
+
     , "html simple-html-form page": {
         "prefix": "na-simple-html-form.page",
         "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\">\n  <nz-card shf-wrap=\"${2|1,2,3|}\">\n    <shf-item label=\"${3:名称}\">\n      <input nz-input [(ngModel)]=\"i.${4:name}\" name=\"${4}\" required>\n    </shf-item>\n    $0\n  </nz-card>\n  <footer-toolbar errorCollect>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${5:保存}</button>\n  </footer-toolbar>\n</form>",
@@ -247,7 +254,7 @@
 
     , "html simple-html-form select": {
         "prefix": "na-simple-html-form.select",
-        "body": "<shf-item label=\"${1:名称}\">\n  <nz-select [(ngModel)]=\"i.${2:name}\" name=\"${2}\">\n    <nz-option nzLabel=\"选项一\" [nzValue]=\"1\"></nz-option>\n    $0\n  </nz-select>\n</shf-item>",
+        "body": "<shf-item label=\"${1:名称}\">\n  <nz-select [(ngModel)]=\"i.${2:name}\" name=\"${2}\">\n    <nz-option nzLabel=\"$3\" [nzValue]=\"${4:1}\"></nz-option>\n    $0\n  </nz-select>\n</shf-item>",
         "description": "简易HTML模板表单：选择器",
         "scope": ""
     }

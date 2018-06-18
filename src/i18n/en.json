@@ -2,7 +2,6 @@
 	"html": {
 		"title": "",
 		"list": {
-			"na-ellipsis": "html ellipsis",
 			"na-desc-list.color": "html desc-list color",
 			"na-desc-list.currency": "html desc-list currency",
 			"na-desc-list": "html desc-list",
@@ -12,6 +11,7 @@
 			"na-desc-list.size": "html desc-list size",
 			"na-desc-list.status": "html desc-list status",
 			"na-desc-list.time": "html desc-list time",
+			"na-ellipsis": "html ellipsis",
 			"na-error-collect": "html error-collect",
 			"na-footer-toolbar": "html footer-toolbar",
 			"na-form": "html form",
@@ -35,6 +35,7 @@
 			"na-simple-html-form.help": "html simple-html-form help",
 			"na-simple-html-form.input-group": "html simple-html-form input group",
 			"na-simple-html-form.modal": "html simple-html-form modal",
+			"na-simple-html-form.number": "html simple-html-form number",
 			"na-simple-html-form.page": "html simple-html-form page",
 			"na-simple-html-form.search": "html simple-html-form search",
 			"na-simple-html-form.select": "html simple-html-form select",
