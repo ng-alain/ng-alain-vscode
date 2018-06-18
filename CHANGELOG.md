@@ -1,3 +1,7 @@
+# 1.0.6
+
+- 增加 `na-simple-html-form.wrap` 容器片断
+
 # 1.0.5
 
 - 增加HTML模板表单：数字框示例
