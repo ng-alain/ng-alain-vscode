@@ -72,6 +72,16 @@ na-standard-form-row.grid | 标准表单行：网格布局
 na-standard-form-row.last | 标准表单行：最后一行
 na-tag-select | 标签选择器
 
+### 
+
+Trigger | Description
+--- | ---
+ng-container | ng-container
+ng-container.for | 携带 *ngFor
+ng-container.if | 携带 *ngIf
+ng-template | ng-template
+ng-template.outlet | 携带 Outlet
+
 ## 更新日志
 
 见[CHANGELOG.md](CHANGELOG.md)

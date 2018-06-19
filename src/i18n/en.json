@@ -49,5 +49,15 @@
 			"na-standard-form-row.last": "html standard-form-row last",
 			"na-tag-select": "html tag-select"
 		}
+	},
+	"ng": {
+		"title": "",
+		"list": {
+			"ng-container": "ng container",
+			"ng-container.for": "ng container for",
+			"ng-container.if": "ng container if",
+			"ng-template": "ng template",
+			"ng-template.outlet": "ng template outlet"
+		}
 	}
 }

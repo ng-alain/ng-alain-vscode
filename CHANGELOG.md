@@ -1,3 +1,7 @@
+# 1.0.7
+
+- 增加 `ng-template` 和 `ng-container` 片断
+
 # 1.0.6
 
 - 增加 `na-simple-html-form.wrap` 容器片断

@@ -70,17 +70,17 @@
         "scope": ""
     }
 
-    , "html error-collect": {
-        "prefix": "na-error-collect",
-        "body": "<error-collect>$0</error-collect>",
-        "description": "表单异常消息采集器",
-        "scope": ""
-    }
-
     , "html footer-toolbar": {
         "prefix": "na-footer-toolbar",
         "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
         "description": "底部工具栏",
+        "scope": ""
+    }
+
+    , "html error-collect": {
+        "prefix": "na-error-collect",
+        "body": "<error-collect>$0</error-collect>",
+        "description": "表单异常消息采集器",
         "scope": ""
     }
 
@@ -287,13 +287,6 @@
         "scope": ""
     }
 
-    , "html tag-select": {
-        "prefix": "na-tag-select",
-        "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
-        "description": "标签选择器",
-        "scope": ""
-    }
-
     , "html standard-form-row block": {
         "prefix": "na-standard-form-row.block",
         "body": "<standard-form-row title=\"$1\" block>$0</standard-form-row>",
@@ -319,6 +312,48 @@
         "prefix": "na-standard-form-row.last",
         "body": "<standard-form-row title=\"$1\"${2: grid} last>$0</standard-form-row>",
         "description": "标准表单行：最后一行",
+        "scope": ""
+    }
+
+    , "html tag-select": {
+        "prefix": "na-tag-select",
+        "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
+        "description": "标签选择器",
+        "scope": ""
+    }
+
+    , "ng container": {
+        "prefix": "ng-container",
+        "body": "<ng-container>$0</ng-container>",
+        "description": "ng-container",
+        "scope": ""
+    }
+
+    , "ng container for": {
+        "prefix": "ng-container.for",
+        "body": "<ng-container *ngFor=\"let ${2:i} of ${1:list}\">\n  $0\n</ng-container>",
+        "description": "携带 *ngFor",
+        "scope": ""
+    }
+
+    , "ng container if": {
+        "prefix": "ng-container.if",
+        "body": "  <ng-container *ngIf=\"$1\">\n    $0\n  </ng-container>",
+        "description": "携带 *ngIf",
+        "scope": ""
+    }
+
+    , "ng template": {
+        "prefix": "ng-template",
+        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\n  $0\n</ng-container>",
+        "description": "ng-template",
+        "scope": ""
+    }
+
+    , "ng template outlet": {
+        "prefix": "ng-template.outlet",
+        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{\\$implicit: ${3:item} }\"}></ng-template>\n$0",
+        "description": "携带 Outlet",
         "scope": ""
     }  
 }
