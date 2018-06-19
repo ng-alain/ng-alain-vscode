@@ -1,3 +1,7 @@
+# 1.0.8
+
+- 增加 TypeScript 片断
+
 # 1.0.7
 
 - 增加 `ng-template` 和 `ng-container` 片断

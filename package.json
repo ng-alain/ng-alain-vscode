@@ -2,7 +2,7 @@
   "name": "ng-alain-vscode",
   "displayName": "ng-alain snippets",
   "description": "基于ng-alain的代码片断",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
@@ -27,17 +27,19 @@
   "contributes": {
     "snippets": [
       {
+        "language": "typescript",
+        "path": "./snippets/typescript.json"
+      },
+      {
         "language": "html",
-        "path": "./snippets.json"
+        "path": "./snippets/html.json"
       }
     ]
   },
   "scripts": {
     "publish": "run-s build package",
     "package": "vsce package",
-    "start": "run-s build watch",
-    "watch": "gulp watch",
-    "build": "gulp prod"
+    "build": "gulp build"
   },
   "devDependencies": {
     "gulp": "^3.9.1",

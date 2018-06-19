@@ -77,13 +77,6 @@
         "scope": ""
     }
 
-    , "html error-collect": {
-        "prefix": "na-error-collect",
-        "body": "<error-collect>$0</error-collect>",
-        "description": "表单异常消息采集器",
-        "scope": ""
-    }
-
     , "html form": {
         "prefix": "na-form",
         "body": "<sf #sf [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:i}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
@@ -140,27 +133,6 @@
         "scope": ""
     }
 
-    , "html header-css": {
-        "prefix": "na-header-css",
-        "body": "<div class=\"content__title\">\r\n  <h1>${1}</h1>\r\n</div>\r\n$0",
-        "description": "CSS页头",
-        "scope": ""
-    }
-
-    , "html header-css right input": {
-        "prefix": "na-header-css.right-input",
-        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <button nz-button (click)=\"${2}()\" [nzType]=\"'primary'\">${2:添加}</button>\r\n</div>\r\n$0",
-        "description": "CSS页头：右边表单",
-        "scope": ""
-    }
-
-    , "html header-css right inputgroup": {
-        "prefix": "na-header-css.right-inputgroup",
-        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <nz-input-group [nzCompact]=\"true\">\r\n    <nz-input [(ngModel)]=\"${4:val}\"></nz-input>\r\n    <button nz-button (click)=\"${3}\" [nzLoading]=\"http.loading\" [disabled]=\"!${4}\">${2:切换}</button>\r\n  </nz-input-group>\r\n</div>\r\n$0",
-        "description": "CSS页头：右边表单组",
-        "scope": ""
-    }
-
     , "html modal": {
         "prefix": "na-modal",
         "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n$0\r\n<div class=\"modal-footer\"></div>",
@@ -179,6 +151,27 @@
         "prefix": "na-modal.view",
         "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<desc-list *ngIf=\"$2\">\r\n  $0\r\n</desc-list>\r\n<div class=\"modal-footer\">\r\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n</div>",
         "description": "模态框：查看模式",
+        "scope": ""
+    }
+
+    , "html header-css": {
+        "prefix": "na-header-css",
+        "body": "<div class=\"content__title\">\r\n  <h1>${1}</h1>\r\n</div>\r\n$0",
+        "description": "CSS页头",
+        "scope": ""
+    }
+
+    , "html header-css right input": {
+        "prefix": "na-header-css.right-input",
+        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <button nz-button (click)=\"${2}()\" [nzType]=\"'primary'\">${2:添加}</button>\r\n</div>\r\n$0",
+        "description": "CSS页头：右边表单",
+        "scope": ""
+    }
+
+    , "html header-css right inputgroup": {
+        "prefix": "na-header-css.right-inputgroup",
+        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <nz-input-group [nzCompact]=\"true\">\r\n    <nz-input [(ngModel)]=\"${4:val}\"></nz-input>\r\n    <button nz-button (click)=\"${3}\" [nzLoading]=\"http.loading\" [disabled]=\"!${4}\">${2:切换}</button>\r\n  </nz-input-group>\r\n</div>\r\n$0",
+        "description": "CSS页头：右边表单组",
         "scope": ""
     }
 
@@ -315,6 +308,13 @@
         "scope": ""
     }
 
+    , "html error-collect": {
+        "prefix": "na-error-collect",
+        "body": "<error-collect>$0</error-collect>",
+        "description": "表单异常消息采集器",
+        "scope": ""
+    }
+
     , "html tag-select": {
         "prefix": "na-tag-select",
         "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
@@ -331,28 +331,28 @@
 
     , "ng container for": {
         "prefix": "ng-container.for",
-        "body": "<ng-container *ngFor=\"let ${2:i} of ${1:list}\">\n  $0\n</ng-container>",
+        "body": "<ng-container *ngFor=\"let ${2:i} of ${1:list}\">\r\n  $0\r\n</ng-container>",
         "description": "携带 *ngFor",
         "scope": ""
     }
 
     , "ng container if": {
         "prefix": "ng-container.if",
-        "body": "  <ng-container *ngIf=\"$1\">\n    $0\n  </ng-container>",
+        "body": "  <ng-container *ngIf=\"$1\">\r\n    $0\r\n  </ng-container>",
         "description": "携带 *ngIf",
         "scope": ""
     }
 
     , "ng template": {
         "prefix": "ng-template",
-        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\n  $0\n</ng-container>",
+        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\r\n  $0\r\n</ng-container>",
         "description": "ng-template",
         "scope": ""
     }
 
     , "ng template outlet": {
         "prefix": "ng-template.outlet",
-        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{\\$implicit: ${3:item} }\"}></ng-template>\n$0",
+        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{\\$implicit: ${3:item} }\"}></ng-template>\r\n$0",
         "description": "携带 Outlet",
         "scope": ""
     }  

@@ -21,7 +21,7 @@
 更多API接口请参考[ng-alain](https://ng-alain.com/)。
 
 
-### 
+### Alain
 
 Trigger | Description
 --- | ---
@@ -35,8 +35,8 @@ na-desc-list.size | 描述列表属性：大小
 na-desc-list.status | 描述列表：状态示例
 na-desc-list.time | 描述列表：时间示例
 na-ellipsis | 文本自动省略号
-na-error-collect | 表单异常消息采集器
 na-footer-toolbar | 底部工具栏
+na-error-collect | 表单异常消息采集器
 na-form | 动态表单
 na-form.edit | 动态表单：编辑模式
 na-form.modal | 动态表单：模态页示例
@@ -72,7 +72,7 @@ na-standard-form-row.grid | 标准表单行：网格布局
 na-standard-form-row.last | 标准表单行：最后一行
 na-tag-select | 标签选择器
 
-### 
+### Angular 内置片断
 
 Trigger | Description
 --- | ---
@@ -81,6 +81,20 @@ ng-container.for | 携带 *ngFor
 ng-container.if | 携带 *ngIf
 ng-template | ng-template
 ng-template.outlet | 携带 Outlet
+
+### TypeScript 片断
+
+Trigger | Description
+--- | ---
+na-modal.close | 关闭对话框代码
+na-st.column | 简易表格：列描述列
+na-st | 简易表格：列描述变量
+na-form | 动态表单：Schema变量
+na-form.field | 动态表单：字段
+na-form.select | 动态表单：下拉框
+na-http.delete | HTTP请求：删除
+na-http.get | HTTP请求：获取
+na-http.post | HTTP请求：提交
 
 ## 更新日志
 

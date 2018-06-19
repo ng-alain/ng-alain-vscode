@@ -51,9 +51,17 @@ module.exports = function(options) {
         ret.prefix = ret.prefix.substr(0, ret.prefix.length - 1);
 
       ret.key = fileNames.join(" ");
-      ret.description = options.i18n[fileNames[0]]
-        ? options.i18n[fileNames[0]].list[ret.prefix] || ret.key || ""
-        : "";
+      if (!options.i18n[fileNames[0]]) {
+        console.log(fileNames[0]);
+        options.i18n[fileNames[0]] = {
+          title: '',
+          list: {}
+        };
+      }
+      if (!options.i18n[fileNames[0]].list[ret.prefix]) {
+        options.i18n[fileNames[0]].list[ret.prefix] = '';
+      }
+      ret.description = options.i18n[fileNames[0]].list[ret.prefix];
       ret.escapedContent = getEscapedTemplateContent(ret.content);
 
       return ret;
