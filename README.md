@@ -71,6 +71,7 @@ na-standard-form-row | 标准表单行
 na-standard-form-row.grid | 标准表单行：网格布局
 na-standard-form-row.last | 标准表单行：最后一行
 na-tag-select | 标签选择器
+na-simple-html-form.radio-group | 简易HTML模板表单：单选框组
 
 ### Angular 内置片断
 

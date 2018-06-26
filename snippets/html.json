@@ -70,6 +70,13 @@
         "scope": ""
     }
 
+    , "html error-collect": {
+        "prefix": "na-error-collect",
+        "body": "<error-collect>$0</error-collect>",
+        "description": "表单异常消息采集器",
+        "scope": ""
+    }
+
     , "html footer-toolbar": {
         "prefix": "na-footer-toolbar",
         "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
@@ -133,27 +140,6 @@
         "scope": ""
     }
 
-    , "html modal": {
-        "prefix": "na-modal",
-        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n$0\r\n<div class=\"modal-footer\"></div>",
-        "description": "模态框",
-        "scope": ""
-    }
-
-    , "html modal edit": {
-        "prefix": "na-modal.edit",
-        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<sf *ngIf=\"$2\" #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$2\" button=\"none\">\r\n  <div class=\"modal-footer\">\r\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\r\n  </div>\r\n</sf>",
-        "description": "模态框：编辑模式",
-        "scope": ""
-    }
-
-    , "html modal view": {
-        "prefix": "na-modal.view",
-        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<desc-list *ngIf=\"$2\">\r\n  $0\r\n</desc-list>\r\n<div class=\"modal-footer\">\r\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n</div>",
-        "description": "模态框：查看模式",
-        "scope": ""
-    }
-
     , "html header-css": {
         "prefix": "na-header-css",
         "body": "<div class=\"content__title\">\r\n  <h1>${1}</h1>\r\n</div>\r\n$0",
@@ -172,6 +158,27 @@
         "prefix": "na-header-css.right-inputgroup",
         "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <nz-input-group [nzCompact]=\"true\">\r\n    <nz-input [(ngModel)]=\"${4:val}\"></nz-input>\r\n    <button nz-button (click)=\"${3}\" [nzLoading]=\"http.loading\" [disabled]=\"!${4}\">${2:切换}</button>\r\n  </nz-input-group>\r\n</div>\r\n$0",
         "description": "CSS页头：右边表单组",
+        "scope": ""
+    }
+
+    , "html modal": {
+        "prefix": "na-modal",
+        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n$0\r\n<div class=\"modal-footer\"></div>",
+        "description": "模态框",
+        "scope": ""
+    }
+
+    , "html modal edit": {
+        "prefix": "na-modal.edit",
+        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<sf *ngIf=\"$2\" #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$2\" button=\"none\">\r\n  <div class=\"modal-footer\">\r\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\r\n  </div>\r\n</sf>",
+        "description": "模态框：编辑模式",
+        "scope": ""
+    }
+
+    , "html modal view": {
+        "prefix": "na-modal.view",
+        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<desc-list *ngIf=\"$2\">\r\n  $0\r\n</desc-list>\r\n<div class=\"modal-footer\">\r\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n</div>",
+        "description": "模态框：查看模式",
         "scope": ""
     }
 
@@ -235,6 +242,13 @@
         "prefix": "na-simple-html-form.page",
         "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\">\r\n  <nz-card shf-wrap=\"${2|1,2,3|}\">\r\n    <shf-item label=\"${3:名称}\">\r\n      <input nz-input [(ngModel)]=\"i.${4:name}\" name=\"${4}\" required>\r\n    </shf-item>\r\n    $0\r\n  </nz-card>\r\n  <footer-toolbar errorCollect>\r\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${5:保存}</button>\r\n  </footer-toolbar>\r\n</form>",
         "description": "简易HTML模板表单：单页示例",
+        "scope": ""
+    }
+
+    , "html simple-html-form radio group": {
+        "prefix": "na-simple-html-form.radio-group",
+        "body": "<shf-item label=\"${1:类型}\">\n  <nz-radio-group [(ngModel)]=\"i.${2:type}\" name=\"${2}\"${3: required}>\n    <label nz-radio [nzValue]=\"${4:1}\">${5:类型一}</label>\n    $0\n  </nz-radio-group>\n</shf-item>",
+        "description": "简易HTML模板表单：单选框组",
         "scope": ""
     }
 
@@ -305,13 +319,6 @@
         "prefix": "na-standard-form-row.last",
         "body": "<standard-form-row title=\"$1\"${2: grid} last>$0</standard-form-row>",
         "description": "标准表单行：最后一行",
-        "scope": ""
-    }
-
-    , "html error-collect": {
-        "prefix": "na-error-collect",
-        "body": "<error-collect>$0</error-collect>",
-        "description": "表单异常消息采集器",
         "scope": ""
     }
 
