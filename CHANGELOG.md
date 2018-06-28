@@ -1,3 +1,7 @@
+# 1.0.10
+
+- 修复 `ng-template` 细节
+
 # 1.0.9
 
 - 增加 `na-simple-html-form.radio-group` 片断

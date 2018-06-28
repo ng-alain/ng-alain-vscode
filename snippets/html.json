@@ -140,27 +140,6 @@
         "scope": ""
     }
 
-    , "html header-css": {
-        "prefix": "na-header-css",
-        "body": "<div class=\"content__title\">\r\n  <h1>${1}</h1>\r\n</div>\r\n$0",
-        "description": "CSS页头",
-        "scope": ""
-    }
-
-    , "html header-css right input": {
-        "prefix": "na-header-css.right-input",
-        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <button nz-button (click)=\"${2}()\" [nzType]=\"'primary'\">${2:添加}</button>\r\n</div>\r\n$0",
-        "description": "CSS页头：右边表单",
-        "scope": ""
-    }
-
-    , "html header-css right inputgroup": {
-        "prefix": "na-header-css.right-inputgroup",
-        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <nz-input-group [nzCompact]=\"true\">\r\n    <nz-input [(ngModel)]=\"${4:val}\"></nz-input>\r\n    <button nz-button (click)=\"${3}\" [nzLoading]=\"http.loading\" [disabled]=\"!${4}\">${2:切换}</button>\r\n  </nz-input-group>\r\n</div>\r\n$0",
-        "description": "CSS页头：右边表单组",
-        "scope": ""
-    }
-
     , "html modal": {
         "prefix": "na-modal",
         "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n$0\r\n<div class=\"modal-footer\"></div>",
@@ -179,6 +158,27 @@
         "prefix": "na-modal.view",
         "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<desc-list *ngIf=\"$2\">\r\n  $0\r\n</desc-list>\r\n<div class=\"modal-footer\">\r\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n</div>",
         "description": "模态框：查看模式",
+        "scope": ""
+    }
+
+    , "html header-css": {
+        "prefix": "na-header-css",
+        "body": "<div class=\"content__title\">\r\n  <h1>${1}</h1>\r\n</div>\r\n$0",
+        "description": "CSS页头",
+        "scope": ""
+    }
+
+    , "html header-css right input": {
+        "prefix": "na-header-css.right-input",
+        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <button nz-button (click)=\"${2}()\" [nzType]=\"'primary'\">${2:添加}</button>\r\n</div>\r\n$0",
+        "description": "CSS页头：右边表单",
+        "scope": ""
+    }
+
+    , "html header-css right inputgroup": {
+        "prefix": "na-header-css.right-inputgroup",
+        "body": "<div class=\"content__title\">\r\n  <h1>$1</h1>\r\n  <nz-input-group [nzCompact]=\"true\">\r\n    <nz-input [(ngModel)]=\"${4:val}\"></nz-input>\r\n    <button nz-button (click)=\"${3}\" [nzLoading]=\"http.loading\" [disabled]=\"!${4}\">${2:切换}</button>\r\n  </nz-input-group>\r\n</div>\r\n$0",
+        "description": "CSS页头：右边表单组",
         "scope": ""
     }
 
@@ -352,14 +352,14 @@
 
     , "ng template": {
         "prefix": "ng-template",
-        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\r\n  $0\r\n</ng-container>",
+        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\n  $0\n</ng-template>",
         "description": "ng-template",
         "scope": ""
     }
 
     , "ng template outlet": {
         "prefix": "ng-template.outlet",
-        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{\\$implicit: ${3:item} }\"}></ng-template>\r\n$0",
+        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} }\"}></ng-template>\n$0",
         "description": "携带 Outlet",
         "scope": ""
     }  
