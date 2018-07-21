@@ -58,7 +58,13 @@
 			"ng-container.for": "携带 *ngFor",
 			"ng-container.if": "携带 *ngIf",
 			"ng-template": "ng-template",
-			"ng-template.outlet": "携带 Outlet"
+			"ng-template.outlet": "携带 Outlet",
+			"ng-router.active-mulit": "路由高亮（多类名）",
+			"ng-router.active": "路由高亮",
+			"ng-router": "路由链接",
+			"ng-router.query": "路由链接带参数",
+			"ng-switch": "Switch语法",
+			"ng-template.recursive-tree": "模板递归树"
 		}
 	},
 	"ts": {

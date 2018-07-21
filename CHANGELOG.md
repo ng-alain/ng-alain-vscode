@@ -1,3 +1,9 @@
+# 1.0.11
+
+- 增加Angular路由常用片断
+- 增加Angular Switch片断
+- 增加递归树模板
+
 # 1.0.10
 
 - 修复 `ng-template` 细节
