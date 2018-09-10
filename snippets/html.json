@@ -394,7 +394,7 @@
 
     , "ng template outlet": {
         "prefix": "ng-template.outlet",
-        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} }\"}></ng-template>\n$0",
+        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} }\"></ng-template>\n$0",
         "description": "携带 Outlet",
         "scope": ""
     }
