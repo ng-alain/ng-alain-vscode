@@ -42,7 +42,7 @@ module.exports = function(options) {
       // separate component and attribute
       if (!isDefault && fileNames[2].startsWith("na")) {
         ret.prefix = fileNames.slice(2).join("-");
-      } else if (fileNames[0] === 'ng') {
+      } else if (fileNames[0] === "ng") {
         ret.prefix = "ng-" + ret.prefix;
       } else {
         ret.prefix = "na-" + ret.prefix;
@@ -51,17 +51,11 @@ module.exports = function(options) {
         ret.prefix = ret.prefix.substr(0, ret.prefix.length - 1);
 
       ret.key = fileNames.join(" ");
-      if (!options.i18n[fileNames[0]]) {
-        console.log(fileNames[0]);
-        options.i18n[fileNames[0]] = {
-          title: '',
-          list: {}
-        };
-      }
-      if (!options.i18n[fileNames[0]].list[ret.prefix]) {
-        options.i18n[fileNames[0]].list[ret.prefix] = '';
-      }
-      ret.description = options.i18n[fileNames[0]].list[ret.prefix];
+      const zhDesc =
+        options.i18n[fileNames[0]].list[ret.prefix] || ret.key || "";
+      const enDesc = options.lans.en[fileNames[0]].list[ret.prefix] || "";
+      ret.description =
+        zhDesc + (enDesc && enDesc.length > 0 ? `(${enDesc})` : "");
       ret.escapedContent = getEscapedTemplateContent(ret.content);
 
       return ret;

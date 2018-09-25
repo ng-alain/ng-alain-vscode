@@ -1,108 +1,114 @@
-# ng-alain 的 vscode 代码片断
+# ng-alain VSCode Snippets
 
 ![Plugin in action](help.gif)
 
-请至[Issuses](https://github.com/cipchk/ng-alain-vscode/issues)提交可能遇到的问题或期望增加的代码片断。
+[中文](README.zh-CN.md)
 
-## 安装扩展
+## Links
 
-按 `F1` 输入 `ext install ng-alain-vscode` 后回车。
+- [issues](https://github.com/cipchk/ng-alain-vscode/issues)
+- [expect snippet](https://github.com/cipchk/ng-alain-vscode/issues)
 
-## 如何使用?
+## Other versions
 
-你可以任意 `.html` 文件，输入 `na-` 开头会自动出现在智能提醒列表当中；仅此而已！
+The latest version corresponds to the `next` version of ng-alain, other versions:
 
-片断中带有 `attr-` 表示属性，`fn-` 表示事件。
+- [1.x](ng-alain-vscode-1.0.12.vsix)
 
-> 建议开启 `"editor.snippetSuggestions": "top"` 配置，可确保代码片断优先级高于内置。
+## Usage
 
-## 文档
+Typing the beginning of `na-` will automatically appear in the intellisense list; no more!
 
-更多API接口请参考[ng-alain](https://ng-alain.com/)。
+- `na-` prefix is complete fragment
+- `na` (not `-`) prefix is attribute fragment
+
+> To ensure ng-alain snippets suggestions are always on top in the suggestion list, add the following settings `"editor.snippetSuggestions": "top"`.
+
+## Document
+
+More API interface please refer to [ng-alain](https://ng-alain.com/).
 
 
 ### Alain
 
 Trigger | Description
 --- | ---
-na-desc-list.color | 描述列表：指定内容颜色样式
-na-desc-list.currency | 描述列表：货币示例
-na-desc-list | 描述列表（常见于详情页的信息展示）
-na-desc-list.detailClass | 描述列表属性：列表内容样式
-na-desc-list.item | 描述列表：单项
-na-desc-list.layout | 描述列表属性：布局
-na-desc-list.size | 描述列表属性：大小
-na-desc-list.status | 描述列表：状态示例
-na-desc-list.time | 描述列表：时间示例
-na-ellipsis | 文本自动省略号
-na-footer-toolbar | 底部工具栏
-na-error-collect | 表单异常消息采集器
-na-form | 动态表单
-na-form.edit | 动态表单：编辑模式
-na-form.modal | 动态表单：模态页示例
-na-form.page | 动态表单：页面示例
-na-form.search | 动态表单：搜索模式
-na-header.action | 页头：操作区域
-na-header | 页头
-na-header.full | 页头：完整模式
-na-header-css | CSS页头
-na-header-css.right-input | CSS页头：右边表单
-na-header-css.right-inputgroup | CSS页头：右边表单组
-na-modal | 模态框
-na-modal.edit | 模态框：编辑模式
-na-modal.view | 模态框：查看模式
-na-simple-html-form.checkbox | 简易HTML模板表单：单选框
-na-simple-html-form.col-1 | 简易HTML模板表单：单列
-na-simple-html-form.controlClass | 简易HTML模板表单属性：控件内容样式
-na-simple-html-form | 简易HTML模板表单
-na-simple-html-form.help | 简易HTML模板表单：帮助信息
-na-simple-html-form.input-group | 简易HTML模板表单：后置标签文本框
-na-simple-html-form.modal | 简易HTML模板表单：模态示例
-na-simple-html-form.number | 简易HTML模板表单：数字框示例
-na-simple-html-form.page | 简易HTML模板表单：单页示例
-na-simple-html-form.search | 简易HTML模板表单：搜索示例
-na-simple-html-form.select | 简易HTML模板表单：选择器
-na-simple-html-form.wrap | 简易HTML模板表单：容器
-na-simple-table.custom-title | 简易表格：自定义标题头
-na-simple-table.custom | 简易表格：自定义列
-na-simple-table | 简易表格
-na-standard-form-row.block | 标准表单行：行布局
-na-standard-form-row | 标准表单行
-na-standard-form-row.grid | 标准表单行：网格布局
-na-standard-form-row.last | 标准表单行：最后一行
-na-tag-select | 标签选择器
-na-simple-html-form.radio-group | 简易HTML模板表单：单选框组
+na-error-collect | Error collect in from
+na-ellipsis | Ellipsis
+na-footer-toolbar | Footer Toolbar
+na-header.action | Header: action area
+na-header | Header
+na-header.full | Header
+na-header-css | CSS of Header
+na-header-css.right-input | CSS of Header: input in right
+na-header-css.right-inputgroup | CSS of Header: input group in right
+na-modal | Modal: Used for custom components
+na-modal.edit | Modal: edit mode demo
+na-modal.view | Modal: view mode demo
+na-se.col-1 | SE: single line
+na-se.control-checkbox | SE Control: checkbox
+na-se.control-input-group | SE Control: input group
+na-se.control-input | SE Control: input
+na-se.control-number | SE Control: input number
+na-se.control-radio-group | SE Control: radio group
+na-se.control-select | SE Control: select
+na-se.controlClass | SE Property: class names of control
+na-se | SE
+na-se.form | SE: form demo
+na-se.full | SE: full demo
+na-se.modal | SE: modal demo
+na-se.page | SE: page demo
+na-se.search | SE: search demo
+na-sf | SF: Dynamic form
+na-sf.edit | SF: edit mode
+na-sf.modal | SF: modal demo
+na-sf.page | SF: page demo
+na-sf.search | SF: search demo
+na-st.custom-title | SF: custom title
+na-st.custom | SF: custom row
+na-st | ST: Use configuration instead of nz-table
+na-sv.currency | SV: currency demo
+na-sv | SV: Used to view pages
+na-sv.item-custom-title | SV: custom title of item
+na-sv.item | SV
+na-sv.label-width | SV: fixed label width
+na-sv.layout | SV Property: layout
+na-sv.size | SV Property: size
+na-sv.status | SV: status demo
+na-sv.time | SV: time demo
+na-sv.type | SV Property: type of item
+na-tag-select | Tag select
 
-### Angular 内置片断
+### Angular
 
 Trigger | Description
 --- | ---
 ng-container | ng-container
-ng-container.for | 携带 *ngFor
-ng-container.if | 携带 *ngIf
+ng-container.for | include *ngFor
+ng-container.if | include *ngIf
+ng-router.active-mulit | Router with acitve
+ng-router.active | Router with acitve
+ng-router | Router
+ng-router.query | Router with parameters
+ng-switch | Switch syntax
 ng-template | ng-template
-ng-template.outlet | 携带 Outlet
-ng-router.active-mulit | 路由高亮（多类名）
-ng-router.active | 路由高亮
-ng-router | 路由链接
-ng-router.query | 路由链接带参数
-ng-switch | Switch语法
-ng-template.recursive-tree | 模板递归树
+ng-template.outlet | include Outlet
+ng-template.recursive-tree | Template recursive tree
 
-### TypeScript 片断
+### TypeScript
 
 Trigger | Description
 --- | ---
-na-modal.close | 关闭对话框代码
-na-st.column | 简易表格：列描述列
-na-st | 简易表格：列描述变量
-na-form | 动态表单：Schema变量
-na-form.field | 动态表单：字段
-na-form.select | 动态表单：下拉框
-na-http.delete | HTTP请求：删除
-na-http.get | HTTP请求：获取
-na-http.post | HTTP请求：提交
+na-http.delete | HTTP Request: delete
+na-http.get | HTTP Request: get
+na-http.post | HTTP Request: post
+na-sf | SF
+na-sf.field | SF: field
+na-sf.select | SF: select of field
+na-modal.close | Close dialog code
+na-st.column | ST: description of columns
+na-st | ST: definition of columns
 
-## 更新日志
+## Changelog
 
-见[CHANGELOG.md](CHANGELOG.md)
+See [CHANGELOG.md](CHANGELOG.md).

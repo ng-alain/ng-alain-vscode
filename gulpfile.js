@@ -8,32 +8,33 @@ let fs = require("fs"),
   generate = require("./generate");
 
 const DEF = {
-  types: [
-    {
-      name: "html",
-      path: ["./src/resources/html/*/*.html", "./src/resources/ng/*/*.html"]
-    },
-    {
-      name: "typescript",
-      path: ["./src/resources/ts/*/*.html"]
-    }
-  ],
+  types: {
+    html: ["./src/resources/html/*/*.html", "./src/resources/ng/*/*.html"],
+    ts: ["./src/resources/ts/*/*.html"]
+  },
   dest: "./snippets/",
   lans: ["zh-CN", "en"],
   defaultLan: "zh-CN"
 };
 
-const i18nPath = `./src/i18n/${DEF.defaultLan}.json`;
-const i18n = JSON.parse(fs.readFileSync(i18nPath)) || {};
+const i18n =
+  JSON.parse(fs.readFileSync(`./src/i18n/${DEF.defaultLan}.json`)) || {};
+const lans = {};
+lans[DEF.defaultLan] = i18n;
+DEF.lans.filter(w => w !== DEF.defaultLan).forEach(lan => {
+  lans[lan] = JSON.parse(fs.readFileSync(`./src/i18n/${lan}.json`)) || {};
+});
 
 const tasks = [];
-for (const t of DEF.types) {
-  gulp.task(t.name, () => {
+Object.keys(DEF.types).forEach(name => {
+  const taskName = `gen-${name}`;
+  gulp.task(taskName, () => {
     return gulp
-      .src(t.path)
+      .src(DEF.types[name])
       .pipe(
         generate({
           i18n,
+          lans,
           template: `
     <%=item.point==1?'':',' %> "<%=item.key %>": {
         "prefix": "<%=item.prefix %>",
@@ -43,20 +44,25 @@ for (const t of DEF.types) {
     }`
         })
       )
-      .pipe(concat(t.name + ".json"))
+      .pipe(concat(name + ".json"))
       .pipe(wrap(`{\n <%= contents %>  \n}`, {}, { parse: false }))
       .pipe(gulp.dest(DEF.dest));
   });
-  tasks.push(t.name);
-}
+  tasks.push(taskName);
+});
+
+gulp.task("watch-html", () => {
+  gulp.watch(DEF.types.html, ["gen-html"]);
+});
+
+gulp.task("watch-ts", () => {
+  gulp.watch(DEF.types.ts, ["gen-ts"]);
+});
 
 gulp.task("gen-i18n", () => {
-  let snippetJson = JSON.parse(fs.readFileSync(`./snippets.json`)) || {};
-
-  for (let lan of DEF.lans) {
-    let filePath = `./src/i18n/${lan}.json`,
-      curJson = JSON.parse(fs.readFileSync(filePath)) || {},
-      newJson = {};
+  function genBySnippetJson(type, newJson, curJson) {
+    let snippetJson =
+      JSON.parse(fs.readFileSync(`./snippets/${type}.json`)) || {};
     for (let key in snippetJson) {
       // category
       let keyArr = key.split(" "),
@@ -74,34 +80,50 @@ gulp.task("gen-i18n", () => {
       newJson[categoryKey].list[newKey] =
         curItem.list[newKey] || snippetJson[key].description;
     }
+  }
+
+  for (let lan of DEF.lans) {
+    let filePath = `./src/i18n/${lan}.json`,
+      curJson = JSON.parse(fs.readFileSync(filePath)) || {},
+      newJson = {};
+    genBySnippetJson("html", newJson, curJson);
+    genBySnippetJson("ts", newJson, curJson);
     let jsonStr = JSON.stringify(newJson, null, "\t");
     fs.writeFileSync(filePath, jsonStr);
   }
 });
 
-gulp.task("save-i18n", () => {
-  let jsonStr = JSON.stringify(i18n, null, "\t");
-  fs.writeFileSync(i18nPath, jsonStr);
-});
-
 gulp.task("gen-readme", () => {
-  let content = fs.readFileSync(`./src/README.md`),
-    i18n =
-      JSON.parse(fs.readFileSync(`./src/i18n/${DEF.defaultLan}.json`)) || {};
-
   gulp
-    .src(`./src/README.md`)
+    .src(`./src/README.zh-CN.md`)
     .pipe(
       hb({
         data: {
-          i18n: i18n
+          i18n: lans["zh-CN"]
         }
       })
     )
     .pipe(gulp.dest("./"));
 });
 
-tasks.push("save-i18n");
-tasks.push("gen-readme");
+gulp.task("gen-readme-en", () => {
+  gulp
+    .src(`./src/README.md`)
+    .pipe(
+      hb({
+        data: {
+          i18n: lans["en"]
+        }
+      })
+    )
+    .pipe(gulp.dest("./"));
+});
 
 gulp.task("build", gulpSequence(...tasks));
+
+gulp.task("serve", gulpSequence("build", "gen-i18n", "watch"));
+
+gulp.task(
+  "prod",
+  gulpSequence("build", ["gen-i18n", "gen-readme", "gen-readme-en"])
+);
