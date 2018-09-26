@@ -21,6 +21,13 @@
         "scope": ""
     }
 
+    , "ts modal close": {
+        "prefix": "na-modal.close",
+        "body": "close() {\n  this.modal.destroy();\n}",
+        "description": "关闭对话框代码(Close dialog code)",
+        "scope": ""
+    }
+
     , "ts sf": {
         "prefix": "na-sf",
         "body": "searchSchema: SFSchema = {\n  properties: {\n    $0\n  }\n};",
@@ -39,13 +46,6 @@
         "prefix": "na-sf.select",
         "body": "${1:type}: {\n  type: 'string',\n  title: '',\n  enum: [\n    { label: '类型不限', value: '' },\n    $0\n  ],\n  default: ''\n},",
         "description": "SF：选择器字段(SF: select of field)",
-        "scope": ""
-    }
-
-    , "ts modal close": {
-        "prefix": "na-modal.close",
-        "body": "close() {\n  this.modal.destroy();\n}",
-        "description": "关闭对话框代码(Close dialog code)",
         "scope": ""
     }
 

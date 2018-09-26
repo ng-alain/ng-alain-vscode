@@ -6,7 +6,7 @@
 
 最新版本对应 ng-alain 的 `next` 版本，其他版本：
 
-- [1.x](ng-alain-vscode-1.0.12.vsix)
+- [1.x](cipchk.ng-alain-vscode-1.0.12.vsix)
 
 ## 如何使用?
 
@@ -25,8 +25,8 @@
 
 Trigger | Description
 --- | ---
-na-error-collect | 表单异常消息采集器
 na-ellipsis | 文本自动省略号
+na-error-collect | 表单异常消息采集器
 na-footer-toolbar | 底部工具栏
 na-header.action | 页头：操作区域
 na-header | 页头
@@ -59,6 +59,7 @@ na-sf.search | 动态表单：搜索模式
 na-st.custom-title | 表格：自定义标题头
 na-st.custom | 表格：自定义列
 na-st | 表格
+na-st.res | 表格属性：res 参数
 na-sv.currency | 查看：货币示例
 na-sv | 查看
 na-sv.item-custom-title | 查看：自定义标签标题
@@ -94,10 +95,10 @@ Trigger | Description
 na-http.delete | HTTP请求：删除
 na-http.get | HTTP请求：获取
 na-http.post | HTTP请求：提交
+na-modal.close | 关闭对话框代码
 na-sf | SF
 na-sf.field | SF：字段
 na-sf.select | SF：选择器字段
-na-modal.close | 关闭对话框代码
 na-st.column | 表格：列描述列
 na-st | 表格：列描述变量
 

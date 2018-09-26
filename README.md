@@ -13,7 +13,7 @@
 
 The latest version corresponds to the `next` version of ng-alain, other versions:
 
-- [1.x](ng-alain-vscode-1.0.12.vsix)
+- [1.x](cipchk.ng-alain-vscode-1.0.12.vsix)
 
 ## Usage
 
@@ -33,8 +33,8 @@ More API interface please refer to [ng-alain](https://ng-alain.com/).
 
 Trigger | Description
 --- | ---
-na-error-collect | Error collect in from
 na-ellipsis | Ellipsis
+na-error-collect | Error collect in from
 na-footer-toolbar | Footer Toolbar
 na-header.action | Header: action area
 na-header | Header
@@ -67,6 +67,7 @@ na-sf.search | SF: search demo
 na-st.custom-title | SF: custom title
 na-st.custom | SF: custom row
 na-st | ST: Use configuration instead of nz-table
+na-st.res | ST Property: res
 na-sv.currency | SV: currency demo
 na-sv | SV: Used to view pages
 na-sv.item-custom-title | SV: custom title of item
@@ -102,10 +103,10 @@ Trigger | Description
 na-http.delete | HTTP Request: delete
 na-http.get | HTTP Request: get
 na-http.post | HTTP Request: post
+na-modal.close | Close dialog code
 na-sf | SF
 na-sf.field | SF: field
 na-sf.select | SF: select of field
-na-modal.close | Close dialog code
 na-st.column | ST: description of columns
 na-st | ST: definition of columns
 

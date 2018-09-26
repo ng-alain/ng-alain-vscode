@@ -1,16 +1,23 @@
 {
  
-     "html error-collect": {
+     "html ellipsis": {
+        "prefix": "na-ellipsis",
+        "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
+        "description": "文本自动省略号(Ellipsis)",
+        "scope": ""
+    }
+
+    , "html error-collect": {
         "prefix": "na-error-collect",
         "body": "<error-collect>$0</error-collect>",
         "description": "表单异常消息采集器(Error collect in from)",
         "scope": ""
     }
 
-    , "html ellipsis": {
-        "prefix": "na-ellipsis",
-        "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
-        "description": "文本自动省略号(Ellipsis)",
+    , "html footer-toolbar": {
+        "prefix": "na-footer-toolbar",
+        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
+        "description": "底部工具栏(Footer Toolbar)",
         "scope": ""
     }
 
@@ -32,13 +39,6 @@
         "prefix": "na-header.full",
         "body": "<page-header [title]=\"'$0'\">\n  <ng-template #breadcrumb>面包屑</ng-template>\n  <ng-template #logo>\n    <div class=\"logo\">logo</div>\n  </ng-template>\n  <ng-template #action>\n    <div class=\"action\">action</div>\n  </ng-template>\n  <ng-template #content>\n    <div class=\"desc\">content</div>\n  </ng-template>\n  <ng-template #extra>\n    <div class=\"extra\">extra</div>\n  </ng-template>\n  <ng-template #tab>\n    <nz-tabset nzSize=\"default\">\n      <nz-tab nzTitle=\"页签一\"></nz-tab>\n      <nz-tab nzTitle=\"页签二\"></nz-tab>\n      <nz-tab nzTitle=\"页签三\"></nz-tab>\n    </nz-tabset>\n  </ng-template>\n</page-header>\n$0",
         "description": "页头：完整模式(Header)",
-        "scope": ""
-    }
-
-    , "html footer-toolbar": {
-        "prefix": "na-footer-toolbar",
-        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
-        "description": "底部工具栏(Footer Toolbar)",
         "scope": ""
     }
 
@@ -65,21 +65,21 @@
 
     , "html modal": {
         "prefix": "na-modal",
-        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n$0\r\n<div class=\"modal-footer\"></div>",
+        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n$0\n<div class=\"modal-footer\"></div>",
         "description": "模态框(Modal: Used for custom components)",
         "scope": ""
     }
 
     , "html modal edit": {
         "prefix": "na-modal.edit",
-        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<sf *ngIf=\"$2\" #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$2\" button=\"none\">\r\n  <div class=\"modal-footer\">\r\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\r\n  </div>\r\n</sf>",
+        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\n<sf *ngIf=\"$2\" #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$2\" button=\"none\">\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </div>\n</sf>",
         "description": "模态框：编辑模式(Modal: edit mode demo)",
         "scope": ""
     }
 
     , "html modal view": {
         "prefix": "na-modal.view",
-        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<desc-list *ngIf=\"$2\">\r\n  $0\r\n</desc-list>\r\n<div class=\"modal-footer\">\r\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n</div>",
+        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\n<desc-list *ngIf=\"$2\">\n  $0\n</desc-list>\n<div class=\"modal-footer\">\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n</div>",
         "description": "模态框：查看模式(Modal: view mode demo)",
         "scope": ""
     }
@@ -116,104 +116,6 @@
         "prefix": "na-sf.search",
         "body": "<sf mode=\"search\" [schema]=\"${1:searchSchema}\" [formData]=\"${2:params}\" (formSubmit)=\"${3:st}.reset(\\$event)\" (formReset)=\"$3.reset($2)\"></sf>",
         "description": "动态表单：搜索模式(SF: search demo)",
-        "scope": ""
-    }
-
-    , "html st custom title": {
-        "prefix": "na-st.custom-title",
-        "body": "<ng-template st-row=\"${1:custom}\" type=\"title\" let-c let-index=\"index\">\n  $0\n</ng-template>",
-        "description": "表格：自定义标题头(SF: custom title)",
-        "scope": ""
-    }
-
-    , "html st custom": {
-        "prefix": "na-st.custom",
-        "body": "<ng-template st-row=\"${1:custom}\" let-item let-index=\"index\">\n  $0\n</ng-template>",
-        "description": "表格：自定义列(SF: custom row)",
-        "scope": ""
-    }
-
-    , "html st": {
-        "prefix": "na-st",
-        "body": "<st [data]=\"${1:url}\" [columns]=\"${2:columns}\"${3: [req]=\"{params: params}\"}></st>\n$0",
-        "description": "表格(ST: Use configuration instead of nz-table)",
-        "scope": ""
-    }
-
-    , "html sv currency": {
-        "prefix": "na-sv.currency",
-        "body": "<sv label=\"${1|单价,金额,订单金额,支付金额,市场价|}\">{{ ${2:i.price} | _currency }}</sv>\n$0",
-        "description": "查看：货币示例(SV: currency demo)",
-        "scope": ""
-    }
-
-    , "html sv": {
-        "prefix": "na-sv",
-        "body": "<sv-container${1: col=\"${2|2,3,4,5,6|}\"}${3: [title]=\"'${4}'\"}>\n  <sv label=\"$5\">$6</sv>\n  $0\n</sv-container>",
-        "description": "查看(SV: Used to view pages)",
-        "scope": ""
-    }
-
-    , "html sv item custom title": {
-        "prefix": "na-sv.item-custom-title",
-        "body": "<sv [label]=\"${1:idLabelTpl}\">\n  <ng-template #${1}>\n    <a nz-tooltip=\"test\">tip</a>\n    $0\n  </ng-template>\n</sv>",
-        "description": "查看：自定义标签标题(SV: custom title of item)",
-        "scope": ""
-    }
-
-    , "html sv item": {
-        "prefix": "na-sv.item",
-        "body": "<sv label=\"${1|编号,名称,电话,手机,地址,备注,数量|}\">$2</sv>\n$0",
-        "description": "查看：单项(SV)",
-        "scope": ""
-    }
-
-    , "html sv label width": {
-        "prefix": "na-sv.label-width",
-        "body": "<sv-container labelWidth=\"${1:150}\"${2: col=\"${3|2,3,4,5,6|}\"}${4: [title]=\"'${5}'\"}>\n  <sv label=\"$6\">$7</sv>\n  $0\n</sv-container>",
-        "description": "查看：固定标签宽度(SV: fixed label width)",
-        "scope": ""
-    }
-
-    , "html sv layout": {
-        "prefix": "na-sv.layout",
-        "body": "layout=\"${1|vertical,horizontal|}\"",
-        "description": "查看属性：布局(SV Property: layout)",
-        "scope": ""
-    }
-
-    , "html sv size": {
-        "prefix": "na-sv.size",
-        "body": "size=\"${1|small,large|}\"",
-        "description": "查看属性：大小(SV Property: size)",
-        "scope": ""
-    }
-
-    , "html sv status": {
-        "prefix": "na-sv.status",
-        "body": "<sv label=\"状态\">\n  <nz-badge *ngIf=\"i.status === 1\" nzStatus=\"default\" nzText=\"未提交\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 2\" nzStatus=\"processing\" nzText=\"运行中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 4\" nzStatus=\"warning\" nzText=\"上线审核中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 6\" nzStatus=\"error\" nzText=\"已删除\"></nz-badge>\n  $0\n</sv>",
-        "description": "查看：状态示例(SV: status demo)",
-        "scope": ""
-    }
-
-    , "html sv time": {
-        "prefix": "na-sv.time",
-        "body": "<sv label=\"${1|时间,开始时间,结束时间,生效时间,创建时间,更新时间|}\">{{ ${2:i.time} | _date }}</sv>\n$0",
-        "description": "查看：时间示例(SV: time demo)",
-        "scope": ""
-    }
-
-    , "html sv type": {
-        "prefix": "na-sv.type",
-        "body": "<sv label=\"${1|失败,取消,重写,过期,警告,原因|}\" type=\"${2|primary,success,danger,warning|}\">$3</sv>\n$0",
-        "description": "查看属性：列表内容样式(SV Property: type of item)",
-        "scope": ""
-    }
-
-    , "html tag-select": {
-        "prefix": "na-tag-select",
-        "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
-        "description": "标签选择器(Tag select)",
         "scope": ""
     }
 
@@ -315,31 +217,108 @@
         "scope": ""
     }
 
-    , "ng switch": {
-        "prefix": "ng-switch",
-        "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <a *ngSwitchDefault></a>\n</ng-container>",
-        "description": "Switch语法(Switch syntax)",
+    , "html st custom title": {
+        "prefix": "na-st.custom-title",
+        "body": "<ng-template st-row=\"${1:custom}\" type=\"title\" let-c let-index=\"index\">\n  $0\n</ng-template>",
+        "description": "表格：自定义标题头(SF: custom title)",
         "scope": ""
     }
 
-    , "ng template": {
-        "prefix": "ng-template",
-        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\n  $0\n</ng-template>",
-        "description": "ng-template(ng-template)",
+    , "html st custom": {
+        "prefix": "na-st.custom",
+        "body": "<ng-template st-row=\"${1:custom}\" let-item let-index=\"index\">\n  $0\n</ng-template>",
+        "description": "表格：自定义列(SF: custom row)",
         "scope": ""
     }
 
-    , "ng template outlet": {
-        "prefix": "ng-template.outlet",
-        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} }\"></ng-template>\n$0",
-        "description": "携带 Outlet(include Outlet)",
+    , "html st": {
+        "prefix": "na-st",
+        "body": "<st [data]=\"${1:url}\" [columns]=\"${2:columns}\"${3: [req]=\"{${4:params: params}\\}\"}$0></st>",
+        "description": "表格(ST: Use configuration instead of nz-table)",
         "scope": ""
     }
 
-    , "ng template recursive tree": {
-        "prefix": "ng-template.recursive-tree",
-        "body": "<ng-template #treeTpl let-ls let-level=\"level\">\n  <li *ngFor=\"let i of ls\">\n    <ul *ngIf=\"i.children.length > 0\">\n      <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: i.children, level: level + 1 }\"></ng-container>\n    </ul>\n  </li>\n</ng-template>\n<ul>\n  <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: tree.children, level: 1 }\"></ng-container>\n</ul>",
-        "description": "模板递归树(Template recursive tree)",
+    , "html st res": {
+        "prefix": "na-st.res",
+        "body": "[res]=\"{ reName: { total: \"$1\", list: \"$2\" \\}${3:, process: process} \\}\"",
+        "description": "表格属性：res 参数(ST Property: res)",
+        "scope": ""
+    }
+
+    , "html sv currency": {
+        "prefix": "na-sv.currency",
+        "body": "<sv label=\"${1|单价,金额,订单金额,支付金额,市场价|}\">{{ ${2:i.price} | _currency }}</sv>\n$0",
+        "description": "查看：货币示例(SV: currency demo)",
+        "scope": ""
+    }
+
+    , "html sv": {
+        "prefix": "na-sv",
+        "body": "<sv-container${1: col=\"${2|2,3,4,5,6|}\"}${3: [title]=\"'${4}'\"}>\n  <sv label=\"$5\">$6</sv>\n  $0\n</sv-container>",
+        "description": "查看(SV: Used to view pages)",
+        "scope": ""
+    }
+
+    , "html sv item custom title": {
+        "prefix": "na-sv.item-custom-title",
+        "body": "<sv [label]=\"${1:idLabelTpl}\">\n  <ng-template #${1}>\n    <a nz-tooltip=\"test\">tip</a>\n    $0\n  </ng-template>\n</sv>",
+        "description": "查看：自定义标签标题(SV: custom title of item)",
+        "scope": ""
+    }
+
+    , "html sv item": {
+        "prefix": "na-sv.item",
+        "body": "<sv label=\"${1|编号,名称,电话,手机,地址,备注,数量|}\">$2</sv>\n$0",
+        "description": "查看：单项(SV)",
+        "scope": ""
+    }
+
+    , "html sv label width": {
+        "prefix": "na-sv.label-width",
+        "body": "<sv-container labelWidth=\"${1:150}\"${2: col=\"${3|2,3,4,5,6|}\"}${4: [title]=\"'${5}'\"}>\n  <sv label=\"$6\">$7</sv>\n  $0\n</sv-container>",
+        "description": "查看：固定标签宽度(SV: fixed label width)",
+        "scope": ""
+    }
+
+    , "html sv layout": {
+        "prefix": "na-sv.layout",
+        "body": "layout=\"${1|vertical,horizontal|}\"",
+        "description": "查看属性：布局(SV Property: layout)",
+        "scope": ""
+    }
+
+    , "html sv size": {
+        "prefix": "na-sv.size",
+        "body": "size=\"${1|small,large|}\"",
+        "description": "查看属性：大小(SV Property: size)",
+        "scope": ""
+    }
+
+    , "html sv status": {
+        "prefix": "na-sv.status",
+        "body": "<sv label=\"状态\">\n  <nz-badge *ngIf=\"i.status === 1\" nzStatus=\"default\" nzText=\"未提交\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 2\" nzStatus=\"processing\" nzText=\"运行中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 4\" nzStatus=\"warning\" nzText=\"上线审核中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 6\" nzStatus=\"error\" nzText=\"已删除\"></nz-badge>\n  $0\n</sv>",
+        "description": "查看：状态示例(SV: status demo)",
+        "scope": ""
+    }
+
+    , "html sv time": {
+        "prefix": "na-sv.time",
+        "body": "<sv label=\"${1|时间,开始时间,结束时间,生效时间,创建时间,更新时间|}\">{{ ${2:i.time} | _date }}</sv>\n$0",
+        "description": "查看：时间示例(SV: time demo)",
+        "scope": ""
+    }
+
+    , "html sv type": {
+        "prefix": "na-sv.type",
+        "body": "<sv label=\"${1|失败,取消,重写,过期,警告,原因|}\" type=\"${2|primary,success,danger,warning|}\">$3</sv>\n$0",
+        "description": "查看属性：列表内容样式(SV Property: type of item)",
+        "scope": ""
+    }
+
+    , "html tag-select": {
+        "prefix": "na-tag-select",
+        "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
+        "description": "标签选择器(Tag select)",
         "scope": ""
     }
 
@@ -352,14 +331,14 @@
 
     , "ng container for": {
         "prefix": "ng-container.for",
-        "body": "<ng-container *ngFor=\"let ${2:i} of ${1:list}\">\r\n  $0\r\n</ng-container>",
+        "body": "<ng-container *ngFor=\"let ${2:i} of ${1:list}\">\n  $0\n</ng-container>",
         "description": "携带 *ngFor(include *ngFor)",
         "scope": ""
     }
 
     , "ng container if": {
         "prefix": "ng-container.if",
-        "body": "  <ng-container *ngIf=\"$1\">\r\n    $0\r\n  </ng-container>",
+        "body": "  <ng-container *ngIf=\"$1\">\n    $0\n  </ng-container>",
         "description": "携带 *ngIf(include *ngIf)",
         "scope": ""
     }
@@ -389,6 +368,34 @@
         "prefix": "ng-router.query",
         "body": "routerLink=\"$1\" [queryParams]=\"${2:{ id: 1 }}\"",
         "description": "路由链接带参数(Router with parameters)",
+        "scope": ""
+    }
+
+    , "ng switch": {
+        "prefix": "ng-switch",
+        "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <a *ngSwitchDefault></a>\n</ng-container>",
+        "description": "Switch语法(Switch syntax)",
+        "scope": ""
+    }
+
+    , "ng template": {
+        "prefix": "ng-template",
+        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\n  $0\n</ng-template>",
+        "description": "ng-template(ng-template)",
+        "scope": ""
+    }
+
+    , "ng template outlet": {
+        "prefix": "ng-template.outlet",
+        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} }\"></ng-template>\n$0",
+        "description": "携带 Outlet(include Outlet)",
+        "scope": ""
+    }
+
+    , "ng template recursive tree": {
+        "prefix": "ng-template.recursive-tree",
+        "body": "<ng-template #treeTpl let-ls let-level=\"level\">\n  <li *ngFor=\"let i of ls\">\n    <ul *ngIf=\"i.children.length > 0\">\n      <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: i.children, level: level + 1 }\"></ng-container>\n    </ul>\n  </li>\n</ng-template>\n<ul>\n  <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: tree.children, level: 1 }\"></ng-container>\n</ul>",
+        "description": "模板递归树(Template recursive tree)",
         "scope": ""
     }  
 }

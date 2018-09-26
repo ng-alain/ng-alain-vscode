@@ -2,7 +2,7 @@
   "name": "ng-alain-vscode",
   "displayName": "ng-alain snippets",
   "description": "基于ng-alain的代码片断",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
@@ -37,7 +37,7 @@
     ]
   },
   "scripts": {
-    "publish": "run-s prod package",
+    "publish": "npm run prod && npm run package",
     "package": "vsce package",
     "prod": "gulp prod"
   },
