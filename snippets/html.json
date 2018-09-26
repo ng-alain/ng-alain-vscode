@@ -1,23 +1,9 @@
 {
  
-     "html ellipsis": {
-        "prefix": "na-ellipsis",
-        "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
-        "description": "文本自动省略号(Ellipsis)",
-        "scope": ""
-    }
-
-    , "html error-collect": {
+     "html error-collect": {
         "prefix": "na-error-collect",
         "body": "<error-collect>$0</error-collect>",
         "description": "表单异常消息采集器(Error collect in from)",
-        "scope": ""
-    }
-
-    , "html footer-toolbar": {
-        "prefix": "na-footer-toolbar",
-        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
-        "description": "底部工具栏(Footer Toolbar)",
         "scope": ""
     }
 
@@ -63,59 +49,17 @@
         "scope": ""
     }
 
-    , "html modal": {
-        "prefix": "na-modal",
-        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n$0\n<div class=\"modal-footer\"></div>",
-        "description": "模态框(Modal: Used for custom components)",
+    , "html ellipsis": {
+        "prefix": "na-ellipsis",
+        "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
+        "description": "文本自动省略号(Ellipsis)",
         "scope": ""
     }
 
-    , "html modal edit": {
-        "prefix": "na-modal.edit",
-        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\n<sf *ngIf=\"$2\" #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$2\" button=\"none\">\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </div>\n</sf>",
-        "description": "模态框：编辑模式(Modal: edit mode demo)",
-        "scope": ""
-    }
-
-    , "html modal view": {
-        "prefix": "na-modal.view",
-        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\n<desc-list *ngIf=\"$2\">\n  $0\n</desc-list>\n<div class=\"modal-footer\">\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n</div>",
-        "description": "模态框：查看模式(Modal: view mode demo)",
-        "scope": ""
-    }
-
-    , "html sf": {
-        "prefix": "na-sf",
-        "body": "<sf #sf [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:i}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
-        "description": "动态表单(SF: Dynamic form)",
-        "scope": ""
-    }
-
-    , "html sf edit": {
-        "prefix": "na-sf.edit",
-        "body": "<sf mode=\"edit\" [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:params}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
-        "description": "动态表单：编辑模式(SF: edit mode)",
-        "scope": ""
-    }
-
-    , "html sf modal": {
-        "prefix": "na-sf.modal",
-        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </div>\n</sf>",
-        "description": "动态表单：模态页示例(SF: modal demo)",
-        "scope": ""
-    }
-
-    , "html sf page": {
-        "prefix": "na-sf.page",
-        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <footer-toolbar>\n    <button nz-button type=\"submit\" nzType=\"primary\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </footer-toolbar>\n</sf>",
-        "description": "动态表单：页面示例(SF: page demo)",
-        "scope": ""
-    }
-
-    , "html sf search": {
-        "prefix": "na-sf.search",
-        "body": "<sf mode=\"search\" [schema]=\"${1:searchSchema}\" [formData]=\"${2:params}\" (formSubmit)=\"${3:st}.reset(\\$event)\" (formReset)=\"$3.reset($2)\"></sf>",
-        "description": "动态表单：搜索模式(SF: search demo)",
+    , "html footer-toolbar": {
+        "prefix": "na-footer-toolbar",
+        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
+        "description": "底部工具栏(Footer Toolbar)",
         "scope": ""
     }
 
@@ -214,6 +158,62 @@
         "prefix": "na-se.search",
         "body": "<form nz-form nzLayout=\"inline\" (ngSubmit)=\"${1:save}()\" se-container>\n  <se label=\"${2:名称}\">\n    <input nz-input [(ngModel)]=\"i.${3:name}\" name=\"${3}\">\n  </se>\n  <se>\n    <button nz-button nzType=\"primary\">${4:搜索}</button>\n  </se>\n</form>",
         "description": "编辑：搜索示例(SE: search demo)",
+        "scope": ""
+    }
+
+    , "html sf": {
+        "prefix": "na-sf",
+        "body": "<sf #sf [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:i}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
+        "description": "动态表单(SF: Dynamic form)",
+        "scope": ""
+    }
+
+    , "html sf edit": {
+        "prefix": "na-sf.edit",
+        "body": "<sf mode=\"edit\" [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:params}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
+        "description": "动态表单：编辑模式(SF: edit mode)",
+        "scope": ""
+    }
+
+    , "html sf modal": {
+        "prefix": "na-sf.modal",
+        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </div>\n</sf>",
+        "description": "动态表单：模态页示例(SF: modal demo)",
+        "scope": ""
+    }
+
+    , "html sf page": {
+        "prefix": "na-sf.page",
+        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <footer-toolbar>\n    <button nz-button type=\"submit\" nzType=\"primary\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </footer-toolbar>\n</sf>",
+        "description": "动态表单：页面示例(SF: page demo)",
+        "scope": ""
+    }
+
+    , "html sf search": {
+        "prefix": "na-sf.search",
+        "body": "<sf mode=\"search\" [schema]=\"${1:searchSchema}\" [formData]=\"${2:params}\" (formSubmit)=\"${3:st}.reset(\\$event)\" (formReset)=\"$3.reset($2)\"></sf>",
+        "description": "动态表单：搜索模式(SF: search demo)",
+        "scope": ""
+    }
+
+    , "html modal": {
+        "prefix": "na-modal",
+        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n$0\n<div class=\"modal-footer\"></div>",
+        "description": "模态框(Modal: Used for custom components)",
+        "scope": ""
+    }
+
+    , "html modal edit": {
+        "prefix": "na-modal.edit",
+        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\n<sf *ngIf=\"$2\" #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$2\" button=\"none\">\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </div>\n</sf>",
+        "description": "模态框：编辑模式(Modal: edit mode demo)",
+        "scope": ""
+    }
+
+    , "html modal view": {
+        "prefix": "na-modal.view",
+        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\n<desc-list *ngIf=\"$2\">\n  $0\n</desc-list>\n<div class=\"modal-footer\">\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n</div>",
+        "description": "模态框：查看模式(Modal: view mode demo)",
         "scope": ""
     }
 
@@ -387,7 +387,7 @@
 
     , "ng template outlet": {
         "prefix": "ng-template.outlet",
-        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} }\"></ng-template>\n$0",
+        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} \\}\"}></ng-template>\n$0",
         "description": "携带 Outlet(include Outlet)",
         "scope": ""
     }

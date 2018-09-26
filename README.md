@@ -33,8 +33,8 @@ More API interface please refer to [ng-alain](https://ng-alain.com/).
 
 Trigger | Description
 --- | ---
-na-ellipsis | Ellipsis
 na-error-collect | Error collect in from
+na-ellipsis | Ellipsis
 na-footer-toolbar | Footer Toolbar
 na-header.action | Header: action area
 na-header | Header

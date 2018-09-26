@@ -25,8 +25,8 @@
 
 Trigger | Description
 --- | ---
-na-ellipsis | 文本自动省略号
 na-error-collect | 表单异常消息采集器
+na-ellipsis | 文本自动省略号
 na-footer-toolbar | 底部工具栏
 na-header.action | 页头：操作区域
 na-header | 页头

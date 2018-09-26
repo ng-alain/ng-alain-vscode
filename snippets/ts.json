@@ -1,6 +1,13 @@
 {
  
-     "ts http delete": {
+     "ts modal close": {
+        "prefix": "na-modal.close",
+        "body": "close() {\n  this.modal.destroy();\n}",
+        "description": "关闭对话框代码(Close dialog code)",
+        "scope": ""
+    }
+
+    , "ts http delete": {
         "prefix": "na-http.delete",
         "body": "this.http.delete(${1:this.url}).subscribe((res: any) => this.msgSrv.success('删除成功'));",
         "description": "HTTP请求：删除(HTTP Request: delete)",
@@ -18,13 +25,6 @@
         "prefix": "na-http.post",
         "body": "this.http.post(${1:this.url}, this.${2:i}).subscribe((res: any) => {\n  this.msgSrv.success('保存成功');\n  this.modal.close(true);\n});",
         "description": "HTTP请求：提交(HTTP Request: post)",
-        "scope": ""
-    }
-
-    , "ts modal close": {
-        "prefix": "na-modal.close",
-        "body": "close() {\n  this.modal.destroy();\n}",
-        "description": "关闭对话框代码(Close dialog code)",
         "scope": ""
     }
 
