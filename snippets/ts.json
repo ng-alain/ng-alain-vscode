@@ -21,31 +21,31 @@
         "scope": ""
     }
 
+    , "ts modal close": {
+        "prefix": "na-modal.close",
+        "body": "close() {\n  this.modal.destroy();\n}",
+        "description": "关闭对话框代码(Close dialog code)",
+        "scope": ""
+    }
+
     , "ts sf": {
         "prefix": "na-sf",
-        "body": "searchSchema: SFSchema = {\n  properties: {\n    $0\n  }\n};",
+        "body": "searchSchema: SFSchema = {\r\n  properties: {\r\n    $0\r\n  }\r\n};",
         "description": "SF(SF)",
         "scope": ""
     }
 
     , "ts sf field": {
         "prefix": "na-sf.field",
-        "body": "${1:name}: {\n  type: 'string',\n  title: '',\n  ui: { placeholder: '${2|编号,姓名|}' },\n},\n$0",
+        "body": "${1:name}: {\r\n  type: 'string',\r\n  title: '',\r\n  ui: { placeholder: '${2|编号,姓名|}' },\r\n},\r\n$0",
         "description": "SF：字段(SF: field)",
         "scope": ""
     }
 
     , "ts sf select": {
         "prefix": "na-sf.select",
-        "body": "${1:type}: {\n  type: 'string',\n  title: '',\n  enum: [\n    { label: '类型不限', value: '' },\n    $0\n  ],\n  default: ''\n},",
+        "body": "${1:type}: {\r\n  type: 'string',\r\n  title: '',\r\n  enum: [\r\n    { label: '类型不限', value: '' },\r\n    $0\r\n  ],\r\n  default: ''\r\n},",
         "description": "SF：选择器字段(SF: select of field)",
-        "scope": ""
-    }
-
-    , "ts modal close": {
-        "prefix": "na-modal.close",
-        "body": "close() {\n  this.modal.destroy();\n}",
-        "description": "关闭对话框代码(Close dialog code)",
         "scope": ""
     }
 
@@ -58,7 +58,7 @@
 
     , "ts st": {
         "prefix": "na-st",
-        "body": "columns: STColumn[] = [\n  $0\n];",
+        "body": "columns: STColumn[] = [\r\n  $0\r\n];",
         "description": "表格：列描述变量(ST: definition of columns)",
         "scope": ""
     }  

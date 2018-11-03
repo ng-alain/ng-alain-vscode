@@ -6,7 +6,7 @@
 
 最新版本对应 ng-alain 的 `next` 版本，其他版本：
 
-- [1.x](ng-alain-vscode-1.0.12.vsix)
+- [1.x](cipchk.ng-alain-vscode-1.0.12.vsix)
 
 ## 如何使用?
 
@@ -25,8 +25,8 @@
 
 Trigger | Description
 --- | ---
-na-error-collect | 表单异常消息采集器
 na-ellipsis | 文本自动省略号
+na-error-collect | 表单异常消息采集器
 na-footer-toolbar | 底部工具栏
 na-header.action | 页头：操作区域
 na-header | 页头
@@ -75,13 +75,13 @@ na-tag-select | 标签选择器
 
 Trigger | Description
 --- | ---
-ng-container | ng-container
-ng-container.for | 携带 *ngFor
-ng-container.if | 携带 *ngIf
 ng-router.active-mulit | 路由高亮（多类名）
 ng-router.active | 路由高亮
 ng-router | 路由链接
 ng-router.query | 路由链接带参数
+ng-container | ng-container
+ng-container.for | 携带 *ngFor
+ng-container.if | 携带 *ngIf
 ng-switch | Switch语法
 ng-template | ng-template
 ng-template.outlet | 携带 Outlet
@@ -91,13 +91,13 @@ ng-template.recursive-tree | 模板递归树
 
 Trigger | Description
 --- | ---
+na-modal.close | 关闭对话框代码
 na-http.delete | HTTP请求：删除
 na-http.get | HTTP请求：获取
 na-http.post | HTTP请求：提交
 na-sf | SF
 na-sf.field | SF：字段
 na-sf.select | SF：选择器字段
-na-modal.close | 关闭对话框代码
 na-st.column | 表格：列描述列
 na-st | 表格：列描述变量
 

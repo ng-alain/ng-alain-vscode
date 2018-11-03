@@ -1,16 +1,23 @@
 {
  
-     "html error-collect": {
+     "html ellipsis": {
+        "prefix": "na-ellipsis",
+        "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
+        "description": "文本自动省略号(Ellipsis)",
+        "scope": ""
+    }
+
+    , "html error-collect": {
         "prefix": "na-error-collect",
         "body": "<error-collect>$0</error-collect>",
         "description": "表单异常消息采集器(Error collect in from)",
         "scope": ""
     }
 
-    , "html ellipsis": {
-        "prefix": "na-ellipsis",
-        "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
-        "description": "文本自动省略号(Ellipsis)",
+    , "html footer-toolbar": {
+        "prefix": "na-footer-toolbar",
+        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
+        "description": "底部工具栏(Footer Toolbar)",
         "scope": ""
     }
 
@@ -35,30 +42,23 @@
         "scope": ""
     }
 
-    , "html footer-toolbar": {
-        "prefix": "na-footer-toolbar",
-        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
-        "description": "底部工具栏(Footer Toolbar)",
-        "scope": ""
-    }
-
     , "html header-css": {
         "prefix": "na-header-css",
-        "body": "<div class=\"alain-default__content-title\">\n  <h1>${1}</h1>\n</div>\n$0",
+        "body": "<div class=\"alain-default__content-title\">\r\n  <h1>${1}</h1>\r\n</div>\r\n$0",
         "description": "CSS页头(CSS of Header)",
         "scope": ""
     }
 
     , "html header-css right input": {
         "prefix": "na-header-css.right-input",
-        "body": "<div class=\"alain-default__content-title\">\n  <h1>$1</h1>\n  <button nz-button (click)=\"${2}()\" [nzType]=\"'primary'\">${2:添加}</button>\n</div>\n$0",
+        "body": "<div class=\"alain-default__content-title\">\r\n  <h1>$1</h1>\r\n  <button nz-button (click)=\"${2}()\" [nzType]=\"'primary'\">${2:添加}</button>\r\n</div>\r\n$0",
         "description": "CSS页头：右边表单(CSS of Header: input in right)",
         "scope": ""
     }
 
     , "html header-css right inputgroup": {
         "prefix": "na-header-css.right-inputgroup",
-        "body": "<div class=\"alain-default__content-title\">\n  <h1>$1</h1>\n  <nz-input-group [nzCompact]=\"true\">\n    <nz-input [(ngModel)]=\"${4:val}\"></nz-input>\n    <button nz-button (click)=\"${3}\" [nzLoading]=\"http.loading\" [disabled]=\"!${4}\">${2:切换}</button>\n  </nz-input-group>\n</div>\n$0",
+        "body": "<div class=\"alain-default__content-title\">\r\n  <h1>$1</h1>\r\n  <nz-input-group [nzCompact]=\"true\">\r\n    <nz-input [(ngModel)]=\"${4:val}\"></nz-input>\r\n    <button nz-button (click)=\"${3}\" [nzLoading]=\"http.loading\" [disabled]=\"!${4}\">${2:切换}</button>\r\n  </nz-input-group>\r\n</div>\r\n$0",
         "description": "CSS页头：右边表单组(CSS of Header: input group in right)",
         "scope": ""
     }
@@ -84,6 +84,104 @@
         "scope": ""
     }
 
+    , "html se col 1": {
+        "prefix": "na-se.col-1",
+        "body": "<se label=\"${1:描述}\" col=\"1\">\r\n  $0\r\n</se>",
+        "description": "编辑：单行(SE: single line)",
+        "scope": ""
+    }
+
+    , "html se control checkbox": {
+        "prefix": "na-se.control-checkbox",
+        "body": "<label nz-checkbox [(ngModel)]=\"i.${2:name}\" name=\"${2}\">${3|启用,禁止,允许,不允许|}</label>\r\n$0",
+        "description": "编辑控件：多选框(SE Control: checkbox)",
+        "scope": ""
+    }
+
+    , "html se control input group": {
+        "prefix": "na-se.control-input-group",
+        "body": "<nz-input-group nzAddOnAfter=\"${2:后置标签}\">\r\n  <input type=\"text\" nz-input [(ngModel)]=\"i.${3:name}\" name=\"${3}\">\r\n</nz-input-group>\r\n$0",
+        "description": "编辑控件：文本框组合(SE Control: input group)",
+        "scope": ""
+    }
+
+    , "html se control input": {
+        "prefix": "na-se.control-input",
+        "body": "<input nz-input [(ngModel)]=\"i.${1:name}\" name=\"${1}\"${2: required}${3: maxlength=\"${4|10,20,30,32,50,100|}\"}>\r\n",
+        "description": "编辑控件：文本框(SE Control: input)",
+        "scope": ""
+    }
+
+    , "html se control number": {
+        "prefix": "na-se.control-number",
+        "body": "<nz-input-number [(ngModel)]=\"i.${2:num}\" name=\"${2}\" ${3: required}${4: nzPlaceHolder=\"${5}\" }></nz-input-number>\r\n$0",
+        "description": "编辑控件：数字框(SE Control: input number)",
+        "scope": ""
+    }
+
+    , "html se control radio group": {
+        "prefix": "na-se.control-radio-group",
+        "body": "<nz-radio-group [(ngModel)]=\"i.${2:type}\" name=\"${2}\" ${3: required}>\r\n  <label nz-radio [nzValue]=\"${4:1}\">${5:类型一}</label>\r\n  $0\r\n</nz-radio-group>",
+        "description": "编辑控件：单选框组(SE Control: radio group)",
+        "scope": ""
+    }
+
+    , "html se control select": {
+        "prefix": "na-se.control-select",
+        "body": "<nz-select [(ngModel)]=\"i.${2:name}\" name=\"${2}\">\r\n  <nz-option nzLabel=\"$3\" [nzValue]=\"${4:1}\"></nz-option>\r\n  $0\r\n</nz-select>",
+        "description": "编辑控件：选择器(SE Control: select)",
+        "scope": ""
+    }
+
+    , "html se controlClass": {
+        "prefix": "na-se.controlClass",
+        "body": "controlClass=\"${1|text-error,text-primary,text-success|}\"",
+        "description": "编辑属性：控件区域样式名(SE Property: class names of control)",
+        "scope": ""
+    }
+
+    , "html se": {
+        "prefix": "na-se",
+        "body": "<se label=\"${1:名称}\"${2: required}${3: error=\"${4:请填写}\"}>\r\n  $0\r\n</se>",
+        "description": "编辑(SE)",
+        "scope": ""
+    }
+
+    , "html se form": {
+        "prefix": "na-se.form",
+        "body": "<form nz-form #f=\"ngForm\" se-container>\r\n  <se label=\"$2\">\r\n    $0\r\n  </se>\r\n  <se>\r\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\">${1:保存}</button>\r\n  </se>\r\n</form>",
+        "description": "编辑：表单示例(SE: form demo)",
+        "scope": ""
+    }
+
+    , "html se full": {
+        "prefix": "na-se.full",
+        "body": "<se label=\"${1:名称}\"${2: required} error=\"${3:请填写}\" optional=\"${4:(选填)}\" optionalHelp=\"$5\" extra=\"$6\">\r\n  $0\r\n</se>",
+        "description": "编辑完整示例(SE: full demo)",
+        "scope": ""
+    }
+
+    , "html se modal": {
+        "prefix": "na-se.modal",
+        "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\" se-container col=\"${2|1,2,3,4,5,6|}\">\r\n  $0\r\n  <div class=\"modal-footer\">\r\n    <button nz-button type=\"button\" (click)=\"close()\">${3:关闭}</button>\r\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${4:保存}</button>\r\n  </div>\r\n</form>",
+        "description": "编辑：模态框示例(SE: modal demo)",
+        "scope": ""
+    }
+
+    , "html se page": {
+        "prefix": "na-se.page",
+        "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\">\r\n  <nz-card se-container col=\"${2|1,2,3,4,5,6|}\" gutter=\"24\">\r\n    $0\r\n  </nz-card>\r\n  <footer-toolbar errorCollect>\r\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${3:保存}</button>\r\n  </footer-toolbar>\r\n</form>",
+        "description": "编辑：页面示例(SE: page demo)",
+        "scope": ""
+    }
+
+    , "html se search": {
+        "prefix": "na-se.search",
+        "body": "<form nz-form nzLayout=\"inline\" (ngSubmit)=\"${1:save}()\" se-container>\r\n  <se label=\"${2:名称}\">\r\n    <input nz-input [(ngModel)]=\"i.${3:name}\" name=\"${3}\">\r\n  </se>\r\n  <se>\r\n    <button nz-button nzType=\"primary\">${4:搜索}</button>\r\n  </se>\r\n</form>",
+        "description": "编辑：搜索示例(SE: search demo)",
+        "scope": ""
+    }
+
     , "html sf": {
         "prefix": "na-sf",
         "body": "<sf #sf [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:i}\" (formSubmit)=\"${4:submit}(\\$event)\"></sf>",
@@ -100,14 +198,14 @@
 
     , "html sf modal": {
         "prefix": "na-sf.modal",
-        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </div>\n</sf>",
+        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\r\n  <div class=\"modal-footer\">\r\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\r\n  </div>\r\n</sf>",
         "description": "动态表单：模态页示例(SF: modal demo)",
         "scope": ""
     }
 
     , "html sf page": {
         "prefix": "na-sf.page",
-        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <footer-toolbar>\n    <button nz-button type=\"submit\" nzType=\"primary\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </footer-toolbar>\n</sf>",
+        "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\r\n  <footer-toolbar>\r\n    <button nz-button type=\"submit\" nzType=\"primary\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\r\n  </footer-toolbar>\r\n</sf>",
         "description": "动态表单：页面示例(SF: page demo)",
         "scope": ""
     }
@@ -121,56 +219,63 @@
 
     , "html st custom title": {
         "prefix": "na-st.custom-title",
-        "body": "<ng-template st-row=\"${1:custom}\" type=\"title\" let-c let-index=\"index\">\n  $0\n</ng-template>",
+        "body": "<ng-template st-row=\"${1:custom}\" type=\"title\" let-c let-index=\"index\">\r\n  $0\r\n</ng-template>",
         "description": "表格：自定义标题头(SF: custom title)",
         "scope": ""
     }
 
     , "html st custom": {
         "prefix": "na-st.custom",
-        "body": "<ng-template st-row=\"${1:custom}\" let-item let-index=\"index\">\n  $0\n</ng-template>",
+        "body": "<ng-template st-row=\"${1:custom}\" let-item let-index=\"index\">\r\n  $0\r\n</ng-template>",
         "description": "表格：自定义列(SF: custom row)",
         "scope": ""
     }
 
     , "html st": {
         "prefix": "na-st",
-        "body": "<st [data]=\"${1:url}\" [columns]=\"${2:columns}\"${3: [req]=\"{params: params}\"}></st>\n$0",
+        "body": "<st [data]=\"${1:url}\" [columns]=\"${2:columns}\"${3: [req]=\"{params: params}\"}></st>\r\n$0",
         "description": "表格(ST: Use configuration instead of nz-table)",
+        "scope": ""
+    }
+
+    , "html tag-select": {
+        "prefix": "na-tag-select",
+        "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
+        "description": "标签选择器(Tag select)",
         "scope": ""
     }
 
     , "html sv currency": {
         "prefix": "na-sv.currency",
-        "body": "<sv label=\"${1|单价,金额,订单金额,支付金额,市场价|}\">{{ ${2:i.price} | _currency }}</sv>\n$0",
+        "body": "<sv label=\"${1|单价,金额,订单金额,支付金额,市场价|}\">{{ ${2:i.price} | _currency }}</sv>\r\n$0",
         "description": "查看：货币示例(SV: currency demo)",
         "scope": ""
     }
 
     , "html sv": {
         "prefix": "na-sv",
-        "body": "<sv-container${1: col=\"${2|2,3,4,5,6|}\"}${3: [title]=\"'${4}'\"}>\n  <sv label=\"$5\">$6</sv>\n  $0\n</sv-container>",
+        "body": "<sv-container${1: col=\"${2|2,3,4,5,6|}\"}${3: [title]=\"'${4}'\"}>\r\n  <sv label=\"$5\">$6</sv>\r\n  $0\r\n</sv-container>",
         "description": "查看(SV: Used to view pages)",
         "scope": ""
     }
 
     , "html sv item custom title": {
         "prefix": "na-sv.item-custom-title",
-        "body": "<sv [label]=\"${1:idLabelTpl}\">\n  <ng-template #${1}>\n    <a nz-tooltip=\"test\">tip</a>\n    $0\n  </ng-template>\n</sv>",
+        "body": "<sv [label]=\"${1:idLabelTpl}\">\r\n  <ng-template #${1}>\r\n    <a nz-tooltip=\"test\">tip</a>\r\n    $0\r\n  </ng-template>\r\n</sv>",
         "description": "查看：自定义标签标题(SV: custom title of item)",
         "scope": ""
     }
 
     , "html sv item": {
         "prefix": "na-sv.item",
-        "body": "<sv label=\"${1|编号,名称,电话,手机,地址,备注,数量|}\">$2</sv>\n$0",
+        "body": "<sv label=\"${1|编号,名称,电话,手机,地址,备注,数量|}\">$2</sv>\r\n$0",
         "description": "查看：单项(SV)",
         "scope": ""
     }
 
     , "html sv label width": {
         "prefix": "na-sv.label-width",
-        "body": "<sv-container labelWidth=\"${1:150}\"${2: col=\"${3|2,3,4,5,6|}\"}${4: [title]=\"'${5}'\"}>\n  <sv label=\"$6\">$7</sv>\n  $0\n</sv-container>",
+        "body": "<sv-container labelWidth=\"${1:150}\"${2: col=\"${3|2,3,4,5,6|}\"}${4: [title]=\"'${5}'\"}>\r\n  <sv label=\"$6\">$7</sv>\r\n  $0\r\n</sv-container>",
         "description": "查看：固定标签宽度(SV: fixed label width)",
         "scope": ""
     }
@@ -191,155 +296,22 @@
 
     , "html sv status": {
         "prefix": "na-sv.status",
-        "body": "<sv label=\"状态\">\n  <nz-badge *ngIf=\"i.status === 1\" nzStatus=\"default\" nzText=\"未提交\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 2\" nzStatus=\"processing\" nzText=\"运行中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 4\" nzStatus=\"warning\" nzText=\"上线审核中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 6\" nzStatus=\"error\" nzText=\"已删除\"></nz-badge>\n  $0\n</sv>",
+        "body": "<sv label=\"状态\">\r\n  <nz-badge *ngIf=\"i.status === 1\" nzStatus=\"default\" nzText=\"未提交\"></nz-badge>\r\n  <nz-badge *ngIf=\"i.status === 2\" nzStatus=\"processing\" nzText=\"运行中\"></nz-badge>\r\n  <nz-badge *ngIf=\"i.status === 4\" nzStatus=\"warning\" nzText=\"上线审核中\"></nz-badge>\r\n  <nz-badge *ngIf=\"i.status === 6\" nzStatus=\"error\" nzText=\"已删除\"></nz-badge>\r\n  $0\r\n</sv>",
         "description": "查看：状态示例(SV: status demo)",
         "scope": ""
     }
 
     , "html sv time": {
         "prefix": "na-sv.time",
-        "body": "<sv label=\"${1|时间,开始时间,结束时间,生效时间,创建时间,更新时间|}\">{{ ${2:i.time} | _date }}</sv>\n$0",
+        "body": "<sv label=\"${1|时间,开始时间,结束时间,生效时间,创建时间,更新时间|}\">{{ ${2:i.time} | _date }}</sv>\r\n$0",
         "description": "查看：时间示例(SV: time demo)",
         "scope": ""
     }
 
     , "html sv type": {
         "prefix": "na-sv.type",
-        "body": "<sv label=\"${1|失败,取消,重写,过期,警告,原因|}\" type=\"${2|primary,success,danger,warning|}\">$3</sv>\n$0",
+        "body": "<sv label=\"${1|失败,取消,重写,过期,警告,原因|}\" type=\"${2|primary,success,danger,warning|}\">$3</sv>\r\n$0",
         "description": "查看属性：列表内容样式(SV Property: type of item)",
-        "scope": ""
-    }
-
-    , "html tag-select": {
-        "prefix": "na-tag-select",
-        "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
-        "description": "标签选择器(Tag select)",
-        "scope": ""
-    }
-
-    , "html se col 1": {
-        "prefix": "na-se.col-1",
-        "body": "<se label=\"${1:描述}\" col=\"1\">\n  $0\n</se>",
-        "description": "编辑：单行(SE: single line)",
-        "scope": ""
-    }
-
-    , "html se control checkbox": {
-        "prefix": "na-se.control-checkbox",
-        "body": "<label nz-checkbox [(ngModel)]=\"i.${2:name}\" name=\"${2}\">${3|启用,禁止,允许,不允许|}</label>\n$0",
-        "description": "编辑控件：多选框(SE Control: checkbox)",
-        "scope": ""
-    }
-
-    , "html se control input group": {
-        "prefix": "na-se.control-input-group",
-        "body": "<nz-input-group nzAddOnAfter=\"${2:后置标签}\">\n  <input type=\"text\" nz-input [(ngModel)]=\"i.${3:name}\" name=\"${3}\">\n</nz-input-group>\n$0",
-        "description": "编辑控件：文本框组合(SE Control: input group)",
-        "scope": ""
-    }
-
-    , "html se control input": {
-        "prefix": "na-se.control-input",
-        "body": "<input nz-input [(ngModel)]=\"i.${1:name}\" name=\"${1}\"${2: required}${3: maxlength=\"${4|10,20,30,32,50,100|}\"}>\n",
-        "description": "编辑控件：文本框(SE Control: input)",
-        "scope": ""
-    }
-
-    , "html se control number": {
-        "prefix": "na-se.control-number",
-        "body": "<nz-input-number [(ngModel)]=\"i.${2:num}\" name=\"${2}\" ${3: required}${4: nzPlaceHolder=\"${5}\" }></nz-input-number>\n$0",
-        "description": "编辑控件：数字框(SE Control: input number)",
-        "scope": ""
-    }
-
-    , "html se control radio group": {
-        "prefix": "na-se.control-radio-group",
-        "body": "<nz-radio-group [(ngModel)]=\"i.${2:type}\" name=\"${2}\" ${3: required}>\n  <label nz-radio [nzValue]=\"${4:1}\">${5:类型一}</label>\n  $0\n</nz-radio-group>",
-        "description": "编辑控件：单选框组(SE Control: radio group)",
-        "scope": ""
-    }
-
-    , "html se control select": {
-        "prefix": "na-se.control-select",
-        "body": "<nz-select [(ngModel)]=\"i.${2:name}\" name=\"${2}\">\n  <nz-option nzLabel=\"$3\" [nzValue]=\"${4:1}\"></nz-option>\n  $0\n</nz-select>",
-        "description": "编辑控件：选择器(SE Control: select)",
-        "scope": ""
-    }
-
-    , "html se controlClass": {
-        "prefix": "na-se.controlClass",
-        "body": "controlClass=\"${1|text-error,text-primary,text-success|}\"",
-        "description": "编辑属性：控件区域样式名(SE Property: class names of control)",
-        "scope": ""
-    }
-
-    , "html se": {
-        "prefix": "na-se",
-        "body": "<se label=\"${1:名称}\"${2: required}${3: error=\"${4:请填写}\"}>\n  $0\n</se>",
-        "description": "编辑(SE)",
-        "scope": ""
-    }
-
-    , "html se form": {
-        "prefix": "na-se.form",
-        "body": "<form nz-form #f=\"ngForm\" se-container>\n  <se label=\"$2\">\n    $0\n  </se>\n  <se>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\">${1:保存}</button>\n  </se>\n</form>",
-        "description": "编辑：表单示例(SE: form demo)",
-        "scope": ""
-    }
-
-    , "html se full": {
-        "prefix": "na-se.full",
-        "body": "<se label=\"${1:名称}\"${2: required} error=\"${3:请填写}\" optional=\"${4:(选填)}\" optionalHelp=\"$5\" extra=\"$6\">\n  $0\n</se>",
-        "description": "编辑完整示例(SE: full demo)",
-        "scope": ""
-    }
-
-    , "html se modal": {
-        "prefix": "na-se.modal",
-        "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\" se-container col=\"${2|1,2,3,4,5,6|}\">\n  $0\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">${3:关闭}</button>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${4:保存}</button>\n  </div>\n</form>",
-        "description": "编辑：模态框示例(SE: modal demo)",
-        "scope": ""
-    }
-
-    , "html se page": {
-        "prefix": "na-se.page",
-        "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\">\n  <nz-card se-container col=\"${2|1,2,3,4,5,6|}\" gutter=\"24\">\n    $0\n  </nz-card>\n  <footer-toolbar errorCollect>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${3:保存}</button>\n  </footer-toolbar>\n</form>",
-        "description": "编辑：页面示例(SE: page demo)",
-        "scope": ""
-    }
-
-    , "html se search": {
-        "prefix": "na-se.search",
-        "body": "<form nz-form nzLayout=\"inline\" (ngSubmit)=\"${1:save}()\" se-container>\n  <se label=\"${2:名称}\">\n    <input nz-input [(ngModel)]=\"i.${3:name}\" name=\"${3}\">\n  </se>\n  <se>\n    <button nz-button nzType=\"primary\">${4:搜索}</button>\n  </se>\n</form>",
-        "description": "编辑：搜索示例(SE: search demo)",
-        "scope": ""
-    }
-
-    , "ng switch": {
-        "prefix": "ng-switch",
-        "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <a *ngSwitchDefault></a>\n</ng-container>",
-        "description": "Switch语法(Switch syntax)",
-        "scope": ""
-    }
-
-    , "ng template": {
-        "prefix": "ng-template",
-        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\n  $0\n</ng-template>",
-        "description": "ng-template(ng-template)",
-        "scope": ""
-    }
-
-    , "ng template outlet": {
-        "prefix": "ng-template.outlet",
-        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} }\"></ng-template>\n$0",
-        "description": "携带 Outlet(include Outlet)",
-        "scope": ""
-    }
-
-    , "ng template recursive tree": {
-        "prefix": "ng-template.recursive-tree",
-        "body": "<ng-template #treeTpl let-ls let-level=\"level\">\n  <li *ngFor=\"let i of ls\">\n    <ul *ngIf=\"i.children.length > 0\">\n      <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: i.children, level: level + 1 }\"></ng-container>\n    </ul>\n  </li>\n</ng-template>\n<ul>\n  <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: tree.children, level: 1 }\"></ng-container>\n</ul>",
-        "description": "模板递归树(Template recursive tree)",
         "scope": ""
     }
 
@@ -389,6 +361,34 @@
         "prefix": "ng-router.query",
         "body": "routerLink=\"$1\" [queryParams]=\"${2:{ id: 1 }}\"",
         "description": "路由链接带参数(Router with parameters)",
+        "scope": ""
+    }
+
+    , "ng switch": {
+        "prefix": "ng-switch",
+        "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <a *ngSwitchDefault></a>\n</ng-container>",
+        "description": "Switch语法(Switch syntax)",
+        "scope": ""
+    }
+
+    , "ng template": {
+        "prefix": "ng-template",
+        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\n  $0\n</ng-template>",
+        "description": "ng-template(ng-template)",
+        "scope": ""
+    }
+
+    , "ng template outlet": {
+        "prefix": "ng-template.outlet",
+        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} }\"></ng-template>\n$0",
+        "description": "携带 Outlet(include Outlet)",
+        "scope": ""
+    }
+
+    , "ng template recursive tree": {
+        "prefix": "ng-template.recursive-tree",
+        "body": "<ng-template #treeTpl let-ls let-level=\"level\">\n  <li *ngFor=\"let i of ls\">\n    <ul *ngIf=\"i.children.length > 0\">\n      <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: i.children, level: level + 1 }\"></ng-container>\n    </ul>\n  </li>\n</ng-template>\n<ul>\n  <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: tree.children, level: 1 }\"></ng-container>\n</ul>",
+        "description": "模板递归树(Template recursive tree)",
         "scope": ""
     }  
 }

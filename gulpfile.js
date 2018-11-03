@@ -1,9 +1,7 @@
 let fs = require("fs"),
-  path = require("path"),
   gulp = require("gulp"),
   concat = require("gulp-concat"),
   wrap = require("gulp-wrap"),
-  gulpSequence = require("gulp-sequence"),
   hb = require("gulp-hb"),
   generate = require("./generate");
 
@@ -45,7 +43,9 @@ Object.keys(DEF.types).forEach(name => {
         })
       )
       .pipe(concat(name + ".json"))
-      .pipe(wrap(`{\n <%= contents %>  \n}`, {}, { parse: false }))
+      .pipe(wrap(`{\n <%= contents %>  \n}`, {}, {
+        parse: false
+      }))
       .pipe(gulp.dest(DEF.dest));
   });
   tasks.push(taskName);
@@ -59,7 +59,7 @@ gulp.task("watch-ts", () => {
   gulp.watch(DEF.types.ts, ["gen-ts"]);
 });
 
-gulp.task("gen-i18n", () => {
+gulp.task("gen-i18n", (done) => {
   function genBySnippetJson(type, newJson, curJson) {
     let snippetJson =
       JSON.parse(fs.readFileSync(`./snippets/${type}.json`)) || {};
@@ -67,7 +67,10 @@ gulp.task("gen-i18n", () => {
       // category
       let keyArr = key.split(" "),
         categoryKey = keyArr[0],
-        curItem = curJson[categoryKey] || { title: "", list: {} };
+        curItem = curJson[categoryKey] || {
+          title: "",
+          list: {}
+        };
 
       if (!newJson[categoryKey]) {
         newJson[categoryKey] = {
@@ -91,10 +94,12 @@ gulp.task("gen-i18n", () => {
     let jsonStr = JSON.stringify(newJson, null, "\t");
     fs.writeFileSync(filePath, jsonStr);
   }
+
+  done();
 });
 
 gulp.task("gen-readme", () => {
-  gulp
+  return gulp
     .src(`./src/README.zh-CN.md`)
     .pipe(
       hb({
@@ -107,7 +112,7 @@ gulp.task("gen-readme", () => {
 });
 
 gulp.task("gen-readme-en", () => {
-  gulp
+  return gulp
     .src(`./src/README.md`)
     .pipe(
       hb({
@@ -119,11 +124,8 @@ gulp.task("gen-readme-en", () => {
     .pipe(gulp.dest("./"));
 });
 
-gulp.task("build", gulpSequence(...tasks));
+gulp.task("build", gulp.series(...tasks));
 
-gulp.task("serve", gulpSequence("build", "gen-i18n", "watch"));
+gulp.task("serve", gulp.series("build", "gen-i18n", "watch-html", "watch-ts"));
 
-gulp.task(
-  "prod",
-  gulpSequence("build", ["gen-i18n", "gen-readme", "gen-readme-en"])
-);
+gulp.task("prod", gulp.series("build", "gen-i18n", "gen-readme", "gen-readme-en"));

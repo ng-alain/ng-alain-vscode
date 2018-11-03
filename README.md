@@ -13,7 +13,7 @@
 
 The latest version corresponds to the `next` version of ng-alain, other versions:
 
-- [1.x](ng-alain-vscode-1.0.12.vsix)
+- [1.x](cipchk.ng-alain-vscode-1.0.12.vsix)
 
 ## Usage
 
@@ -33,8 +33,8 @@ More API interface please refer to [ng-alain](https://ng-alain.com/).
 
 Trigger | Description
 --- | ---
-na-error-collect | Error collect in from
 na-ellipsis | Ellipsis
+na-error-collect | Error collect in from
 na-footer-toolbar | Footer Toolbar
 na-header.action | Header: action area
 na-header | Header
@@ -83,13 +83,13 @@ na-tag-select | Tag select
 
 Trigger | Description
 --- | ---
-ng-container | ng-container
-ng-container.for | include *ngFor
-ng-container.if | include *ngIf
 ng-router.active-mulit | Router with acitve
 ng-router.active | Router with acitve
 ng-router | Router
 ng-router.query | Router with parameters
+ng-container | ng-container
+ng-container.for | include *ngFor
+ng-container.if | include *ngIf
 ng-switch | Switch syntax
 ng-template | ng-template
 ng-template.outlet | include Outlet
@@ -99,13 +99,13 @@ ng-template.recursive-tree | Template recursive tree
 
 Trigger | Description
 --- | ---
+na-modal.close | Close dialog code
 na-http.delete | HTTP Request: delete
 na-http.get | HTTP Request: get
 na-http.post | HTTP Request: post
 na-sf | SF
 na-sf.field | SF: field
 na-sf.select | SF: select of field
-na-modal.close | Close dialog code
 na-st.column | ST: description of columns
 na-st | ST: definition of columns
 

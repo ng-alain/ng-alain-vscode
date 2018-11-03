@@ -2,7 +2,7 @@
   "name": "ng-alain-vscode",
   "displayName": "ng-alain snippets",
   "description": "基于ng-alain的代码片断",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
@@ -23,8 +23,23 @@
     "color": "#ffffff",
     "theme": "light"
   },
-  "categories": ["Snippets"],
+  "main": "./out/src/css-tools/extension",
+  "categories": [
+    "Snippets",
+    "Other",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript",
+    "onLanguage:html"
+  ],
   "contributes": {
+    "commands": [
+      {
+        "command": "ng-alain-vscode.cache",
+        "title": "Cache All ng-alain CSS class definitions"
+      }
+    ],
     "snippets": [
       {
         "language": "typescript",
@@ -37,18 +52,30 @@
     ]
   },
   "scripts": {
-    "publish": "run-s prod package",
+    "publish": "run-s snippet:prod class:prod package",
     "package": "vsce package",
-    "prod": "gulp prod"
+    "snippet:prod": "gulp prod",
+    "class:prod": "tsc -p ./",
+    "class": "tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "dependencies": {
+    "less": "^3.0.0",
+    "verror": "^1.10.0"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "@types/less": "^3.0.0",
+    "@types/node": "^10.12.2",
+    "@types/verror": "^1.10.3",
+    "gulp": "^4.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-hb": "^6.0.2",
     "gulp-mustache": "^3.0.0",
     "gulp-sequence": "^0.4.6",
     "gulp-wrap": "^0.13.0",
-    "lodash": "^4.17.4",
-    "map-stream": "0.0.7"
+    "htmlparser2": "^3.10.0",
+    "map-stream": "0.0.7",
+    "typescript": "^3.1.6",
+    "vscode": "^1.1.21"
   }
 }
