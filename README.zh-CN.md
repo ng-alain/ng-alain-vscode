@@ -59,6 +59,7 @@ na-sf.search | 动态表单：搜索模式
 na-st.custom-title | 表格：自定义标题头
 na-st.custom | 表格：自定义列
 na-st | 表格
+na-st.res | 表格属性：res 参数
 na-sv.currency | 查看：货币示例
 na-sv | 查看
 na-sv.item-custom-title | 查看：自定义标签标题
@@ -95,6 +96,7 @@ na-modal.close | 关闭对话框代码
 na-http.delete | HTTP请求：删除
 na-http.get | HTTP请求：获取
 na-http.post | HTTP请求：提交
+na-modal.close | 关闭对话框代码
 na-sf | SF
 na-sf.field | SF：字段
 na-sf.select | SF：选择器字段

@@ -67,6 +67,7 @@ na-sf.search | SF: search demo
 na-st.custom-title | SF: custom title
 na-st.custom | SF: custom row
 na-st | ST: Use configuration instead of nz-table
+na-st.res | ST Property: res
 na-sv.currency | SV: currency demo
 na-sv | SV: Used to view pages
 na-sv.item-custom-title | SV: custom title of item
@@ -103,6 +104,7 @@ na-modal.close | Close dialog code
 na-http.delete | HTTP Request: delete
 na-http.get | HTTP Request: get
 na-http.post | HTTP Request: post
+na-modal.close | Close dialog code
 na-sf | SF
 na-sf.field | SF: field
 na-sf.select | SF: select of field

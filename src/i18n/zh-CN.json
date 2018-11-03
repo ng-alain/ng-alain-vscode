@@ -14,6 +14,8 @@
 			"na-modal": "模态框",
 			"na-modal.edit": "模态框：编辑模式",
 			"na-modal.view": "模态框：查看模式",
+			"na-ellipsis": "文本自动省略号",
+			"na-footer-toolbar": "底部工具栏",
 			"na-se.col-1": "编辑：单行",
 			"na-se.control-checkbox": "编辑控件：多选框",
 			"na-se.control-input-group": "编辑控件：文本框组合",
@@ -33,10 +35,14 @@
 			"na-sf.modal": "动态表单：模态页示例",
 			"na-sf.page": "动态表单：页面示例",
 			"na-sf.search": "动态表单：搜索模式",
+			"na-modal": "模态框",
+			"na-modal.edit": "模态框：编辑模式",
+			"na-modal.view": "模态框：查看模式",
 			"na-st.custom-title": "表格：自定义标题头",
 			"na-st.custom": "表格：自定义列",
 			"na-st": "表格",
 			"na-tag-select": "标签选择器",
+			"na-st.res": "表格属性：res 参数",
 			"na-sv.currency": "查看：货币示例",
 			"na-sv": "查看",
 			"na-sv.item-custom-title": "查看：自定义标签标题",
@@ -47,6 +53,8 @@
 			"na-sv.status": "查看：状态示例",
 			"na-sv.time": "查看：时间示例",
 			"na-sv.type": "查看属性：列表内容样式"
+			"na-sv.type": "查看属性：列表内容样式",
+			"na-tag-select": "标签选择器"
 		}
 	},
 	"ng": {
@@ -68,6 +76,7 @@
 	"ts": {
 		"title": "TypeScript 片断",
 		"list": {
+			"na-modal.close": "关闭对话框代码",
 			"na-http.delete": "HTTP请求：删除",
 			"na-http.get": "HTTP请求：获取",
 			"na-http.post": "HTTP请求：提交",

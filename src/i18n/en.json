@@ -5,6 +5,7 @@
 			"na-ellipsis": "Ellipsis",
 			"na-error-collect": "Error collect in from",
 			"na-footer-toolbar": "Footer Toolbar",
+			"na-error-collect": "Error collect in from",
 			"na-header.action": "Header: action area",
 			"na-header": "Header",
 			"na-header.full": "Header",
@@ -14,6 +15,8 @@
 			"na-modal": "Modal: Used for custom components",
 			"na-modal.edit": "Modal: edit mode demo",
 			"na-modal.view": "Modal: view mode demo",
+			"na-ellipsis": "Ellipsis",
+			"na-footer-toolbar": "Footer Toolbar",
 			"na-se.col-1": "SE: single line",
 			"na-se.control-checkbox": "SE Control: checkbox",
 			"na-se.control-input-group": "SE Control: input group",
@@ -33,10 +36,14 @@
 			"na-sf.modal": "SF: modal demo",
 			"na-sf.page": "SF: page demo",
 			"na-sf.search": "SF: search demo",
+			"na-modal": "Modal: Used for custom components",
+			"na-modal.edit": "Modal: edit mode demo",
+			"na-modal.view": "Modal: view mode demo",
 			"na-st.custom-title": "SF: custom title",
 			"na-st.custom": "SF: custom row",
 			"na-st": "ST: Use configuration instead of nz-table",
 			"na-tag-select": "Tag select",
+			"na-st.res": "ST Property: res",
 			"na-sv.currency": "SV: currency demo",
 			"na-sv": "SV: Used to view pages",
 			"na-sv.item-custom-title": "SV: custom title of item",
@@ -47,6 +54,8 @@
 			"na-sv.status": "SV: status demo",
 			"na-sv.time": "SV: time demo",
 			"na-sv.type": "SV Property: type of item"
+			"na-sv.type": "SV Property: type of item",
+			"na-tag-select": "Tag select"
 		}
 	},
 	"ng": {
@@ -68,6 +77,7 @@
 	"ts": {
 		"title": "TypeScript",
 		"list": {
+			"na-modal.close": "Close dialog code",
 			"na-http.delete": "HTTP Request: delete",
 			"na-http.get": "HTTP Request: get",
 			"na-http.post": "HTTP Request: post",
