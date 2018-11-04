@@ -4,6 +4,8 @@
 
 请至[Issuses](https://github.com/cipchk/ng-alain-vscode/issues)提交可能遇到的问题或期望增加的代码片断。
 
+为了更好的使用 ng-alain 工具 CSS 类样式，`3.x` 开始内置同 [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion) 相似的功能，若已安装该插件可以在开发 ng-alain 时禁用该插件。
+
 最新版本对应 ng-alain 的 `next` 版本，其他版本：
 
 - [1.x](cipchk.ng-alain-vscode-1.0.12.vsix)
@@ -25,14 +27,12 @@
 
 Trigger | Description
 --- | ---
+na-ellipsis | 文本自动省略号
 na-error-collect | 表单异常消息采集器
 na-footer-toolbar | 底部工具栏
 na-header.action | 页头：操作区域
 na-header | 页头
 na-header.full | 页头：完整模式
-na-header-css | CSS页头
-na-header-css.right-input | CSS页头：右边表单
-na-header-css.right-inputgroup | CSS页头：右边表单组
 na-modal | 模态框
 na-modal.edit | 模态框：编辑模式
 na-modal.view | 模态框：查看模式
@@ -50,16 +50,15 @@ na-se.full | 编辑完整示例
 na-se.modal | 编辑：模态框示例
 na-se.page | 编辑：页面示例
 na-se.search | 编辑：搜索示例
+na-st.custom-title | 表格：自定义标题头
+na-st.custom | 表格：自定义列
+na-st | 表格
+na-st.res | 表格属性：res 参数
 na-sf | 动态表单
 na-sf.edit | 动态表单：编辑模式
 na-sf.modal | 动态表单：模态页示例
 na-sf.page | 动态表单：页面示例
 na-sf.search | 动态表单：搜索模式
-na-st.custom-title | 表格：自定义标题头
-na-st.custom | 表格：自定义列
-na-st | 表格
-na-st.res | 表格属性：res 参数
-na-tag-select | 标签选择器
 na-sv.currency | 查看：货币示例
 na-sv | 查看
 na-sv.item-custom-title | 查看：自定义标签标题
@@ -70,15 +69,15 @@ na-sv.size | 查看属性：大小
 na-sv.status | 查看：状态示例
 na-sv.time | 查看：时间示例
 na-sv.type | 查看属性：列表内容样式
-na-ellipsis | 文本自动省略号
+na-header-css | CSS页头
+na-header-css.right-input | CSS页头：右边表单
+na-header-css.right-inputgroup | CSS页头：右边表单组
+na-tag-select | 标签选择器
 
 ### Angular 内置片断
 
 Trigger | Description
 --- | ---
-ng-template | ng-template
-ng-template.outlet | 携带 Outlet
-ng-template.recursive-tree | 模板递归树
 ng-container | ng-container
 ng-container.for | 携带 *ngFor
 ng-container.if | 携带 *ngIf
@@ -87,6 +86,9 @@ ng-router.active-mulit | 路由高亮（多类名）
 ng-router.active | 路由高亮
 ng-router | 路由链接
 ng-router.query | 路由链接带参数
+ng-template | ng-template
+ng-template.outlet | 携带 Outlet
+ng-template.recursive-tree | 模板递归树
 
 ### TypeScript 片断
 

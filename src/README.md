@@ -2,6 +2,8 @@
 
 ![Plugin in action](help.gif)
 
+In order to better use ng-alain tool CSS styles, The `3.x` version has built-in similar to [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion), If you are already installed, it can be disabled when developing ng-alain project.
+
 [中文](README.zh-CN.md)
 
 ## Links

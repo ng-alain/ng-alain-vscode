@@ -1,3 +1,9 @@
+# 3.0.0
+
+- 新增 ng-alain CSS类样式智能提醒
+
+> 为了更好的使用 ng-alain 工具 CSS 类样式，`3.x` 开始内置同 [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion) 相似的功能，若已安装该插件可以在开发 ng-alain 时禁用该插件。
+
 # 2.0.2
 
 - 修复 `st` 丢失 `}` 问题, #2

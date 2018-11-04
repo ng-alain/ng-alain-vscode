@@ -4,6 +4,8 @@
 
 请至[Issuses](https://github.com/cipchk/ng-alain-vscode/issues)提交可能遇到的问题或期望增加的代码片断。
 
+为了更好的使用 ng-alain 工具 CSS 类样式，`3.x` 开始内置同 [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion) 相似的功能，若已安装该插件可以在开发 ng-alain 时禁用该插件。
+
 最新版本对应 ng-alain 的 `next` 版本，其他版本：
 
 - [1.x](cipchk.ng-alain-vscode-1.0.12.vsix)

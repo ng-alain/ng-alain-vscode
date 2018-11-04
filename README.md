@@ -2,6 +2,8 @@
 
 ![Plugin in action](help.gif)
 
+In order to better use ng-alain tool CSS styles, The `3.x` version has built-in similar to [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion), If you are already installed, it can be disabled when developing ng-alain project.
+
 [中文](README.zh-CN.md)
 
 ## Links
@@ -33,14 +35,12 @@ More API interface please refer to [ng-alain](https://ng-alain.com/).
 
 Trigger | Description
 --- | ---
+na-ellipsis | Ellipsis
 na-error-collect | Error collect in from
 na-footer-toolbar | Footer Toolbar
 na-header.action | Header: action area
 na-header | Header
 na-header.full | Header
-na-header-css | CSS of Header
-na-header-css.right-input | CSS of Header: input in right
-na-header-css.right-inputgroup | CSS of Header: input group in right
 na-modal | Modal: Used for custom components
 na-modal.edit | Modal: edit mode demo
 na-modal.view | Modal: view mode demo
@@ -58,16 +58,15 @@ na-se.full | SE: full demo
 na-se.modal | SE: modal demo
 na-se.page | SE: page demo
 na-se.search | SE: search demo
+na-st.custom-title | SF: custom title
+na-st.custom | SF: custom row
+na-st | ST: Use configuration instead of nz-table
+na-st.res | ST Property: res
 na-sf | SF: Dynamic form
 na-sf.edit | SF: edit mode
 na-sf.modal | SF: modal demo
 na-sf.page | SF: page demo
 na-sf.search | SF: search demo
-na-st.custom-title | SF: custom title
-na-st.custom | SF: custom row
-na-st | ST: Use configuration instead of nz-table
-na-st.res | ST Property: res
-na-tag-select | Tag select
 na-sv.currency | SV: currency demo
 na-sv | SV: Used to view pages
 na-sv.item-custom-title | SV: custom title of item
@@ -78,15 +77,15 @@ na-sv.size | SV Property: size
 na-sv.status | SV: status demo
 na-sv.time | SV: time demo
 na-sv.type | SV Property: type of item
-na-ellipsis | Ellipsis
+na-header-css | CSS of Header
+na-header-css.right-input | CSS of Header: input in right
+na-header-css.right-inputgroup | CSS of Header: input group in right
+na-tag-select | Tag select
 
 ### Angular
 
 Trigger | Description
 --- | ---
-ng-template | ng-template
-ng-template.outlet | include Outlet
-ng-template.recursive-tree | Template recursive tree
 ng-container | ng-container
 ng-container.for | include *ngFor
 ng-container.if | include *ngIf
@@ -95,6 +94,9 @@ ng-router.active-mulit | Router with acitve
 ng-router.active | Router with acitve
 ng-router | Router
 ng-router.query | Router with parameters
+ng-template | ng-template
+ng-template.outlet | include Outlet
+ng-template.recursive-tree | Template recursive tree
 
 ### TypeScript
 
