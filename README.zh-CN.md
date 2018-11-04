@@ -25,7 +25,6 @@
 
 Trigger | Description
 --- | ---
-na-ellipsis | 文本自动省略号
 na-error-collect | 表单异常消息采集器
 na-footer-toolbar | 底部工具栏
 na-header.action | 页头：操作区域
@@ -60,6 +59,7 @@ na-st.custom-title | 表格：自定义标题头
 na-st.custom | 表格：自定义列
 na-st | 表格
 na-st.res | 表格属性：res 参数
+na-tag-select | 标签选择器
 na-sv.currency | 查看：货币示例
 na-sv | 查看
 na-sv.item-custom-title | 查看：自定义标签标题
@@ -70,29 +70,28 @@ na-sv.size | 查看属性：大小
 na-sv.status | 查看：状态示例
 na-sv.time | 查看：时间示例
 na-sv.type | 查看属性：列表内容样式
-na-tag-select | 标签选择器
+na-ellipsis | 文本自动省略号
 
 ### Angular 内置片断
 
 Trigger | Description
 --- | ---
-ng-router.active-mulit | 路由高亮（多类名）
-ng-router.active | 路由高亮
-ng-router | 路由链接
-ng-router.query | 路由链接带参数
+ng-template | ng-template
+ng-template.outlet | 携带 Outlet
+ng-template.recursive-tree | 模板递归树
 ng-container | ng-container
 ng-container.for | 携带 *ngFor
 ng-container.if | 携带 *ngIf
 ng-switch | Switch语法
-ng-template | ng-template
-ng-template.outlet | 携带 Outlet
-ng-template.recursive-tree | 模板递归树
+ng-router.active-mulit | 路由高亮（多类名）
+ng-router.active | 路由高亮
+ng-router | 路由链接
+ng-router.query | 路由链接带参数
 
 ### TypeScript 片断
 
 Trigger | Description
 --- | ---
-na-modal.close | 关闭对话框代码
 na-http.delete | HTTP请求：删除
 na-http.get | HTTP请求：获取
 na-http.post | HTTP请求：提交

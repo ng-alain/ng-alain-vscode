@@ -44,7 +44,10 @@ async function cache(): Promise<void> {
           ),
       );
     uniqueClasses = [...new Set([...res])];
-    notifier.notify("zap", "ng-alain CSS classes cached (click to cache again)");
+    notifier.notify(
+      'zap',
+      'ng-alain CSS classes cached (click to cache again)',
+    );
   } catch (err) {
     notifier.notify(
       'alert',
@@ -54,6 +57,19 @@ async function cache(): Promise<void> {
       err,
       'Failed to cache the class definitions during the iterations over the documents that were found',
     );
+  }
+}
+
+async function do_cache() {
+  caching = true;
+  try {
+    await cache();
+  } catch (err) {
+    err = new VError(err, `缓存失败，点击重试，或打开 Dev Tools 了解详情`);
+    console.error(err);
+    window.showErrorMessage(err.message);
+  } finally {
+    caching = false;
   }
 }
 
@@ -114,18 +130,7 @@ function provideCompletionItemsGenerator(
 export async function activate(context: ExtensionContext): Promise<void> {
   const disposables: Disposable[] = [];
   workspace.onDidChangeConfiguration(
-    async () => {
-      try {
-        await cache();
-      } catch (err) {
-        err = new VError(
-          err,
-          'Failed to automatically reload the extension after the configuration change',
-        );
-        console.error(err);
-        window.showErrorMessage(err.message);
-      }
-    },
+    async () => await do_cache(),
     null,
     disposables,
   );
@@ -137,26 +142,17 @@ export async function activate(context: ExtensionContext): Promise<void> {
         return;
       }
 
-      caching = true;
-      try {
-        await cache();
-      } catch (err) {
-        err = new VError(
-          err,
-          'Failed to cache the CSS classes in the workspace',
-        );
-        console.error(err);
-        window.showErrorMessage(err.message);
-      } finally {
-        caching = false;
-      }
+      await do_cache();
     }),
   );
 
   // Javascript based extensions
   ['typescript', 'javascript'].forEach(extension => {
     context.subscriptions.push(
-      provideCompletionItemsGenerator(extension, /\[?ngClass\]?="{[ ]?'([\w\- ]*$)/),
+      provideCompletionItemsGenerator(
+        extension,
+        /\[?ngClass\]?="{[ ]?'([\w\- ]*$)/,
+      ),
     );
     context.subscriptions.push(
       provideCompletionItemsGenerator(extension, /class=["|']([\w- ]*$)/),
@@ -165,7 +161,10 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
   ['html', 'markdown'].forEach(extension => {
     context.subscriptions.push(
-      provideCompletionItemsGenerator(extension, /\[?ngClass\]?="{[ ]?'([\w\- ]*$)/),
+      provideCompletionItemsGenerator(
+        extension,
+        /\[?ngClass\]?="{[ ]?'([\w\- ]*$)/,
+      ),
     );
     context.subscriptions.push(
       provideCompletionItemsGenerator(extension, /class=["|']([\w- ]*$)/),
@@ -180,19 +179,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   //   );
   // });
 
-  caching = true;
-  try {
-    await cache();
-  } catch (err) {
-    err = new VError(
-      err,
-      'Failed to cache the CSS classes in the workspace for the first time',
-    );
-    console.error(err);
-    window.showErrorMessage(err.message);
-  } finally {
-    caching = false;
-  }
+  await do_cache();
 }
 
 export function deactivate(): void {

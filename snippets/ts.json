@@ -1,13 +1,6 @@
 {
  
-     "ts modal close": {
-        "prefix": "na-modal.close",
-        "body": "close() {\n  this.modal.destroy();\n}",
-        "description": "关闭对话框代码(Close dialog code)",
-        "scope": ""
-    }
-
-    , "ts http delete": {
+     "ts http delete": {
         "prefix": "na-http.delete",
         "body": "this.http.delete(${1:this.url}).subscribe((res: any) => this.msgSrv.success('删除成功'));",
         "description": "HTTP请求：删除(HTTP Request: delete)",

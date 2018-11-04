@@ -33,7 +33,6 @@ More API interface please refer to [ng-alain](https://ng-alain.com/).
 
 Trigger | Description
 --- | ---
-na-ellipsis | Ellipsis
 na-error-collect | Error collect in from
 na-footer-toolbar | Footer Toolbar
 na-header.action | Header: action area
@@ -68,6 +67,7 @@ na-st.custom-title | SF: custom title
 na-st.custom | SF: custom row
 na-st | ST: Use configuration instead of nz-table
 na-st.res | ST Property: res
+na-tag-select | Tag select
 na-sv.currency | SV: currency demo
 na-sv | SV: Used to view pages
 na-sv.item-custom-title | SV: custom title of item
@@ -78,29 +78,28 @@ na-sv.size | SV Property: size
 na-sv.status | SV: status demo
 na-sv.time | SV: time demo
 na-sv.type | SV Property: type of item
-na-tag-select | Tag select
+na-ellipsis | Ellipsis
 
 ### Angular
 
 Trigger | Description
 --- | ---
-ng-router.active-mulit | Router with acitve
-ng-router.active | Router with acitve
-ng-router | Router
-ng-router.query | Router with parameters
+ng-template | ng-template
+ng-template.outlet | include Outlet
+ng-template.recursive-tree | Template recursive tree
 ng-container | ng-container
 ng-container.for | include *ngFor
 ng-container.if | include *ngIf
 ng-switch | Switch syntax
-ng-template | ng-template
-ng-template.outlet | include Outlet
-ng-template.recursive-tree | Template recursive tree
+ng-router.active-mulit | Router with acitve
+ng-router.active | Router with acitve
+ng-router | Router
+ng-router.query | Router with parameters
 
 ### TypeScript
 
 Trigger | Description
 --- | ---
-na-modal.close | Close dialog code
 na-http.delete | HTTP Request: delete
 na-http.get | HTTP Request: get
 na-http.post | HTTP Request: post
