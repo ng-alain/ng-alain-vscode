@@ -2,8 +2,8 @@
 	"html": {
 		"title": "Alain",
 		"list": {
-			"na-error-collect": "Error collect in from",
 			"na-footer-toolbar": "Footer Toolbar",
+			"na-error-collect": "Error collect in from",
 			"na-header.action": "Header: action area",
 			"na-header": "Header",
 			"na-header.full": "Header",
@@ -13,6 +13,10 @@
 			"na-modal": "Modal: Used for custom components",
 			"na-modal.edit": "Modal: edit mode demo",
 			"na-modal.view": "Modal: view mode demo",
+			"na-pipe.i18n-prop": "Pipe i18n by property",
+			"na-pipe.i18n": "Pipe i18n",
+			"na-pipe.translate-prop": "Pipe translate",
+			"na-pipe.translate": "Pipe translate by property",
 			"na-se.col-1": "SE: single line",
 			"na-se.control-checkbox": "SE Control: checkbox",
 			"na-se.control-input-group": "SE Control: input group",
@@ -53,13 +57,13 @@
 	"ng": {
 		"title": "Angular",
 		"list": {
+			"ng-switch": "Switch syntax",
 			"ng-template": "ng-template",
 			"ng-template.outlet": "include Outlet",
 			"ng-template.recursive-tree": "Template recursive tree",
 			"ng-container": "ng-container",
 			"ng-container.for": "include *ngFor",
 			"ng-container.if": "include *ngIf",
-			"ng-switch": "Switch syntax",
 			"ng-router.active-mulit": "Router with acitve",
 			"ng-router.active": "Router with acitve",
 			"ng-router": "Router",

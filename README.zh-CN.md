@@ -28,14 +28,20 @@
 Trigger | Description
 --- | ---
 na-ellipsis | 文本自动省略号
-na-error-collect | 表单异常消息采集器
 na-footer-toolbar | 底部工具栏
 na-header.action | 页头：操作区域
 na-header | 页头
 na-header.full | 页头：完整模式
+na-header-css | CSS页头
+na-header-css.right-input | CSS页头：右边表单
+na-header-css.right-inputgroup | CSS页头：右边表单组
 na-modal | 模态框
 na-modal.edit | 模态框：编辑模式
 na-modal.view | 模态框：查看模式
+na-pipe.i18n-prop | i18n属性管道
+na-pipe.i18n | i18n管道
+na-pipe.translate-prop | translate管道
+na-pipe.translate | translate属性管道
 na-se.col-1 | 编辑：单行
 na-se.control-checkbox | 编辑控件：多选框
 na-se.control-input-group | 编辑控件：文本框组合
@@ -50,10 +56,6 @@ na-se.full | 编辑完整示例
 na-se.modal | 编辑：模态框示例
 na-se.page | 编辑：页面示例
 na-se.search | 编辑：搜索示例
-na-st.custom-title | 表格：自定义标题头
-na-st.custom | 表格：自定义列
-na-st | 表格
-na-st.res | 表格属性：res 参数
 na-sf | 动态表单
 na-sf.edit | 动态表单：编辑模式
 na-sf.modal | 动态表单：模态页示例
@@ -69,10 +71,12 @@ na-sv.size | 查看属性：大小
 na-sv.status | 查看：状态示例
 na-sv.time | 查看：时间示例
 na-sv.type | 查看属性：列表内容样式
-na-header-css | CSS页头
-na-header-css.right-input | CSS页头：右边表单
-na-header-css.right-inputgroup | CSS页头：右边表单组
+na-st.custom-title | 表格：自定义标题头
+na-st.custom | 表格：自定义列
+na-st | 表格
+na-st.res | 表格属性：res 参数
 na-tag-select | 标签选择器
+na-error-collect | 表单异常消息采集器
 
 ### Angular 内置片断
 
@@ -81,7 +85,6 @@ Trigger | Description
 ng-container | ng-container
 ng-container.for | 携带 *ngFor
 ng-container.if | 携带 *ngIf
-ng-switch | Switch语法
 ng-router.active-mulit | 路由高亮（多类名）
 ng-router.active | 路由高亮
 ng-router | 路由链接
@@ -89,6 +92,7 @@ ng-router.query | 路由链接带参数
 ng-template | ng-template
 ng-template.outlet | 携带 Outlet
 ng-template.recursive-tree | 模板递归树
+ng-switch | Switch语法
 
 ### TypeScript 片断
 

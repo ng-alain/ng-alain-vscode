@@ -36,14 +36,20 @@ More API interface please refer to [ng-alain](https://ng-alain.com/).
 Trigger | Description
 --- | ---
 na-ellipsis | Ellipsis
-na-error-collect | Error collect in from
 na-footer-toolbar | Footer Toolbar
 na-header.action | Header: action area
 na-header | Header
 na-header.full | Header
+na-header-css | CSS of Header
+na-header-css.right-input | CSS of Header: input in right
+na-header-css.right-inputgroup | CSS of Header: input group in right
 na-modal | Modal: Used for custom components
 na-modal.edit | Modal: edit mode demo
 na-modal.view | Modal: view mode demo
+na-pipe.i18n-prop | Pipe i18n by property
+na-pipe.i18n | Pipe i18n
+na-pipe.translate-prop | Pipe translate
+na-pipe.translate | Pipe translate by property
 na-se.col-1 | SE: single line
 na-se.control-checkbox | SE Control: checkbox
 na-se.control-input-group | SE Control: input group
@@ -58,10 +64,6 @@ na-se.full | SE: full demo
 na-se.modal | SE: modal demo
 na-se.page | SE: page demo
 na-se.search | SE: search demo
-na-st.custom-title | SF: custom title
-na-st.custom | SF: custom row
-na-st | ST: Use configuration instead of nz-table
-na-st.res | ST Property: res
 na-sf | SF: Dynamic form
 na-sf.edit | SF: edit mode
 na-sf.modal | SF: modal demo
@@ -77,10 +79,12 @@ na-sv.size | SV Property: size
 na-sv.status | SV: status demo
 na-sv.time | SV: time demo
 na-sv.type | SV Property: type of item
-na-header-css | CSS of Header
-na-header-css.right-input | CSS of Header: input in right
-na-header-css.right-inputgroup | CSS of Header: input group in right
+na-st.custom-title | SF: custom title
+na-st.custom | SF: custom row
+na-st | ST: Use configuration instead of nz-table
+na-st.res | ST Property: res
 na-tag-select | Tag select
+na-error-collect | Error collect in from
 
 ### Angular
 
@@ -89,7 +93,6 @@ Trigger | Description
 ng-container | ng-container
 ng-container.for | include *ngFor
 ng-container.if | include *ngIf
-ng-switch | Switch syntax
 ng-router.active-mulit | Router with acitve
 ng-router.active | Router with acitve
 ng-router | Router
@@ -97,6 +100,7 @@ ng-router.query | Router with parameters
 ng-template | ng-template
 ng-template.outlet | include Outlet
 ng-template.recursive-tree | Template recursive tree
+ng-switch | Switch syntax
 
 ### TypeScript
 

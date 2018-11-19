@@ -1,16 +1,16 @@
 {
  
-     "html error-collect": {
-        "prefix": "na-error-collect",
-        "body": "<error-collect>$0</error-collect>",
-        "description": "表单异常消息采集器(Error collect in from)",
-        "scope": ""
-    }
-
-    , "html footer-toolbar": {
+     "html footer-toolbar": {
         "prefix": "na-footer-toolbar",
         "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
         "description": "底部工具栏(Footer Toolbar)",
+        "scope": ""
+    }
+
+    , "html error-collect": {
+        "prefix": "na-error-collect",
+        "body": "<error-collect>$0</error-collect>",
+        "description": "表单异常消息采集器(Error collect in from)",
         "scope": ""
     }
 
@@ -74,6 +74,34 @@
         "prefix": "na-modal.view",
         "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<desc-list *ngIf=\"$2\">\r\n  $0\r\n</desc-list>\r\n<div class=\"modal-footer\">\r\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n</div>",
         "description": "模态框：查看模式(Modal: view mode demo)",
+        "scope": ""
+    }
+
+    , "html pipe i18n prop": {
+        "prefix": "na-pipe.i18n-prop",
+        "body": "[${1|nzTitle|}]=\"'$0' | i18n\"",
+        "description": "i18n属性管道(Pipe i18n by property)",
+        "scope": ""
+    }
+
+    , "html pipe i18n": {
+        "prefix": "na-pipe.i18n",
+        "body": "{{ '$0' | i18n }}",
+        "description": "i18n管道(Pipe i18n)",
+        "scope": ""
+    }
+
+    , "html pipe translate prop": {
+        "prefix": "na-pipe.translate-prop",
+        "body": "[${1|nzTitle|}]=\"'$0' | translate\"",
+        "description": "translate管道(Pipe translate)",
+        "scope": ""
+    }
+
+    , "html pipe translate": {
+        "prefix": "na-pipe.translate",
+        "body": "{{ '$0' | translate }}",
+        "description": "translate属性管道(Pipe translate by property)",
         "scope": ""
     }
 
@@ -322,6 +350,13 @@
         "scope": ""
     }
 
+    , "ng switch": {
+        "prefix": "ng-switch",
+        "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <a *ngSwitchDefault></a>\n</ng-container>",
+        "description": "Switch语法(Switch syntax)",
+        "scope": ""
+    }
+
     , "ng template": {
         "prefix": "ng-template",
         "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\n  $0\n</ng-template>",
@@ -361,13 +396,6 @@
         "prefix": "ng-container.if",
         "body": "  <ng-container *ngIf=\"$1\">\r\n    $0\r\n  </ng-container>",
         "description": "携带 *ngIf(include *ngIf)",
-        "scope": ""
-    }
-
-    , "ng switch": {
-        "prefix": "ng-switch",
-        "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <a *ngSwitchDefault></a>\n</ng-container>",
-        "description": "Switch语法(Switch syntax)",
         "scope": ""
     }
 
