@@ -1,5 +1,7 @@
-<form nz-form #f="ngForm" (ngSubmit)="${1:save}()" se-container col="${2|1,2,3,4,5,6|}">
-  $0
+<form nz-form #f="ngForm" (ngSubmit)="${1:save}()">
+  <div se-container="${2|1,2,3,4,5,6|}">
+    $0
+  </div>
   <div class="modal-footer">
     <button nz-button type="button" (click)="close()">${3:关闭}</button>
     <button nz-button nzType="primary" [disabled]="f.invalid" [nzLoading]="http.loading">${4:保存}</button>

@@ -1,9 +1,9 @@
 {
  
-     "html footer-toolbar": {
-        "prefix": "na-footer-toolbar",
-        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
-        "description": "底部工具栏(Footer Toolbar)",
+     "html ellipsis": {
+        "prefix": "na-ellipsis",
+        "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
+        "description": "文本自动省略号(Ellipsis)",
         "scope": ""
     }
 
@@ -11,6 +11,13 @@
         "prefix": "na-error-collect",
         "body": "<error-collect>$0</error-collect>",
         "description": "表单异常消息采集器(Error collect in from)",
+        "scope": ""
+    }
+
+    , "html footer-toolbar": {
+        "prefix": "na-footer-toolbar",
+        "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
+        "description": "底部工具栏(Footer Toolbar)",
         "scope": ""
     }
 
@@ -72,7 +79,7 @@
 
     , "html modal view": {
         "prefix": "na-modal.view",
-        "body": "<div class=\"modal-header\">\r\n  <div class=\"modal-title\">$1</div>\r\n</div>\r\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\r\n<desc-list *ngIf=\"$2\">\r\n  $0\r\n</desc-list>\r\n<div class=\"modal-footer\">\r\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\r\n</div>",
+        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\n<sv-container *ngIf=\"$2\">\n  $0\n</sv-container>\n<div class=\"modal-footer\">\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n</div>",
         "description": "模态框：查看模式(Modal: view mode demo)",
         "scope": ""
     }
@@ -184,14 +191,14 @@
 
     , "html se modal": {
         "prefix": "na-se.modal",
-        "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\" se-container col=\"${2|1,2,3,4,5,6|}\">\r\n  $0\r\n  <div class=\"modal-footer\">\r\n    <button nz-button type=\"button\" (click)=\"close()\">${3:关闭}</button>\r\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${4:保存}</button>\r\n  </div>\r\n</form>",
+        "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\">\n  <div se-container=\"${2|1,2,3,4,5,6|}\">\n    $0\n  </div>\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">${3:关闭}</button>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${4:保存}</button>\n  </div>\n</form>",
         "description": "编辑：模态框示例(SE: modal demo)",
         "scope": ""
     }
 
     , "html se page": {
         "prefix": "na-se.page",
-        "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\">\r\n  <nz-card se-container col=\"${2|1,2,3,4,5,6|}\" gutter=\"24\">\r\n    $0\r\n  </nz-card>\r\n  <footer-toolbar errorCollect>\r\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${3:保存}</button>\r\n  </footer-toolbar>\r\n</form>",
+        "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\">\n  <nz-card se-container=\"${2|1,2,3,4,5,6|}\" gutter=\"24\">\n    $0\n  </nz-card>\n  <footer-toolbar errorCollect>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${3:保存}</button>\n  </footer-toolbar>\n</form>",
         "description": "编辑：页面示例(SE: page demo)",
         "scope": ""
     }
@@ -266,13 +273,6 @@
         "scope": ""
     }
 
-    , "html tag-select": {
-        "prefix": "na-tag-select",
-        "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
-        "description": "标签选择器(Tag select)",
-        "scope": ""
-    }
-
     , "html sv currency": {
         "prefix": "na-sv.currency",
         "body": "<sv label=\"${1|单价,金额,订单金额,支付金额,市场价|}\">{{ ${2:i.price} | _currency }}</sv>\r\n$0",
@@ -343,38 +343,10 @@
         "scope": ""
     }
 
-    , "html ellipsis": {
-        "prefix": "na-ellipsis",
-        "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
-        "description": "文本自动省略号(Ellipsis)",
-        "scope": ""
-    }
-
-    , "ng switch": {
-        "prefix": "ng-switch",
-        "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <a *ngSwitchDefault></a>\n</ng-container>",
-        "description": "Switch语法(Switch syntax)",
-        "scope": ""
-    }
-
-    , "ng template": {
-        "prefix": "ng-template",
-        "body": "<ng-template #${1|action,extra,edit,view,prefix,suffix|}>\n  $0\n</ng-template>",
-        "description": "ng-template(ng-template)",
-        "scope": ""
-    }
-
-    , "ng template outlet": {
-        "prefix": "ng-template.outlet",
-        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} \\}\"}></ng-template>\r\n$0",
-        "description": "携带 Outlet(include Outlet)",
-        "scope": ""
-    }
-
-    , "ng template recursive tree": {
-        "prefix": "ng-template.recursive-tree",
-        "body": "<ng-template #treeTpl let-ls let-level=\"level\">\n  <li *ngFor=\"let i of ls\">\n    <ul *ngIf=\"i.children.length > 0\">\n      <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: i.children, level: level + 1 }\"></ng-container>\n    </ul>\n  </li>\n</ng-template>\n<ul>\n  <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: tree.children, level: 1 }\"></ng-container>\n</ul>",
-        "description": "模板递归树(Template recursive tree)",
+    , "html tag-select": {
+        "prefix": "na-tag-select",
+        "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
+        "description": "标签选择器(Tag select)",
         "scope": ""
     }
 
@@ -424,6 +396,34 @@
         "prefix": "ng-router.query",
         "body": "routerLink=\"$1\" [queryParams]=\"${2:{ id: 1 }}\"",
         "description": "路由链接带参数(Router with parameters)",
+        "scope": ""
+    }
+
+    , "ng switch": {
+        "prefix": "ng-switch",
+        "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <ng-container *ngSwitchDefault></ng-contain>\n</ng-container>",
+        "description": "Switch语法(Switch syntax)",
+        "scope": ""
+    }
+
+    , "ng template": {
+        "prefix": "ng-template",
+        "body": "<ng-template #${1|actionTpl,extraTpl,editTpl,viewTpl,prefixTpl,suffixTpl|}>\n  $0\n</ng-template>",
+        "description": "ng-template(ng-template)",
+        "scope": ""
+    }
+
+    , "ng template outlet": {
+        "prefix": "ng-template.outlet",
+        "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} \\}\"}></ng-template>\r\n$0",
+        "description": "携带 Outlet(include Outlet)",
+        "scope": ""
+    }
+
+    , "ng template recursive tree": {
+        "prefix": "ng-template.recursive-tree",
+        "body": "<ng-template #treeTpl let-ls let-level=\"level\">\n  <li *ngFor=\"let i of ls\">\n    <ul *ngIf=\"i.children.length > 0\">\n      <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: i.children, level: level + 1 }\"></ng-container>\n    </ul>\n  </li>\n</ng-template>\n<ul>\n  <ng-container *ngTemplateOutlet=\"treeTpl; context:{ \\$implicit: tree.children, level: 1 }\"></ng-container>\n</ul>",
+        "description": "模板递归树(Template recursive tree)",
         "scope": ""
     }  
 }
