@@ -28,6 +28,13 @@
         "scope": ""
     }
 
+    , "ts modal edit": {
+        "prefix": "na-modal.edit",
+        "body": "import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';\nimport { NzModalRef, NzMessageService } from 'ng-zorro-antd';\nimport { _HttpClient } from '@delon/theme';\n\nconst URL = '/';\n\n@Component({\n  selector: 'app-${1}-edit',\n  templateUrl: './edit.component.html',\n})\nexport class ${2}EditComponent implements OnInit {\n  i: any = {\n    id: 0\n  };\n\n  constructor(\n    public http: _HttpClient,\n    private msg: NzMessageService,\n    private modalRef: NzModalRef,\n  ) {}\n\n  ngOnInit() {\n    if (this.i.id > 0) {\n      this.http\n        .get(`${URL}/${this.i.id}`)\n        .subscribe((res: any) => (this.i = res));\n    }\n  }\n\n  save() {\n    this.http.post(URL, this.i).subscribe(res => {\n      this.msg.success('Success');\n      this.modalRef.close(res);\n    });\n  }\n\n  close() {\n    this.modalRef.close();\n  }\n}\n",
+        "description": "构建编辑完整示例(A full edit demo)",
+        "scope": ""
+    }
+
     , "ts sf": {
         "prefix": "na-sf",
         "body": "searchSchema: SFSchema = {\r\n  properties: {\r\n    $0\r\n  }\r\n};",

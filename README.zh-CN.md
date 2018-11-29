@@ -27,8 +27,9 @@
 
 Trigger | Description
 --- | ---
-na-footer-toolbar | 底部工具栏
+na-ellipsis | 文本自动省略号
 na-error-collect | 表单异常消息采集器
+na-footer-toolbar | 底部工具栏
 na-header.action | 页头：操作区域
 na-header | 页头
 na-header.full | 页头：完整模式
@@ -44,15 +45,20 @@ na-pipe.translate-prop | translate管道
 na-pipe.translate | translate属性管道
 na-se.col-1 | 编辑：单行
 na-se.control-checkbox | 编辑控件：多选框
+na-se.control-date | 编辑控件：日期
 na-se.control-input-group | 编辑控件：文本框组合
 na-se.control-input | 编辑控件：文本框
 na-se.control-number | 编辑控件：数字框
 na-se.control-radio-group | 编辑控件：单选框组
 na-se.control-select | 编辑控件：选择器
+na-se.control-switch | 编辑控件：开关
+na-se.control-textarea | 编辑控件：多行文本框
+na-se.control-time | 编辑控件：时间
 na-se.controlClass | 编辑属性：控件区域样式名
 na-se | 编辑
 na-se.form | 编辑：表单示例
 na-se.full | 编辑完整示例
+na-se.help-html | 编辑：HTML帮助
 na-se.modal | 编辑：模态框示例
 na-se.page | 编辑：页面示例
 na-se.search | 编辑：搜索示例
@@ -65,7 +71,6 @@ na-st.custom-title | 表格：自定义标题头
 na-st.custom | 表格：自定义列
 na-st | 表格
 na-st.res | 表格属性：res 参数
-na-tag-select | 标签选择器
 na-sv.currency | 查看：货币示例
 na-sv | 查看
 na-sv.item-custom-title | 查看：自定义标签标题
@@ -76,16 +81,12 @@ na-sv.size | 查看属性：大小
 na-sv.status | 查看：状态示例
 na-sv.time | 查看：时间示例
 na-sv.type | 查看属性：列表内容样式
-na-ellipsis | 文本自动省略号
+na-tag-select | 标签选择器
 
 ### Angular 内置片断
 
 Trigger | Description
 --- | ---
-ng-switch | Switch语法
-ng-template | ng-template
-ng-template.outlet | 携带 Outlet
-ng-template.recursive-tree | 模板递归树
 ng-container | ng-container
 ng-container.for | 携带 *ngFor
 ng-container.if | 携带 *ngIf
@@ -93,6 +94,10 @@ ng-router.active-mulit | 路由高亮（多类名）
 ng-router.active | 路由高亮
 ng-router | 路由链接
 ng-router.query | 路由链接带参数
+ng-switch | Switch语法
+ng-template | ng-template
+ng-template.outlet | 携带 Outlet
+ng-template.recursive-tree | 模板递归树
 
 ### TypeScript 片断
 
@@ -102,6 +107,7 @@ na-http.delete | HTTP请求：删除
 na-http.get | HTTP请求：获取
 na-http.post | HTTP请求：提交
 na-modal.close | 关闭对话框代码
+na-modal.edit | 构建编辑完整示例
 na-sf | SF
 na-sf.field | SF：字段
 na-sf.select | SF：选择器字段

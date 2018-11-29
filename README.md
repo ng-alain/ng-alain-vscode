@@ -35,8 +35,9 @@ More API interface please refer to [ng-alain](https://ng-alain.com/).
 
 Trigger | Description
 --- | ---
-na-footer-toolbar | Footer Toolbar
+na-ellipsis | Ellipsis
 na-error-collect | Error collect in from
+na-footer-toolbar | Footer Toolbar
 na-header.action | Header: action area
 na-header | Header
 na-header.full | Header
@@ -51,16 +52,21 @@ na-pipe.i18n | Pipe i18n
 na-pipe.translate-prop | Pipe translate
 na-pipe.translate | Pipe translate by property
 na-se.col-1 | SE: single line
-na-se.control-checkbox | SE Control: checkbox
-na-se.control-input-group | SE Control: input group
-na-se.control-input | SE Control: input
-na-se.control-number | SE Control: input number
-na-se.control-radio-group | SE Control: radio group
-na-se.control-select | SE Control: select
+na-se.control-checkbox | SE Control: Checkbox
+na-se.control-date | SE Control: Date
+na-se.control-input-group | SE Control: Input group
+na-se.control-input | SE Control: Input
+na-se.control-number | SE Control: Input number
+na-se.control-radio-group | SE Control: Radio group
+na-se.control-select | SE Control: Select
+na-se.control-switch | SE Control: Switch
+na-se.control-textarea | SE Control: Textarea
+na-se.control-time | SE Control: Time
 na-se.controlClass | SE Property: class names of control
 na-se | SE
 na-se.form | SE: form demo
 na-se.full | SE: full demo
+na-se.help-html | SE: Help html
 na-se.modal | SE: modal demo
 na-se.page | SE: page demo
 na-se.search | SE: search demo
@@ -73,7 +79,6 @@ na-st.custom-title | SF: custom title
 na-st.custom | SF: custom row
 na-st | ST: Use configuration instead of nz-table
 na-st.res | ST Property: res
-na-tag-select | Tag select
 na-sv.currency | SV: currency demo
 na-sv | SV: Used to view pages
 na-sv.item-custom-title | SV: custom title of item
@@ -84,16 +89,12 @@ na-sv.size | SV Property: size
 na-sv.status | SV: status demo
 na-sv.time | SV: time demo
 na-sv.type | SV Property: type of item
-na-ellipsis | Ellipsis
+na-tag-select | Tag select
 
 ### Angular
 
 Trigger | Description
 --- | ---
-ng-switch | Switch syntax
-ng-template | ng-template
-ng-template.outlet | include Outlet
-ng-template.recursive-tree | Template recursive tree
 ng-container | ng-container
 ng-container.for | include *ngFor
 ng-container.if | include *ngIf
@@ -101,6 +102,10 @@ ng-router.active-mulit | Router with acitve
 ng-router.active | Router with acitve
 ng-router | Router
 ng-router.query | Router with parameters
+ng-switch | Switch syntax
+ng-template | ng-template
+ng-template.outlet | include Outlet
+ng-template.recursive-tree | Template recursive tree
 
 ### TypeScript
 
@@ -110,6 +115,7 @@ na-http.delete | HTTP Request: delete
 na-http.get | HTTP Request: get
 na-http.post | HTTP Request: post
 na-modal.close | Close dialog code
+na-modal.edit | A full edit demo
 na-sf | SF
 na-sf.field | SF: field
 na-sf.select | SF: select of field

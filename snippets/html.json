@@ -121,43 +121,71 @@
 
     , "html se control checkbox": {
         "prefix": "na-se.control-checkbox",
-        "body": "<label nz-checkbox [(ngModel)]=\"i.${2:name}\" name=\"${2}\">${3|启用,禁止,允许,不允许|}</label>\r\n$0",
-        "description": "编辑控件：多选框(SE Control: checkbox)",
+        "body": "<label nz-checkbox [(ngModel)]=\"i.${1:name}\" name=\"${1}\">${2|启用,禁止,允许,不允许|}</label>\n$0",
+        "description": "编辑控件：多选框(SE Control: Checkbox)",
+        "scope": ""
+    }
+
+    , "html se control date": {
+        "prefix": "na-se.control-date",
+        "body": "<nz-date-picker [(ngModel)]=\"i.${1|date,start,end,birthday|}\" name=\"${1}\"${2: nzShowTime}></nz-date-picker>\n$0",
+        "description": "编辑控件：日期(SE Control: Date)",
         "scope": ""
     }
 
     , "html se control input group": {
         "prefix": "na-se.control-input-group",
-        "body": "<nz-input-group nzAddOnAfter=\"${2:后置标签}\">\r\n  <input type=\"text\" nz-input [(ngModel)]=\"i.${3:name}\" name=\"${3}\">\r\n</nz-input-group>\r\n$0",
-        "description": "编辑控件：文本框组合(SE Control: input group)",
+        "body": "<nz-input-group nzAddOnAfter=\"${2:后置标签}\">\n  <input type=\"text\" nz-input [(ngModel)]=\"i.${1:name}\" name=\"${1}\">\n</nz-input-group>\n$0",
+        "description": "编辑控件：文本框组合(SE Control: Input group)",
         "scope": ""
     }
 
     , "html se control input": {
         "prefix": "na-se.control-input",
         "body": "<input nz-input [(ngModel)]=\"i.${1:name}\" name=\"${1}\"${2: required}${3: maxlength=\"${4|10,20,30,32,50,100|}\"}>\r\n",
-        "description": "编辑控件：文本框(SE Control: input)",
+        "description": "编辑控件：文本框(SE Control: Input)",
         "scope": ""
     }
 
     , "html se control number": {
         "prefix": "na-se.control-number",
-        "body": "<nz-input-number [(ngModel)]=\"i.${2:num}\" name=\"${2}\" ${3: required}${4: nzPlaceHolder=\"${5}\" }></nz-input-number>\r\n$0",
-        "description": "编辑控件：数字框(SE Control: input number)",
+        "body": "<nz-input-number [(ngModel)]=\"i.${1:num}\" name=\"${1}\" ${2: required}${3: nzPlaceHolder=\"${4}\" }></nz-input-number>\n$0",
+        "description": "编辑控件：数字框(SE Control: Input number)",
         "scope": ""
     }
 
     , "html se control radio group": {
         "prefix": "na-se.control-radio-group",
-        "body": "<nz-radio-group [(ngModel)]=\"i.${2:type}\" name=\"${2}\" ${3: required}>\r\n  <label nz-radio [nzValue]=\"${4:1}\">${5:类型一}</label>\r\n  $0\r\n</nz-radio-group>",
-        "description": "编辑控件：单选框组(SE Control: radio group)",
+        "body": "<nz-radio-group [(ngModel)]=\"i.${1:type}\" name=\"${1}\" ${2: required}>\n  <label nz-radio [nzValue]=\"${3:1}\">${4:类型一}</label>\n  $0\n</nz-radio-group>",
+        "description": "编辑控件：单选框组(SE Control: Radio group)",
         "scope": ""
     }
 
     , "html se control select": {
         "prefix": "na-se.control-select",
-        "body": "<nz-select [(ngModel)]=\"i.${2:name}\" name=\"${2}\">\r\n  <nz-option nzLabel=\"$3\" [nzValue]=\"${4:1}\"></nz-option>\r\n  $0\r\n</nz-select>",
-        "description": "编辑控件：选择器(SE Control: select)",
+        "body": "<nz-select [(ngModel)]=\"i.${1:name}\" name=\"${1}\">\n  <nz-option nzLabel=\"$2\" [nzValue]=\"${3:1}\"></nz-option>\n  $0\n</nz-select>",
+        "description": "编辑控件：选择器(SE Control: Select)",
+        "scope": ""
+    }
+
+    , "html se control switch": {
+        "prefix": "na-se.control-switch",
+        "body": "<nz-switch [(ngModel)]=\"i.${1|enabled,disabled,closed,checked,yes,no|}\" name=\"${1}\"></nz-switch>\n$0",
+        "description": "编辑控件：开关(SE Control: Switch)",
+        "scope": ""
+    }
+
+    , "html se control textarea": {
+        "prefix": "na-se.control-textarea",
+        "body": "<textarea [(ngModel)]=\"i.${1:remark}\" name=\"${1}\" nz-input rows=\"${2|1,2,3,4,5|}\" placeholder=\"${3:必填项}\"></textarea>\n$0",
+        "description": "编辑控件：多行文本框(SE Control: Textarea)",
+        "scope": ""
+    }
+
+    , "html se control time": {
+        "prefix": "na-se.control-time",
+        "body": "<nz-time-picker [(ngModel)]=\"i.${1|time|}\" name=\"${1}\"${2: nzFormat=\"${3|HH:mm,mm:ss,HH,mm,ss|}\"}></nz-time-picker>\n$0",
+        "description": "编辑控件：时间(SE Control: Time)",
         "scope": ""
     }
 
@@ -189,9 +217,16 @@
         "scope": ""
     }
 
+    , "html se help html": {
+        "prefix": "na-se.help-html",
+        "body": "<se [label]=\"${1:type}LabelTpl\">\n  <ng-template #${1}LabelTpl>\n    <label>\n      $2\n      <nz-popover [nzContent]=\"${1}HelpTpl\">\n        <ng-template #${1}HelpTpl>\n          $3\n        </ng-template>\n        <i nz-popover nz-icon type=\"question-circle\"></i>\n      </nz-popover>\n    </label>\n  </ng-template>\n  $0\n</se>",
+        "description": "编辑：HTML帮助(SE: Help html)",
+        "scope": ""
+    }
+
     , "html se modal": {
         "prefix": "na-se.modal",
-        "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\">\n  <div se-container=\"${2|1,2,3,4,5,6|}\">\n    $0\n  </div>\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">${3:关闭}</button>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${4:保存}</button>\n  </div>\n</form>",
+        "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<form nz-form #f=\"ngForm\" (ngSubmit)=\"${2:save}()\">\n  <div se-container=\"${3|1,2,3,4,5,6|}\">\n    $0\n  </div>\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">${4:关闭}</button>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${5:保存}</button>\n  </div>\n</form>",
         "description": "编辑：模态框示例(SE: modal demo)",
         "scope": ""
     }
