@@ -1,0 +1,57 @@
+{
+  "na_component_new-onpush": {
+    "prefix": "na-component-new-onpush",
+    "body": "import {\n  Component,\n  ChangeDetectionStrategy,\n  ChangeDetectorRef,\n} from '@angular/core';\n\n@Component({\n  selector: 'app-${1}',\n  templateUrl: './${1}.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ${1}Component {\n  constructor(private cdr: ChangeDetectorRef) {}\n}",
+    "description": "OnPush Component"
+  },
+  "na_http_delete": {
+    "prefix": "na-http-delete",
+    "body": "this.http.delete(${1:this.url}).subscribe((res: any) => this.msgSrv.success('删除成功'));",
+    "description": "Delete http request"
+  },
+  "na_http_get": {
+    "prefix": "na-http-get",
+    "body": "this.http.get(${1:this.url}).subscribe((res: any) => (this.${2:i} = res));",
+    "description": "Get http request"
+  },
+  "na_http_post": {
+    "prefix": "na-http-post",
+    "body": "this.http.post(${1:this.url}, this.${2:i}).subscribe((res: any) => {\n  this.msgSrv.success('保存成功');\n  this.modal.close(true);\n});",
+    "description": "Post http request"
+  },
+  "na_modal_close": {
+    "prefix": "na-modal-close",
+    "body": "close() {\n  this.modal.destroy();\n}",
+    "description": "Close dialog"
+  },
+  "na_modal_edit": {
+    "prefix": "na-modal-edit",
+    "body": "import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';\nimport { NzModalRef, NzMessageService } from 'ng-zorro-antd';\nimport { _HttpClient } from '@delon/theme';\n\nconst URL = '/';\n\n@Component({\n  selector: 'app-${1}-edit',\n  templateUrl: './edit.component.html',\n})\nexport class ${2}EditComponent implements OnInit {\n  i: any = {\n    id: 0\n  };\n\n  constructor(\n    public http: _HttpClient,\n    private msg: NzMessageService,\n    private modalRef: NzModalRef,\n  ) {}\n\n  ngOnInit() {\n    if (this.i.id > 0) {\n      this.http\n        .get(`${URL}/${this.i.id}`)\n        .subscribe((res: any) => (this.i = res));\n    }\n  }\n\n  save() {\n    this.http.post(URL, this.i).subscribe(res => {\n      this.msg.success('Success');\n      this.modalRef.close(res);\n    });\n  }\n\n  close() {\n    this.modalRef.close();\n  }\n}",
+    "description": "A full edit demo"
+  },
+  "na_sf": {
+    "prefix": "na-sf",
+    "body": "searchSchema: SFSchema = {\n  properties: {\n    $0\n  }\n};",
+    "description": "SF"
+  },
+  "na_sf_field": {
+    "prefix": "na-sf-field",
+    "body": "${1:name}: {\n  type: 'string',\n  title: '',\n  ui: { placeholder: '${2|编号,姓名|}' },\n},\n$0",
+    "description": "Field for sf"
+  },
+  "na_sf_select": {
+    "prefix": "na-sf-select",
+    "body": "${1:type}: {\n  type: 'string',\n  title: '',\n  enum: [\n    { label: '类型不限', value: '' },\n    $0\n  ],\n  default: ''\n},",
+    "description": "Select field for sf"
+  },
+  "na_st_column": {
+    "prefix": "na-st-column",
+    "body": "{ title: '${1|编号,类型,状态,时间,操作|}', index: '${2|id,no,type,status,created,modified,closed,enabled|}' },",
+    "description": "Column schema for st"
+  },
+  "na_st": {
+    "prefix": "na-st",
+    "body": "columns: STColumn[] = [\n  $0\n];",
+    "description": "Columns define for st"
+  }
+}

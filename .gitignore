@@ -6,4 +6,6 @@ package-lock.json
 npm-debug.log
 yarn.lock
 /ng-alain-vscode-*.vsix
+/cipchk.ng-alain-vscode*.vsix
 /out
+/snippets

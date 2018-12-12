@@ -1,3 +1,8 @@
+# 3.3.0
+
+- 使用 [vscode-snippet-generator](https://github.com/cipchk/vscode-snippet-generator) 替代原始生成插件方法
+- 同步中文版本，现版本为英文版本
+
 # 3.2.0
 
 - 增加一个完整示例

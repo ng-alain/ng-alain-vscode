@@ -1,0 +1,332 @@
+{
+  "na_ellipsis": {
+    "prefix": "na-ellipsis",
+    "body": "<ellipsis lines=\"${1|2,3,4,5|}\">$0</ellipsis>",
+    "description": "Ellipsis"
+  },
+  "na_error-collect": {
+    "prefix": "na-error-collect",
+    "body": "<error-collect>$0</error-collect>",
+    "description": "Error collect in from"
+  },
+  "na_footer-toolbar": {
+    "prefix": "na-footer-toolbar",
+    "body": "<footer-toolbar${1: errorCollect}>\n  <button nz-button nzType=\"primary\">$0</button>\n</footer-toolbar>",
+    "description": "Footer Toolbar"
+  },
+  "na_header_action": {
+    "prefix": "na-header-action",
+    "body": "<page-header [action]=\"phAction\">\n  <ng-template #phAction>\n    <button (click)=\"${2:add()}\" nz-button nzType=\"primary\">${1:新建}</button>\n  </ng-template>\n</page-header>\n$0",
+    "description": "Header include action area"
+  },
+  "na_header_css": {
+    "prefix": "na-header-css",
+    "body": "<div class=\"alain-default__content-title\">\n  <h1>${1}</h1>\n</div>\n$0",
+    "description": "CSS of Header"
+  },
+  "na_header_css_right-input": {
+    "prefix": "na-header-css-right-input",
+    "body": "<div class=\"alain-default__content-title\">\n  <h1>$1</h1>\n  <button nz-button (click)=\"${2}()\" [nzType]=\"'primary'\">${2:添加}</button>\n</div>\n$0",
+    "description": "CSS of header, Input in right"
+  },
+  "na_header_css_right-inputgroup": {
+    "prefix": "na-header-css-right-inputgroup",
+    "body": "<div class=\"alain-default__content-title\">\n  <h1>$1</h1>\n  <nz-input-group [nzCompact]=\"true\">\n    <nz-input [(ngModel)]=\"${4:val}\"></nz-input>\n    <button nz-button (click)=\"${3}\" [nzLoading]=\"http.loading\" [disabled]=\"!${4}\">${2:切换}</button>\n  </nz-input-group>\n</div>\n$0",
+    "description": "CSS of Header, Input group in right"
+  },
+  "na_header": {
+    "prefix": "na-header",
+    "body": "<page-header${1: [title]=\"'$2'\"}></page-header>\n$0",
+    "description": "Header"
+  },
+  "na_header_full": {
+    "prefix": "na-header-full",
+    "body": "<page-header [title]=\"'$0'\"\n  [breadcrumb]=\"phBreadcrumb\"\n  [logo]=\"phLogo\"\n  [action]=\"phAction\"\n  [content]=\"phContent\"\n  [extra]=\"phExtra\"\n  [tab]=\"phTab\"\n>\n  <ng-template #phBreadcrumb>面包屑</ng-template>\n  <ng-template #phLogo>\n    <div class=\"logo\">logo</div>\n  </ng-template>\n  <ng-template #phAction>\n    <div class=\"action\">action</div>\n  </ng-template>\n  <ng-template #phContent>\n    <div class=\"desc\">content</div>\n  </ng-template>\n  <ng-template #phExtra>\n    <div class=\"extra\">extra</div>\n  </ng-template>\n  <ng-template #phTab>\n    <nz-tabset nzSize=\"default\">\n      <nz-tab nzTitle=\"页签一\"></nz-tab>\n      <nz-tab nzTitle=\"页签二\"></nz-tab>\n      <nz-tab nzTitle=\"页签三\"></nz-tab>\n    </nz-tabset>\n  </ng-template>\n</page-header>\n$0",
+    "description": "Full header"
+  },
+  "na_modal": {
+    "prefix": "na-modal",
+    "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n$0\n<div class=\"modal-footer\"></div>",
+    "description": "Modal for custom components"
+  },
+  "na_modal_edit": {
+    "prefix": "na-modal-edit",
+    "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\n<sf *ngIf=\"$2\" #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$2\" button=\"none\">\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </div>\n</sf>",
+    "description": "Modal edit mode demo"
+  },
+  "na_modal_view": {
+    "prefix": "na-modal-view",
+    "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<nz-spin *ngIf=\"!${2:i}\" class=\"modal-spin\"></nz-spin>\n<sv-container *ngIf=\"$2\">\n  $0\n</sv-container>\n<div class=\"modal-footer\">\n  <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n</div>",
+    "description": "Modal view mode demo"
+  },
+  "na_pipe_i18n-prop": {
+    "prefix": "na-pipe-i18n-prop",
+    "body": "[${1|nzTitle|}]=\"'$0' | i18n\"",
+    "description": "Pipe i18n by property"
+  },
+  "na_pipe_i18n": {
+    "prefix": "na-pipe-i18n",
+    "body": "{{ '$0' | i18n }}",
+    "description": "Pipe i18n"
+  },
+  "na_pipe_translate-prop": {
+    "prefix": "na-pipe-translate-prop",
+    "body": "[${1|nzTitle|}]=\"'$0' | translate\"",
+    "description": "Pipe translate"
+  },
+  "na_pipe_translate": {
+    "prefix": "na-pipe-translate",
+    "body": "{{ '$0' | translate }}",
+    "description": "Pipe translate by property"
+  },
+  "na_se_col-1": {
+    "prefix": "na-se-col-1",
+    "body": "<se label=\"${1:描述}\" col=\"1\">\n  $0\n</se>",
+    "description": "SE single line"
+  },
+  "na_se_control-checkbox": {
+    "prefix": "na-se-control-checkbox",
+    "body": "<label nz-checkbox [(ngModel)]=\"i.${1:name}\" name=\"${1}\">${2|启用,禁止,允许,不允许|}</label>\n$0",
+    "description": "SE Control Checkbox"
+  },
+  "na_se_control-date": {
+    "prefix": "na-se-control-date",
+    "body": "<nz-date-picker [(ngModel)]=\"i.${1|date,start,end,birthday|}\" name=\"${1}\"${2: nzShowTime}></nz-date-picker>\n$0",
+    "description": "SE Control Date"
+  },
+  "na_se_control-input-group": {
+    "prefix": "na-se-control-input-group",
+    "body": "<nz-input-group nzAddOnAfter=\"${2:后置标签}\">\n  <input type=\"text\" nz-input [(ngModel)]=\"i.${1:name}\" name=\"${1}\">\n</nz-input-group>\n$0",
+    "description": "SE Control Input group"
+  },
+  "na_se_control-input": {
+    "prefix": "na-se-control-input",
+    "body": "<input nz-input [(ngModel)]=\"i.${1:name}\" name=\"${1}\"${2: required}${3: maxlength=\"${4|10,20,30,32,50,100|}\"}>",
+    "description": "SE Control Input"
+  },
+  "na_se_control-number": {
+    "prefix": "na-se-control-number",
+    "body": "<nz-input-number [(ngModel)]=\"i.${1:num}\" name=\"${1}\" ${2: required}${3: nzPlaceHolder=\"${4}\" }></nz-input-number>\n$0",
+    "description": "SE Control Input number"
+  },
+  "na_se_control-radio-group": {
+    "prefix": "na-se-control-radio-group",
+    "body": "<nz-radio-group [(ngModel)]=\"i.${1:type}\" name=\"${1}\" ${2: required}>\n  <label nz-radio [nzValue]=\"${3:1}\">${4:类型一}</label>\n  $0\n</nz-radio-group>",
+    "description": "SE Control Radio group"
+  },
+  "na_se_control-select": {
+    "prefix": "na-se-control-select",
+    "body": "<nz-select [(ngModel)]=\"i.${1:name}\" name=\"${1}\">\n  <nz-option nzLabel=\"$2\" [nzValue]=\"${3:1}\"></nz-option>\n  $0\n</nz-select>",
+    "description": "SE Control Select"
+  },
+  "na_se_control-switch": {
+    "prefix": "na-se-control-switch",
+    "body": "<nz-switch [(ngModel)]=\"i.${1|enabled,disabled,closed,checked,yes,no|}\" name=\"${1}\"></nz-switch>\n$0",
+    "description": "SE Control Switch"
+  },
+  "na_se_control-textarea": {
+    "prefix": "na-se-control-textarea",
+    "body": "<textarea [(ngModel)]=\"i.${1:remark}\" name=\"${1}\" nz-input rows=\"${2|1,2,3,4,5|}\" placeholder=\"${3:必填项}\"></textarea>\n$0",
+    "description": "SE Control Textarea"
+  },
+  "na_se_control-time": {
+    "prefix": "na-se-control-time",
+    "body": "<nz-time-picker [(ngModel)]=\"i.${1|time|}\" name=\"${1}\"${2: nzFormat=\"${3|HH:mm,mm:ss,HH,mm,ss|}\"}></nz-time-picker>\n$0",
+    "description": "SE Control Time"
+  },
+  "na_se_controlClass": {
+    "prefix": "na-se-controlClass",
+    "body": "controlClass=\"${1|text-error,text-primary,text-success|}\"",
+    "description": "Class names of se control"
+  },
+  "na_se": {
+    "prefix": "na-se",
+    "body": "<se label=\"${1:名称}\"${2: required}${3: error=\"${4:请填写}\"}>\n  $0\n</se>",
+    "description": "SE control"
+  },
+  "na_se_form": {
+    "prefix": "na-se-form",
+    "body": "<form nz-form #f=\"ngForm\" se-container>\n  <se label=\"$2\">\n    $0\n  </se>\n  <se>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\">${1:保存}</button>\n  </se>\n</form>",
+    "description": "Form demo for se"
+  },
+  "na_se_full": {
+    "prefix": "na-se-full",
+    "body": "<se label=\"${1:名称}\"${2: required} error=\"${3:请填写}\" optional=\"${4:(选填)}\" optionalHelp=\"$5\" extra=\"$6\">\n  $0\n</se>",
+    "description": "full for se"
+  },
+  "na_se_help-html": {
+    "prefix": "na-se-help-html",
+    "body": "<se [label]=\"${1:type}LabelTpl\">\n  <ng-template #${1}LabelTpl>\n    <label>\n      $2\n      <nz-popover [nzContent]=\"${1}HelpTpl\">\n        <ng-template #${1}HelpTpl>\n          $3\n        </ng-template>\n        <i nz-popover nz-icon type=\"question-circle\"></i>\n      </nz-popover>\n    </label>\n  </ng-template>\n  $0\n</se>",
+    "description": "Help html for se"
+  },
+  "na_se_modal": {
+    "prefix": "na-se-modal",
+    "body": "<div class=\"modal-header\">\n  <div class=\"modal-title\">$1</div>\n</div>\n<form nz-form #f=\"ngForm\" (ngSubmit)=\"${2:save}()\">\n  <div se-container=\"${3|1,2,3,4,5,6|}\">\n    $0\n  </div>\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">${4:关闭}</button>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${5:保存}</button>\n  </div>\n</form>",
+    "description": "Modal demo for se"
+  },
+  "na_se_page": {
+    "prefix": "na-se-page",
+    "body": "<form nz-form #f=\"ngForm\" (ngSubmit)=\"${1:save}()\">\n  <nz-card se-container=\"${2|1,2,3,4,5,6|}\" gutter=\"24\">\n    $0\n  </nz-card>\n  <footer-toolbar errorCollect>\n    <button nz-button nzType=\"primary\" [disabled]=\"f.invalid\" [nzLoading]=\"http.loading\">${3:保存}</button>\n  </footer-toolbar>\n</form>",
+    "description": "Page demo using se"
+  },
+  "na_se_search": {
+    "prefix": "na-se-search",
+    "body": "<form nz-form nzLayout=\"inline\" (ngSubmit)=\"${1:save}()\" se-container>\n  <se label=\"${2:名称}\">\n    <input nz-input [(ngModel)]=\"i.${3:name}\" name=\"${3}\">\n  </se>\n  <se>\n    <button nz-button nzType=\"primary\">${4:搜索}</button>\n  </se>\n</form>",
+    "description": "Search demo for se"
+  },
+  "na_sf": {
+    "prefix": "na-sf",
+    "body": "<sf #sf [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:i}\" (formSubmit)=\"${4:submit}($event)\"></sf>",
+    "description": "Dynamic form"
+  },
+  "na_sf_edit": {
+    "prefix": "na-sf-edit",
+    "body": "<sf mode=\"edit\" [schema]=\"${1:schema}\" [ui]=\"${2:ui}\" [formData]=\"${3:params}\" (formSubmit)=\"${4:submit}($event)\"></sf>",
+    "description": "Edit demo for sf"
+  },
+  "na_sf_modal": {
+    "prefix": "na-sf-modal",
+    "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <div class=\"modal-footer\">\n    <button nz-button type=\"button\" (click)=\"close()\">关闭</button>\n    <button nz-button type=\"submit\" [nzType]=\"'primary'\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </div>\n</sf>",
+    "description": "Modal demo for sf"
+  },
+  "na_sf_page": {
+    "prefix": "na-sf-page",
+    "body": "<sf #sf mode=\"edit\" [schema]=\"schema\" [ui]=\"ui\" [formData]=\"$1\" button=\"none\">\n  <footer-toolbar>\n    <button nz-button type=\"submit\" nzType=\"primary\" (click)=\"save(sf.value)\" [disabled]=\"!sf.valid\" [nzLoading]=\"http.loading\">保存</button>\n  </footer-toolbar>\n</sf>",
+    "description": "Page dem for sf"
+  },
+  "na_sf_search": {
+    "prefix": "na-sf-search",
+    "body": "<sf mode=\"search\" [schema]=\"${1:searchSchema}\" [formData]=\"${2:params}\" (formSubmit)=\"${3:st}.reset($event)\" (formReset)=\"$3.reset($2)\"></sf>",
+    "description": "Search demo for sf"
+  },
+  "na_st_custom-title": {
+    "prefix": "na-st-custom-title",
+    "body": "<ng-template st-row=\"${1:custom}\" type=\"title\" let-c let-index=\"index\">\n  $0\n</ng-template>",
+    "description": "Custom title for st"
+  },
+  "na_st_custom": {
+    "prefix": "na-st-custom",
+    "body": "<ng-template st-row=\"${1:custom}\" let-item let-index=\"index\">\n  $0\n</ng-template>",
+    "description": "Custom row for st"
+  },
+  "na_st": {
+    "prefix": "na-st",
+    "body": "<st [data]=\"${1:url}\" [columns]=\"${2:columns}\"${3: [req]=\"{${4:params: params}\\\\}\"}$0></st>",
+    "description": "st"
+  },
+  "na_st_res": {
+    "prefix": "na-st-res",
+    "body": "[res]=\"{ reName: { total: \"$1\", list: \"$2\" \\\\}${3:, process: process} \\\\}\"",
+    "description": "res paraments for st"
+  },
+  "na_sv_currency": {
+    "prefix": "na-sv-currency",
+    "body": "<sv label=\"${1|单价,金额,订单金额,支付金额,市场价|}\">{{ ${2:i.price} | _currency }}</sv>\n$0",
+    "description": "Currency demo for sv"
+  },
+  "na_sv": {
+    "prefix": "na-sv",
+    "body": "<sv-container${1: col=\"${2|2,3,4,5,6|}\"}${3: [title]=\"'${4}'\"}>\n  <sv label=\"$5\">$6</sv>\n  $0\n</sv-container>",
+    "description": "View"
+  },
+  "na_sv_item-custom-title": {
+    "prefix": "na-sv-item-custom-title",
+    "body": "<sv [label]=\"${1:idLabelTpl}\">\n  <ng-template #${1}>\n    <a nz-tooltip=\"test\">tip</a>\n    $0\n  </ng-template>\n</sv>",
+    "description": "Custom title for sv"
+  },
+  "na_sv_item": {
+    "prefix": "na-sv-item",
+    "body": "<sv label=\"${1|编号,名称,电话,手机,地址,备注,数量|}\">$2</sv>\n$0",
+    "description": "Item for sv"
+  },
+  "na_sv_label-width": {
+    "prefix": "na-sv-label-width",
+    "body": "<sv-container labelWidth=\"${1:150}\"${2: col=\"${3|2,3,4,5,6|}\"}${4: [title]=\"'${5}'\"}>\n  <sv label=\"$6\">$7</sv>\n  $0\n</sv-container>",
+    "description": "Fix label width for sv"
+  },
+  "na_sv_layout": {
+    "prefix": "na-sv-layout",
+    "body": "layout=\"${1|vertical,horizontal|}\"",
+    "description": "Layout for sv"
+  },
+  "na_sv_size": {
+    "prefix": "na-sv-size",
+    "body": "size=\"${1|small,large|}\"",
+    "description": "Size for sv"
+  },
+  "na_sv_status": {
+    "prefix": "na-sv-status",
+    "body": "<sv label=\"状态\">\n  <nz-badge *ngIf=\"i.status === 1\" nzStatus=\"default\" nzText=\"未提交\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 2\" nzStatus=\"processing\" nzText=\"运行中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 4\" nzStatus=\"warning\" nzText=\"上线审核中\"></nz-badge>\n  <nz-badge *ngIf=\"i.status === 6\" nzStatus=\"error\" nzText=\"已删除\"></nz-badge>\n  $0\n</sv>",
+    "description": "Status demo for sv"
+  },
+  "na_sv_time": {
+    "prefix": "na-sv-time",
+    "body": "<sv label=\"${1|时间,开始时间,结束时间,生效时间,创建时间,更新时间|}\">{{ ${2:i.time} | _date }}</sv>\n$0",
+    "description": "Time demo for sv"
+  },
+  "na_sv_type": {
+    "prefix": "na-sv-type",
+    "body": "<sv label=\"${1|失败,取消,重写,过期,警告,原因|}\" type=\"${2|primary,success,danger,warning|}\">$3</sv>\n$0",
+    "description": "Type demo for sv"
+  },
+  "na_tag-select": {
+    "prefix": "na-tag-select",
+    "body": "<tag-select>\n  <nz-tag *ngFor=\"let ${2:i} of ${1:categories}; let idx = index\"\n    nzMode=\"checkable\" [(nzChecked)]=\"${2}.value\" (nzCheckedChange)=\"change(${2})\">{{${2}.text}}</nz-tag>\n</tag-select>",
+    "description": "Tag select"
+  },
+  "na_container": {
+    "prefix": "na-container",
+    "body": "<ng-container>$0</ng-container>",
+    "description": "ng-container"
+  },
+  "na_container_for": {
+    "prefix": "na-container-for",
+    "body": "<ng-container *ngFor=\"let ${2:i} of ${1:list}\">\n  $0\n</ng-container>",
+    "description": "Include *ngFor for ng-container"
+  },
+  "na_container_if": {
+    "prefix": "na-container-if",
+    "body": "<ng-container *ngIf=\"$1\">\n  $0\n</ng-container>",
+    "description": "Include *ngIf for ng-container"
+  },
+  "na_router_active-mulit": {
+    "prefix": "na-router-active-mulit",
+    "body": "[routerLinkActive]=\"['$0']\"",
+    "description": "Router with acitve"
+  },
+  "na_router_active": {
+    "prefix": "na-router-active",
+    "body": "routerLinkActive=\"$0\"",
+    "description": "Router with acitve"
+  },
+  "na_router": {
+    "prefix": "na-router",
+    "body": "routerLink=\"$0\"",
+    "description": "Router link"
+  },
+  "na_router_query": {
+    "prefix": "na-router-query",
+    "body": "routerLink=\"$1\" [queryParams]=\"${2:{ id: 1 }}\"",
+    "description": "Router with parameters"
+  },
+  "na_switch": {
+    "prefix": "na-switch",
+    "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <ng-container *ngSwitchDefault></ng-contain>\n</ng-container>",
+    "description": "Switch syntax"
+  },
+  "na_template": {
+    "prefix": "na-template",
+    "body": "<ng-template #${1|actionTpl,extraTpl,editTpl,viewTpl,prefixTpl,suffixTpl|}>\n  $0\n</ng-template>",
+    "description": "ng-template"
+  },
+  "na_template_outlet": {
+    "prefix": "na-template-outlet",
+    "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ $implicit: ${3:item} \\\\}\"}></ng-template>\n$0",
+    "description": "Include *ngIf for ng-template"
+  },
+  "na_template_recursive-tree": {
+    "prefix": "na-template-recursive-tree",
+    "body": "<ng-template #treeTpl let-ls let-level=\"level\">\n  <li *ngFor=\"let i of ls\">\n    <ul *ngIf=\"i.children.length > 0\">\n      <ng-container *ngTemplateOutlet=\"treeTpl; context:{ $implicit: i.children, level: level + 1 }\"></ng-container>\n    </ul>\n  </li>\n</ng-template>\n<ul>\n  <ng-container *ngTemplateOutlet=\"treeTpl; context:{ $implicit: tree.children, level: 1 }\"></ng-container>\n</ul>",
+    "description": "Recursive tree for ng-template"
+  }
+}

@@ -6,121 +6,21 @@ In order to better use ng-alain tool CSS styles, The `3.x` version has built-in 
 
 [中文](README.zh-CN.md)
 
+## Language Versions
+
+- [English Version](https://marketplace.visualstudio.com/items?itemName=cipchk.ng-alain-vscode)
+- [中文版本](https://marketplace.visualstudio.com/items?itemName=cipchk.ng-alain-vscode-zh-CN)
+
 ## Links
 
 - [issues](https://github.com/cipchk/ng-alain-vscode/issues)
-- [expect snippet](https://github.com/cipchk/ng-alain-vscode/issues)
-
-## Other versions
-
-The latest version corresponds to the `next` version of ng-alain, other versions:
-
-- [1.x](cipchk.ng-alain-vscode-1.0.12.vsix)
+- [Marketplace](https://marketplace.visualstudio.com/items?itemName=cipchk.ng-alain-vscode)
 
 ## Usage
 
 Typing the beginning of `na-` will automatically appear in the intellisense list; no more!
 
-- `na-` prefix is complete fragment
-- `na` (not `-`) prefix is attribute fragment
-
 > To ensure ng-alain snippets suggestions are always on top in the suggestion list, add the following settings `"editor.snippetSuggestions": "top"`.
-
-## Document
-
-More API interface please refer to [ng-alain](https://ng-alain.com/).
-
-
-### Alain
-
-Trigger | Description
---- | ---
-na-ellipsis | Ellipsis
-na-error-collect | Error collect in from
-na-footer-toolbar | Footer Toolbar
-na-header.action | Header: action area
-na-header | Header
-na-header.full | Header
-na-header-css | CSS of Header
-na-header-css.right-input | CSS of Header: input in right
-na-header-css.right-inputgroup | CSS of Header: input group in right
-na-modal | Modal: Used for custom components
-na-modal.edit | Modal: edit mode demo
-na-modal.view | Modal: view mode demo
-na-pipe.i18n-prop | Pipe i18n by property
-na-pipe.i18n | Pipe i18n
-na-pipe.translate-prop | Pipe translate
-na-pipe.translate | Pipe translate by property
-na-se.col-1 | SE: single line
-na-se.control-checkbox | SE Control: Checkbox
-na-se.control-date | SE Control: Date
-na-se.control-input-group | SE Control: Input group
-na-se.control-input | SE Control: Input
-na-se.control-number | SE Control: Input number
-na-se.control-radio-group | SE Control: Radio group
-na-se.control-select | SE Control: Select
-na-se.control-switch | SE Control: Switch
-na-se.control-textarea | SE Control: Textarea
-na-se.control-time | SE Control: Time
-na-se.controlClass | SE Property: class names of control
-na-se | SE
-na-se.form | SE: form demo
-na-se.full | SE: full demo
-na-se.help-html | SE: Help html
-na-se.modal | SE: modal demo
-na-se.page | SE: page demo
-na-se.search | SE: search demo
-na-sf | SF: Dynamic form
-na-sf.edit | SF: edit mode
-na-sf.modal | SF: modal demo
-na-sf.page | SF: page demo
-na-sf.search | SF: search demo
-na-st.custom-title | SF: custom title
-na-st.custom | SF: custom row
-na-st | ST: Use configuration instead of nz-table
-na-st.res | ST Property: res
-na-sv.currency | SV: currency demo
-na-sv | SV: Used to view pages
-na-sv.item-custom-title | SV: custom title of item
-na-sv.item | SV
-na-sv.label-width | SV: fixed label width
-na-sv.layout | SV Property: layout
-na-sv.size | SV Property: size
-na-sv.status | SV: status demo
-na-sv.time | SV: time demo
-na-sv.type | SV Property: type of item
-na-tag-select | Tag select
-
-### Angular
-
-Trigger | Description
---- | ---
-ng-container | ng-container
-ng-container.for | include *ngFor
-ng-container.if | include *ngIf
-ng-router.active-mulit | Router with acitve
-ng-router.active | Router with acitve
-ng-router | Router
-ng-router.query | Router with parameters
-ng-switch | Switch syntax
-ng-template | ng-template
-ng-template.outlet | include Outlet
-ng-template.recursive-tree | Template recursive tree
-
-### TypeScript
-
-Trigger | Description
---- | ---
-na-http.delete | HTTP Request: delete
-na-http.get | HTTP Request: get
-na-http.post | HTTP Request: post
-na-modal.close | Close dialog code
-na-modal.edit | A full edit demo
-na-sf | SF
-na-sf.field | SF: field
-na-sf.select | SF: select of field
-na-st.column | ST: description of columns
-na-st | ST: definition of columns
 
 ## Changelog
 

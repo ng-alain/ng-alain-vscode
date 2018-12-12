@@ -15,18 +15,9 @@
       "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
       "stopOnEntry": false,
       "sourceMaps": true,
-      "preLaunchTask": "npm",
+      "preLaunchTask": "run",
       "outFiles": [
         "${workspaceRoot}/out/**/*.js"
-      ]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "generate",
-      "program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
-      "args": [
-        "prod"
       ]
     }
   ]

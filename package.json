@@ -1,8 +1,8 @@
 {
   "name": "ng-alain-vscode",
   "displayName": "ng-alain snippets",
-  "description": "基于ng-alain的代码片断",
-  "version": "3.2.0",
+  "description": "Snippets based on ng-alain",
+  "version": "3.3.0",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
@@ -43,21 +43,18 @@
     "snippets": [
       {
         "language": "typescript",
-        "path": "./snippets/ts.json"
+        "path": "./snippets-ts.json"
       },
       {
         "language": "html",
-        "path": "./snippets/html.json"
+        "path": "./snippets-html.json"
       }
     ]
   },
   "scripts": {
-    "build": "run-s snippet:prod class:prod",
-    "package": "vsce package",
-    "publish": "run-s build package",
-    "snippet:prod": "gulp prod",
-    "class:prod": "tsc -p ./",
-    "class": "tsc -watch -p ./",
+    "build:class": "tsc -watch -p ./",
+    "build": "bash ./scripts/build.sh",
+    "release": "bash ./scripts/build.sh -p",
     "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "dependencies": {
@@ -68,15 +65,9 @@
     "@types/less": "^3.0.0",
     "@types/node": "^10.12.2",
     "@types/verror": "^1.10.3",
-    "gulp": "^4.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-hb": "^6.0.2",
-    "gulp-mustache": "^3.0.0",
-    "gulp-sequence": "^0.4.6",
-    "gulp-wrap": "^0.13.0",
-    "htmlparser2": "^3.10.0",
-    "map-stream": "0.0.7",
     "typescript": "^3.1.6",
-    "vscode": "^1.1.21"
+    "vscode": "^1.1.21",
+    "vscode-snippet-generator": "^1.2.0",
+    "vsce": "^1.53.2"
   }
 }

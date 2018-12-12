@@ -35,6 +35,7 @@ async function cache(): Promise<void> {
       .filter(match => match && match.length > 0)
       .map(match => match[0].substr(1))
       .filter(cls => cls.indexOf('.') === -1 && cls.indexOf(':') === -1)
+      .filter(cls => !cls.startsWith('alain-'))
       .filter(
         cls =>
           !(
