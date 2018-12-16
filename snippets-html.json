@@ -311,7 +311,7 @@
   },
   "na_switch": {
     "prefix": "na-switch",
-    "body": "<ng-container [ngSwitch]=\"$1\">\n  <a *ngSwitchCase=\"$2\">$0</a>\n  <ng-container *ngSwitchDefault></ng-contain>\n</ng-container>",
+    "body": "<ng-container [ngSwitch]=\"$1\">\n  <div *ngSwitchCase=\"$2\">$0</div>\n  <ng-container *ngSwitchDefault></ng-container>\n</ng-container>",
     "description": "Switch syntax"
   },
   "na_template": {

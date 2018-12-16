@@ -6,7 +6,7 @@ description:
 
 ```html
 <ng-container [ngSwitch]="$1">
-  <a *ngSwitchCase="$2">$0</a>
-  <ng-container *ngSwitchDefault></ng-contain>
+  <div *ngSwitchCase="$2">$0</div>
+  <ng-container *ngSwitchDefault></ng-container>
 </ng-container>
 ```

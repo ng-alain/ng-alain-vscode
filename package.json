@@ -2,7 +2,7 @@
   "name": "ng-alain-vscode",
   "displayName": "ng-alain snippets",
   "description": "Snippets based on ng-alain",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
@@ -15,6 +15,12 @@
   "bugs": {
     "url": "https://github.com/cipchk/ng-alain-vscode/issues",
     "email": "cipchk@qq.com"
+  },
+  "scripts": {
+    "build:class": "tsc -watch -p ./",
+    "build": "bash ./scripts/build.sh",
+    "release": "bash ./scripts/build.sh -p",
+    "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "engines": {
     "vscode": "^1.0.0"
@@ -50,12 +56,6 @@
         "path": "./snippets-html.json"
       }
     ]
-  },
-  "scripts": {
-    "build:class": "tsc -watch -p ./",
-    "build": "bash ./scripts/build.sh",
-    "release": "bash ./scripts/build.sh -p",
-    "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "dependencies": {
     "less": "^3.0.0",
