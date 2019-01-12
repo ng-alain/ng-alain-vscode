@@ -23,9 +23,9 @@ buildSnippetByLang() {
       i18nTpl="{zh-CN}({en-US})"
     fi
     # html
-    $(npm bin)/vscode-snippet-generator --i18n=${LANG} --sourceRoot=src/snippets/html,src/snippets/ng --outFile=snippets/html${filePrefix}.json --i18nTpl=${i18nTpl}
+    $(npm bin)/vscode-snippet-generator --prefix=nas --i18n=${LANG} --sourceRoot=src/snippets/html,src/snippets/ng --outFile=snippets/html${filePrefix}.json --i18nTpl=${i18nTpl}
     # ts
-    $(npm bin)/vscode-snippet-generator --i18n=${LANG} --sourceRoot=src/snippets/ts --outFile=snippets/ts${filePrefix}.json --i18nTpl=${i18nTpl}
+    $(npm bin)/vscode-snippet-generator --prefix=nas --i18n=${LANG} --sourceRoot=src/snippets/ts --outFile=snippets/ts${filePrefix}.json --i18nTpl=${i18nTpl}
   )
 }
 

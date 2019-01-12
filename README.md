@@ -18,9 +18,7 @@ In order to better use ng-alain tool CSS styles, The `3.x` version has built-in 
 
 ## Usage
 
-Typing the beginning of `na-` will automatically appear in the intellisense list; no more!
-
-> To ensure ng-alain snippets suggestions are always on top in the suggestion list, add the following settings `"editor.snippetSuggestions": "top"`.
+Typing the beginning of `nas-` will automatically appear in the intellisense list; no more!
 
 ## Changelog
 

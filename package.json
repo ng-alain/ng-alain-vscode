@@ -1,8 +1,8 @@
 {
   "name": "ng-alain-vscode",
-  "displayName": "ng-alain snippets",
-  "description": "Snippets based on ng-alain",
-  "version": "3.3.1",
+  "displayName": "NG-ALAIN Snippets",
+  "description": "Snippets based on NG-ALAIN",
+  "version": "7.0.0",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "engines": {
-    "vscode": "^1.0.0"
+    "vscode": "^1.2.0"
   },
   "galleryBanner": {
     "color": "#ffffff",
@@ -34,6 +34,9 @@
     "Snippets",
     "Other",
     "Programming Languages"
+  ],
+  "extensionPack": [
+    "cipchk.ng-zorro-vscode"
   ],
   "activationEvents": [
     "onLanguage:typescript",

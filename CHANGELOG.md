@@ -1,3 +1,7 @@
+# 7.0.0
+
+- 依赖安装 ng-zorro-vsocde，并同步保持与 ng-alain 主版本号
+
 # 3.3.1
 
 - 修复不正确 `na-switch` 片断
