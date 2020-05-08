@@ -2,8 +2,9 @@ import { existsSync, readFileSync } from 'fs';
 import * as less from 'less';
 import { dirname, join } from 'path';
 import { workspace } from 'vscode';
-
 import Notifier from './notifier';
+import { NgAlainCssResult } from './types';
+
 const KEYS = `ng-alain-vscode`;
 
 function plugin(less: any, opt: any): void {
@@ -46,7 +47,7 @@ class NgAlainImportPlugin {
   }
 }
 
-export async function NgAlainCss(notifier: Notifier): Promise<string> {
+export async function NgAlainCss(notifier: Notifier): Promise<NgAlainCssResult> {
   // 1. find angular.json
   const angularJsonUris = await workspace.findFiles(
     'angular.json',
@@ -81,7 +82,7 @@ export async function NgAlainCss(notifier: Notifier): Promise<string> {
     return null;
   }
 
-  notifier.notify('eye', `${KEYS}: 正在编译[${projectName}]项目的样式...`);
+  notifier.notify('eye', `${KEYS}: 正在编译[${projectName}]项目的样式，入口${lessPath}...`);
   const lessContent = readFileSync(lessPath).toString();
   const lessRes = await less.render(lessContent, {
     javascriptEnabled: true,
@@ -94,5 +95,5 @@ export async function NgAlainCss(notifier: Notifier): Promise<string> {
     ],
   });
 
-  return lessRes.css;
+  return { css: lessRes.css, filePath: lessPath };
 }

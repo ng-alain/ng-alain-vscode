@@ -25,17 +25,17 @@ const WHITES = [];
 
 async function cache(): Promise<void> {
   try {
-    const css = await NgAlainCss(notifier);
-    if (css === null) return;
+    const alainRes = await NgAlainCss(notifier);
+    if (alainRes === null) return;
 
     notifier.notify('eye', `${KEYS}: 正在解析有效的ng-alain样式...`);
-    const res = css
+    const res = alainRes.css
       .split('\n')
       .map(line => line.match(/^\.([^ |,]+)/))
       .filter(match => match && match.length > 0)
       .map(match => match[0].substr(1))
       .filter(cls => cls.indexOf('.') === -1 && cls.indexOf(':') === -1)
-      .filter(cls => !cls.startsWith('alain-'))
+      // .filter(cls => !cls.startsWith('alain-'))
       .filter(
         cls =>
           !(
@@ -47,7 +47,7 @@ async function cache(): Promise<void> {
     uniqueClasses = [...new Set([...res])];
     notifier.notify(
       'zap',
-      'ng-alain CSS classes cached (click to cache again)',
+      `ng-alain CSS classes cached (click to cache again), enter: ${alainRes.filePath}`,
     );
   } catch (err) {
     notifier.notify(
