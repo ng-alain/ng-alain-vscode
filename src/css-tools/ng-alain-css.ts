@@ -81,7 +81,7 @@ export async function NgAlainCss(notifier: Notifier): Promise<string> {
     return null;
   }
 
-  notifier.notify('eye', `${KEYS}: 正在编译ng-alain样式...`);
+  notifier.notify('eye', `${KEYS}: 正在编译[${projectName}]项目的样式...`);
   const lessContent = readFileSync(lessPath).toString();
   const lessRes = await less.render(lessContent, {
     javascriptEnabled: true,

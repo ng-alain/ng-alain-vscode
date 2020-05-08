@@ -21,5 +21,6 @@ if (lang === DEFAULT_LANG) {
 }
 rootPackage.displayName = i18n.displayName;
 rootPackage.description = i18n.description;
+delete rootPackage.devDependencies;
 
 fs.writeFileSync(rootPackagePath, JSON.stringify(rootPackage, null, 2));

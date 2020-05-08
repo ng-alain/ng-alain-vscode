@@ -1,3 +1,7 @@
+# 9.0.0
+
+- 同步ng-alain主版本号
+
 # 7.0.0
 
 - 依赖安装 ng-zorro-vsocde，并同步保持与 ng-alain 主版本号
