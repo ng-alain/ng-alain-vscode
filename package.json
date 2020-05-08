@@ -19,8 +19,7 @@
   "scripts": {
     "build:class": "tsc -watch -p ./",
     "build": "bash ./scripts/build.sh",
-    "release": "bash ./scripts/build.sh -p",
-    "postinstall": "node ./node_modules/vscode/bin/install"
+    "release": "bash ./scripts/build.sh -p"
   },
   "engines": {
     "vscode": "^1.2.0"
