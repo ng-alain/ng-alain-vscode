@@ -55,7 +55,7 @@ function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
   const res: LessToCssNode[] = [];
   const lines = css.split('\n');
   for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
+    const line = lines[i].trim();
     const match = line.match(/^\.([^ |,]+)/);
     if (!match || match.length <= 0) {
       continue;
