@@ -1,3 +1,5 @@
+import { MarkdownString } from 'vscode';
+
 export interface LessToCssResult {
   filePath: string;
   nodes: LessToCssNode[];
@@ -5,6 +7,5 @@ export interface LessToCssResult {
 
 export interface LessToCssNode {
   name: string;
-  comment?: string;
-  default?: string;
+  comment?: MarkdownString;
 }

@@ -22,6 +22,23 @@
 
 你可以任意 `.html`、`.ts` 文件，输入 `naa-` 开头会自动出现在智能提醒列表当中；仅此而已！
 
+## 常见问题
+
+### 类名（例如：`text-center`）无法提醒？
+
+可能是缺少自动安装依赖的关系，可以手动安装，进入：
+
+```bash
+# Mac
+cd /Users/[UserName]/.vscode/extensions/cipchk.ng-alain-vscode-[Version]/
+yarn
+# Windows
+cd C:\Users\[UserName]\.vscode\extensions\cipchk.ng-alain-vscode-[Version]\
+yarn
+```
+
+重启 VSCODE
+
 ## 更新日志
 
 见[CHANGELOG.md](CHANGELOG.md)

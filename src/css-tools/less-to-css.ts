@@ -1,16 +1,23 @@
 import { existsSync, readFileSync } from 'fs';
 import * as less from 'less';
 import { dirname, join } from 'path';
-import { workspace } from 'vscode';
+import { workspace, MarkdownString } from 'vscode';
 import Notifier from './notifier';
 import { NgAlainImportPlugin } from './plugin-less-import';
 import { LessToCssNode, LessToCssResult } from './types';
 
 const KEYS = `ng-alain-vscode`;
+const KEYS_AUTOGENERATE = 'AUTOGENERATE:';
 
 function getComment(idx: number, lines: string[]): string {
-  if (idx <= 0) {
+  if (idx < 0) {
     return '';
+  }
+  // Process: AUTOGENERATE
+  let nextLine = lines.length > idx + 1 ? lines[idx + 1].trim() : '';
+  if (nextLine.includes(KEYS_AUTOGENERATE)) {
+    nextLine = nextLine.split(KEYS_AUTOGENERATE)[1].split('*/')[0].trim();
+    return nextLine.replace(/\"/g, '`').split(`|SPLIT|`).join('\n\n');
   }
   const comments: string[] = [];
   let preText = lines[--idx].trim();
@@ -24,7 +31,7 @@ function getComment(idx: number, lines: string[]): string {
   return comments
     .filter((w) => !!w)
     .reverse()
-    .join('\n');
+    .join('\n\n');
 }
 
 function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
@@ -45,8 +52,14 @@ function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
     ) {
       continue;
     }
+    let comment = '';
+    try {
+      comment = getComment(i, lines);
+    } catch {
+      console.log(`Parse error`);
+    }
     res.push({
-      comment: getComment(i, lines),
+      comment: comment.length > 0 ? new MarkdownString(comment) : null,
       name: cls,
     });
   }

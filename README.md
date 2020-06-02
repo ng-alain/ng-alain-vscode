@@ -20,6 +20,23 @@ In order to better use ng-alain tool CSS styles, The `3.x` version has built-in 
 
 Typing the beginning of `nas-` will automatically appear in the intellisense list; no more!
 
+## FAQ
+
+### Class name (for example: `text-center`) cannot be intellisense?
+
+It may be that there is a lack of automatic installation dependencies. You can manually install it and enter:
+
+```bash
+# Mac
+cd /Users/[UserName]/.vscode/extensions/cipchk.ng-alain-vscode-[Version]/
+yarn
+# Windows
+cd C:\Users\[UserName]\.vscode\extensions\cipchk.ng-alain-vscode-[Version]\
+yarn
+```
+
+Restart VSCODE
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md).
