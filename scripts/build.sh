@@ -62,7 +62,6 @@ packingByLang() {
 
 packing() {
   packingByLang "zh-CN"
-
   packingByLang "en-US"
 }
 

@@ -2,7 +2,7 @@
   "name": "ng-alain-vscode",
   "displayName": "NG-ALAIN Snippets",
   "description": "Snippets based on NG-ALAIN",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
@@ -60,16 +60,16 @@
     ]
   },
   "dependencies": {
-    "less": "^3.0.0",
+    "less": "^3.11.2",
     "verror": "^1.10.0"
   },
   "devDependencies": {
-    "@types/less": "^3.0.0",
-    "@types/node": "^10.12.2",
-    "@types/verror": "^1.10.3",
-    "typescript": "^3.1.6",
-    "vscode": "^1.1.21",
-    "vscode-snippet-generator": "^1.2.0",
-    "vsce": "^1.53.2"
+    "@types/less": "^3.0.1",
+    "@types/node": "^14.0.9",
+    "@types/verror": "^1.10.4",
+    "typescript": "^3.9.3",
+    "vscode": "^1.1.37",
+    "vscode-snippet-generator": "^1.2.2",
+    "vsce": "^1.75.0"
   }
 }

@@ -1,4 +1,3 @@
-import * as VError from 'verror';
 import {
   commands,
   CompletionItem,
@@ -12,52 +11,35 @@ import {
   window,
   workspace,
 } from 'vscode';
+import { LessToCss } from './less-to-css';
 import Notifier from './notifier';
-import { NgAlainCss } from './ng-alain-css';
+import { LessToCssNode } from './types';
 
 const KEYS = `ng-alain-vscode`;
 const completionTriggerChars = ['"', "'", ' ', '.'];
 const notifier = new Notifier(KEYS + '.cache');
 let caching: boolean = false;
-let uniqueClasses: string[] = [];
+let uniqueClasses: LessToCssNode[] = [];
 const emmetDisposables: Array<{ dispose(): any }> = [];
-const WHITES = [];
 
 async function cache(): Promise<void> {
   try {
-    const alainRes = await NgAlainCss(notifier);
-    if (alainRes === null) return;
+    const cssRes = await LessToCss(notifier);
+    if (cssRes === null) {
+      return;
+    }
 
-    notifier.notify('eye', `${KEYS}: 正在解析有效的ng-alain样式...`);
-    const res = alainRes.css
-      .split('\n')
-      .map(line => line.match(/^\.([^ |,]+)/))
-      .filter(match => match && match.length > 0)
-      .map(match => match[0].substr(1))
-      .filter(cls => cls.indexOf('.') === -1 && cls.indexOf(':') === -1)
-      // .filter(cls => !cls.startsWith('alain-'))
-      .filter(
-        cls =>
-          !(
-            cls.startsWith('ant-') &&
-            cls.indexOf('__') === -1 &&
-            !WHITES.includes(cls)
-          ),
-      );
-    uniqueClasses = [...new Set([...res])];
+    uniqueClasses = cssRes.nodes;
     notifier.notify(
       'zap',
-      `ng-alain CSS classes cached (click to cache again), enter: ${alainRes.filePath}`,
+      `ng-alain CSS classes cached (click to cache again), enter: ${cssRes.filePath}`,
     );
   } catch (err) {
     notifier.notify(
       'alert',
       'Failed to cache the CSS classes in the workspace (click for another attempt)',
     );
-    throw new VError(
-      err,
-      'Failed to cache the class definitions during the iterations over the documents that were found',
-    );
+    throw new Error(err);
   }
 }
 
@@ -66,8 +48,7 @@ async function do_cache() {
   try {
     await cache();
   } catch (err) {
-    err = new VError(err, `缓存失败，点击重试，或打开 Dev Tools 了解详情`);
-    console.error(err);
+    console.error(`缓存失败，点击重试，或打开 Dev Tools 了解详情`);
     window.showErrorMessage(err.message);
   } finally {
     caching = false;
@@ -101,11 +82,12 @@ function provideCompletionItemsGenerator(
         const classesOnAttribute = rawClasses[1].split(splitChar);
 
         // Creates a collection of CompletionItem based on the classes already cached
-        const completionItems = uniqueClasses.map(cls => {
-          const completionItem = new CompletionItem(cls);
+        const completionItems = uniqueClasses.map((item) => {
+          const completionItem = new CompletionItem(item.name);
           completionItem.kind = CompletionItemKind.Variable;
-          const completionClassName = `${classPrefix}${cls}`;
+          completionItem.documentation = item.comment;
 
+          const completionClassName = `${classPrefix}${item.name}`;
           completionItem.filterText = completionClassName;
           completionItem.insertText = completionClassName;
 
@@ -148,7 +130,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
   );
 
   // Javascript based extensions
-  ['typescript', 'javascript'].forEach(extension => {
+  ['typescript', 'javascript'].forEach((extension) => {
     context.subscriptions.push(
       provideCompletionItemsGenerator(
         extension,
@@ -160,7 +142,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
     );
   });
 
-  ['html', 'markdown'].forEach(extension => {
+  ['html', 'markdown'].forEach((extension) => {
     context.subscriptions.push(
       provideCompletionItemsGenerator(
         extension,
@@ -171,18 +153,10 @@ export async function activate(context: ExtensionContext): Promise<void> {
       provideCompletionItemsGenerator(extension, /class=["|']([\w- ]*$)/),
     );
   });
-
-  // CSS based extensions
-  // ['css', 'sass', 'scss', 'less'].forEach(extension => {
-  //   // Support for Tailwind CSS
-  //   context.subscriptions.push(
-  //     provideCompletionItemsGenerator(extension, /@apply ([\.\w- ]*$)/, '.'),
-  //   );
-  // });
 
   await do_cache();
 }
 
 export function deactivate(): void {
-  emmetDisposables.forEach(disposable => disposable.dispose());
+  emmetDisposables.forEach((disposable) => disposable.dispose());
 }
