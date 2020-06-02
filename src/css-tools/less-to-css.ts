@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'fs';
 import * as less from 'less';
 import { dirname, join } from 'path';
-import { workspace, MarkdownString } from 'vscode';
+import { MarkdownString, workspace } from 'vscode';
 import Notifier from './notifier';
 import { NgAlainImportPlugin } from './plugin-less-import';
 import { LessToCssNode, LessToCssResult } from './types';
@@ -19,19 +19,35 @@ function getComment(idx: number, lines: string[]): string {
     nextLine = nextLine.split(KEYS_AUTOGENERATE)[1].split('*/')[0].trim();
     return nextLine.replace(/\"/g, '`').split(`|SPLIT|`).join('\n\n');
   }
-  const comments: string[] = [];
-  let preText = lines[--idx].trim();
-  while (/^((\*\/)|(\* ))/.test(preText)) {
+
+  const comment = interceptComment('before', idx, lines);
+  if (comment && comment.length > 0) {
+    return comment;
+  }
+
+  // TODO: Less 在生成内联会使注释错位，https://github.com/less/less.js/issues/3511
+  return interceptComment('after', idx, lines);
+}
+
+function interceptComment(
+  type: 'before' | 'after',
+  idx: number,
+  lines: string[],
+): string {
+  let comments: string[] = [];
+  let preText = lines[type === 'before' ? --idx : ++idx].trim();
+  while (/^((\*\/)|(\* )|(\/\*))/.test(preText)) {
     if (preText.includes('LICENSE')) {
       break;
     }
     comments.push(preText.substr(2).trim());
-    preText = lines[--idx].trim();
+    preText = lines[type === 'before' ? --idx : ++idx].trim();
   }
-  return comments
-    .filter((w) => !!w)
-    .reverse()
-    .join('\n\n');
+  comments = comments.filter((w) => !!w && w.length > 1);
+  if (type === 'before') {
+    comments = comments.reverse();
+  }
+  return comments.join('\n\n').trim();
 }
 
 function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
