@@ -4,7 +4,6 @@ import {
   ExtensionContext,
   languages,
   window,
-  workspace,
 } from 'vscode';
 import { CONFIG } from './config';
 import { LessToCss } from './less-to-css';
@@ -43,13 +42,13 @@ async function do_cache() {
 }
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  const disposables: Disposable[] = [];
-  workspace.onDidChangeConfiguration(
-    async () => await do_cache(),
-    null,
-    disposables,
-  );
-  context.subscriptions.push(...disposables);
+  // const disposables: Disposable[] = [];
+  // workspace.onDidChangeConfiguration(
+  //   async () => await do_cache(),
+  //   null,
+  //   disposables,
+  // );
+  // context.subscriptions.push(...disposables);
 
   context.subscriptions.push(
     commands.registerCommand('ng-alain-vscode.cache', async () => {
