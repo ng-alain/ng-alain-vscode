@@ -9,7 +9,8 @@
     "member-access": false,
     "interface-name": false,
     "no-var-requires": false,
-    "prefer-for-of": false
+    "prefer-for-of": false,
+    "object-literal-sort-keys": false
   },
   "rulesDirectory": []
 }

@@ -2,32 +2,32 @@
   "nas_component_new-onpush": {
     "prefix": "nas-component-new-onpush",
     "body": "import {\n  Component,\n  ChangeDetectionStrategy,\n  ChangeDetectorRef,\n} from '@angular/core';\n\n@Component({\n  selector: 'app-${1}',\n  templateUrl: './${1}.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ${1}Component {\n  constructor(private cdr: ChangeDetectorRef) {}\n}",
-    "description": "OnPush Component"
+    "description": "OnPush Component (OnPush 组件)"
   },
   "nas_http_delete": {
     "prefix": "nas-http-delete",
     "body": "this.http.delete(${1:this.url}).subscribe((res: any) => this.msgSrv.success('删除成功'));",
-    "description": "Delete http request"
+    "description": "Delete http request (HTTP请求：删除)"
   },
   "nas_http_get": {
     "prefix": "nas-http-get",
     "body": "this.http.get(${1:this.url}).subscribe((res: any) => (this.${2:i} = res));",
-    "description": "Get http request"
+    "description": "Get http request (HTTP请求：获取)"
   },
   "nas_http_post": {
     "prefix": "nas-http-post",
     "body": "this.http.post(${1:this.url}, this.${2:i}).subscribe((res: any) => {\n  this.msgSrv.success('保存成功');\n  this.modal.close(true);\n});",
-    "description": "Post http request"
+    "description": "Post http request (HTTP请求：提交)"
   },
   "nas_modal_close": {
     "prefix": "nas-modal-close",
     "body": "close() {\n  this.modal.destroy();\n}",
-    "description": "Close dialog"
+    "description": "Close dialog (关闭对话框代码)"
   },
   "nas_modal_edit": {
     "prefix": "nas-modal-edit",
     "body": "import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';\nimport { NzModalRef, NzMessageService } from 'ng-zorro-antd';\nimport { _HttpClient } from '@delon/theme';\n\nconst URL = '/';\n\n@Component({\n  selector: 'app-${1}-edit',\n  templateUrl: './edit.component.html',\n})\nexport class ${2}EditComponent implements OnInit {\n  i: any = {\n    id: 0\n  };\n\n  constructor(\n    public http: _HttpClient,\n    private msg: NzMessageService,\n    private modalRef: NzModalRef,\n  ) {}\n\n  ngOnInit() {\n    if (this.i.id > 0) {\n      this.http\n        .get(`${URL}/${this.i.id}`)\n        .subscribe((res: any) => (this.i = res));\n    }\n  }\n\n  save() {\n    this.http.post(URL, this.i).subscribe(res => {\n      this.msg.success('Success');\n      this.modalRef.close(res);\n    });\n  }\n\n  close() {\n    this.modalRef.close();\n  }\n}",
-    "description": "A full edit demo"
+    "description": "A full edit demo (构建编辑完整示例)"
   },
   "nas_sf": {
     "prefix": "nas-sf",
@@ -37,21 +37,21 @@
   "nas_sf_field": {
     "prefix": "nas-sf-field",
     "body": "${1:name}: {\n  type: 'string',\n  title: '',\n  ui: { placeholder: '${2|编号,姓名|}' },\n},\n$0",
-    "description": "Field for sf"
+    "description": "Field for sf (SF：字段)"
   },
   "nas_sf_select": {
     "prefix": "nas-sf-select",
     "body": "${1:type}: {\n  type: 'string',\n  title: '',\n  enum: [\n    { label: '类型不限', value: '' },\n    $0\n  ],\n  default: ''\n},",
-    "description": "Select field for sf"
+    "description": "Select field for sf (SF：选择器字段)"
   },
   "nas_st_column": {
     "prefix": "nas-st-column",
     "body": "{ title: '${1|编号,类型,状态,时间,操作|}', index: '${2|id,no,type,status,created,modified,closed,enabled|}' },",
-    "description": "Column schema for st"
+    "description": "Column schema for st (表格：列描述列)"
   },
   "nas_st": {
     "prefix": "nas-st",
     "body": "columns: STColumn[] = [\n  $0\n];",
-    "description": "Columns define for st"
+    "description": "Columns define for st (表格：列描述变量)"
   }
 }

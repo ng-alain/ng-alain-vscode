@@ -17,18 +17,20 @@
     "email": "cipchk@qq.com"
   },
   "scripts": {
-    "build:class": "tsc -watch -p ./",
-    "build": "bash ./scripts/build.sh",
-    "release": "bash ./scripts/build.sh -p"
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "resource": "node scripts/snippet.js",
+    "release": "npm run resource && gulp package"
   },
   "engines": {
-    "vscode": "^1.2.0"
+    "vscode": "^1.30.x"
   },
   "galleryBanner": {
     "color": "#ffffff",
     "theme": "light"
   },
-  "main": "./out/src/css-tools/extension",
+  "main": "./out/extension",
   "categories": [
     "Snippets",
     "Other",
@@ -45,7 +47,7 @@
     "commands": [
       {
         "command": "ng-alain-vscode.cache",
-        "title": "Cache All ng-alain CSS class definitions"
+        "title": "%ng-alain-vscode.cache%"
       }
     ],
     "snippets": [
@@ -60,7 +62,19 @@
     ]
   },
   "dependencies": {
-    "less": "^3.11.2",
-    "verror": "^1.10.0"
+    "vscode-nls": "^5.0.0",
+    "less": "^3.11.2"
+  },
+  "devDependencies": {
+    "vscode-snippet-generator": "^1.3.2",
+    "vscode": "^1.1.26",
+    "vsce": "^1.81.1",
+    "gulp": "^4.0.2",
+    "gulp-filter": "^5.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-typescript": "^5.0.1",
+    "del": "^4.1.1",
+    "event-stream": "^4.0.1",
+    "vscode-nls-dev": "^3.3.2"
   }
 }

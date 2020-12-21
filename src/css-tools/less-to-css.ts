@@ -2,9 +2,11 @@ import { existsSync, readFileSync } from 'fs';
 import * as less from 'less';
 import { dirname, join } from 'path';
 import { MarkdownString, workspace } from 'vscode';
+import * as nls from 'vscode-nls';
 import Notifier from './notifier';
 import { NgAlainImportPlugin } from './plugin-less-import';
 import { LessToCssNode, LessToCssResult } from './types';
+const localize = nls.config({ messageFormat: nls.MessageFormat.both })();
 
 const KEYS = `ng-alain-vscode`;
 const KEYS_AUTOGENERATE = 'AUTOGENERATE:';
@@ -51,7 +53,10 @@ function interceptComment(
 }
 
 function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
-  notifier.notify('eye', `${KEYS}: 正在解析有效的ng-alain样式...`);
+  notifier.notify(
+    'eye',
+    KEYS + localize('parseIng', ': Parsing valid ng-alain style...'),
+  );
   const res: LessToCssNode[] = [];
   const lines = css.split('\n');
   for (let i = 0; i < lines.length; i++) {
@@ -91,7 +96,10 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
     1,
   );
   if (!angularJsonUris || angularJsonUris.length === 0) {
-    notifier.notify('alert', `${KEYS}: 未找到 angular.json 文件`);
+    notifier.notify(
+      'alert',
+      KEYS + localize('notFoundAngularJson', ': Angular.json file not found'),
+    );
     return null;
   }
   // 2. find default project
@@ -104,7 +112,11 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
       (w) => !w.endsWith('-e2e'),
     );
     if (allProjectNames.length === 0) {
-      notifier.notify('hubot', `${KEYS}: 未找到任何默认项目`);
+      notifier.notify(
+        'hubot',
+        KEYS +
+          localize('notFoundDefaultProject', ': No default project was found'),
+      );
       return null;
     }
     projectName = allProjectNames[0];
@@ -114,27 +126,51 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
   const sourceRoot = angularJson.projects[projectName].sourceRoot || 'src';
   const lessPath = join(rootPath, sourceRoot, 'styles.less');
   if (!existsSync(lessPath)) {
-    notifier.notify('hubot', `${KEYS}: 未找到任何默认项目`);
+    notifier.notify(
+      'hubot',
+      KEYS +
+        localize('notFoundDefaultProject', ': No default project was found'),
+    );
     return null;
   }
 
   notifier.notify(
     'eye',
-    `${KEYS}: 正在编译[${projectName}]项目的样式，入口${lessPath}...`,
+    KEYS +
+      localize(
+        'compiling',
+        ': Compiling [{0}] project style, less entry:  {1}...',
+        projectName,
+        lessPath,
+      ),
   );
-  const lessRes = await less.render(readFileSync(lessPath).toString('utf8'), {
-    javascriptEnabled: true,
-    paths: [join(rootPath, sourceRoot), rootPath],
-    plugins: [
-      new NgAlainImportPlugin({
-        prefix: `~`,
-        rootPath,
-      }),
-    ],
-  });
+  try {
+    const lessRes = await less.render(readFileSync(lessPath).toString('utf8'), {
+      javascriptEnabled: true,
+      paths: [join(rootPath, sourceRoot), rootPath],
+      plugins: [
+        new NgAlainImportPlugin({
+          prefix: `~`,
+          rootPath,
+        }),
+      ],
+    });
 
-  return {
-    filePath: lessPath,
-    nodes: parseNodes(lessRes.css, notifier),
-  };
+    return {
+      filePath: lessPath,
+      nodes: parseNodes(lessRes.css, notifier),
+    };
+  } catch (ex) {
+    notifier.notify(
+      'alert',
+      KEYS +
+        localize(
+          'less-error',
+          ': Less compilation error: {0}, less entry: {1}',
+          ex.message,
+          lessPath,
+        ),
+    );
+    return null;
+  }
 }
