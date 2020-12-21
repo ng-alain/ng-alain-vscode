@@ -2,41 +2,22 @@
 
 ![Plugin in action](help.gif)
 
-In order to better use ng-alain tool CSS styles, The `3.x` version has built-in similar to [IntelliSense for CSS class names in HTML](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion), If you are already installed, it can be disabled when developing ng-alain project.
+# Note: Starting `11` version, the extension language will follow the display language of VSCode, and there is no need to install different versions of the ng-alain-vscode extension, so will no longer be maintained of [Simplified Chinese Version](https://marketplace.visualstudio.com/items?itemName=cipchk.ng-alain-vscode-zh-CN).
 
 [中文](README.zh-CN.md)
 
-## Language Versions
+## Features
 
-- [English Version](https://marketplace.visualstudio.com/items?itemName=cipchk.ng-alain-vscode)
-- [中文版本](https://marketplace.visualstudio.com/items?itemName=cipchk.ng-alain-vscode-zh-CN)
-
-## Links
-
-- [issues](https://github.com/cipchk/ng-alain-vscode/issues)
-- [Marketplace](https://marketplace.visualstudio.com/items?itemName=cipchk.ng-alain-vscode)
+- Support class intellisense
+- Support Class name hover introduction
+- Common Angular templates
 
 ## Usage
 
 Typing the beginning of `nas-` will automatically appear in the intellisense list; no more!
 
-## FAQ
+## Support Language Versions
 
-### Class name (for example: `text-center`) cannot be intellisense?
+Support language list: English, 简体中文, will automatically switch according to the current the display language of VSCode.
 
-It may be that there is a lack of automatic installation dependencies. You can manually install it and enter:
-
-```bash
-# Mac
-cd /Users/[UserName]/.vscode/extensions/cipchk.ng-alain-vscode-[Version]/
-yarn
-# Windows
-cd C:\Users\[UserName]\.vscode\extensions\cipchk.ng-alain-vscode-[Version]\
-yarn
-```
-
-Restart VSCODE
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md).
+> Abort how to changing the display language, pls refer to [Changing the Display Language](https://code.visualstudio.com/docs/getstarted/locales#_changing-the-display-language).
