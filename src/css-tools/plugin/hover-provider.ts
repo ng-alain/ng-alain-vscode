@@ -1,10 +1,4 @@
-import {
-  Hover,
-  HoverProvider,
-  Position,
-  ProviderResult,
-  TextDocument,
-} from 'vscode';
+import { Hover, HoverProvider, Position, ProviderResult, TextDocument } from 'vscode';
 import { CONFIG } from '../config';
 
 function findClassName(text: string, pos: number): string {
@@ -21,10 +15,7 @@ function findClassName(text: string, pos: number): string {
 }
 
 export default class implements HoverProvider {
-  provideHover(
-    document: TextDocument,
-    position: Position,
-  ): ProviderResult<Hover> {
+  provideHover(document: TextDocument, position: Position): ProviderResult<Hover> {
     if (CONFIG.caching) {
       return null;
     }

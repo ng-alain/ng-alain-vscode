@@ -31,11 +31,7 @@ function getComment(idx: number, lines: string[]): string {
   return interceptComment('after', idx, lines);
 }
 
-function interceptComment(
-  type: 'before' | 'after',
-  idx: number,
-  lines: string[],
-): string {
+function interceptComment(type: 'before' | 'after', idx: number, lines: string[]): string {
   let comments: string[] = [];
   let preText = lines[type === 'before' ? --idx : ++idx].trim();
   while (/^((\*\/)|(\* )|(\/\*))/.test(preText)) {
@@ -53,10 +49,7 @@ function interceptComment(
 }
 
 function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
-  notifier.notify(
-    'eye',
-    KEYS + localize('parseIng', ': Parsing valid ng-alain style...'),
-  );
+  notifier.notify('eye', KEYS + localize('parseIng', ': Parsing valid ng-alain style...'));
   const res: LessToCssNode[] = [];
   const lines = css.split('\n');
   for (let i = 0; i < lines.length; i++) {
@@ -90,33 +83,18 @@ function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
 
 export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
   // 1. find angular.json
-  const angularJsonUris = await workspace.findFiles(
-    'angular.json',
-    '**/node_modules/**',
-    1,
-  );
+  const angularJsonUris = await workspace.findFiles('angular.json', '**/node_modules/**', 1);
   if (!angularJsonUris || angularJsonUris.length === 0) {
-    notifier.notify(
-      'alert',
-      KEYS + localize('notFoundAngularJson', ': Angular.json file not found'),
-    );
+    notifier.notify('alert', KEYS + localize('notFoundAngularJson', ': Angular.json file not found'));
     return null;
   }
   // 2. find default project
-  const angularJson = JSON.parse(
-    readFileSync(angularJsonUris[0].fsPath).toString(),
-  );
+  const angularJson = JSON.parse(readFileSync(angularJsonUris[0].fsPath).toString());
   let projectName = angularJson.defaultProject;
   if (!projectName) {
-    const allProjectNames = Object.keys(angularJson.projects).filter(
-      (w) => !w.endsWith('-e2e'),
-    );
+    const allProjectNames = Object.keys(angularJson.projects).filter((w) => !w.endsWith('-e2e'));
     if (allProjectNames.length === 0) {
-      notifier.notify(
-        'hubot',
-        KEYS +
-          localize('notFoundDefaultProject', ': No default project was found'),
-      );
+      notifier.notify('hubot', KEYS + localize('notFoundDefaultProject', ': No default project was found'));
       return null;
     }
     projectName = allProjectNames[0];
@@ -126,24 +104,11 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
   const sourceRoot = angularJson.projects[projectName].sourceRoot || 'src';
   const lessPath = join(rootPath, sourceRoot, 'styles.less');
   if (!existsSync(lessPath)) {
-    notifier.notify(
-      'hubot',
-      KEYS +
-        localize('notFoundDefaultProject', ': No default project was found'),
-    );
+    notifier.notify('hubot', KEYS + localize('notFoundDefaultProject', ': No default project was found'));
     return null;
   }
 
-  notifier.notify(
-    'eye',
-    KEYS +
-      localize(
-        'compiling',
-        ': Compiling [{0}] project style, less entry:  {1}...',
-        projectName,
-        lessPath,
-      ),
-  );
+  notifier.notify('eye', KEYS + localize('compiling', ': Compiling [{0}] project style, less entry:  {1}...', projectName, lessPath));
   try {
     const lessRes = await less.render(readFileSync(lessPath).toString('utf8'), {
       javascriptEnabled: true,
@@ -161,16 +126,7 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
       nodes: parseNodes(lessRes.css, notifier),
     };
   } catch (ex) {
-    notifier.notify(
-      'alert',
-      KEYS +
-        localize(
-          'less-error',
-          ': Less compilation error: {0}, less entry: {1}',
-          ex.message,
-          lessPath,
-        ),
-    );
+    notifier.notify('alert', KEYS + localize('less-error', ': Less compilation error: {0}, less entry: {1}', ex.message, lessPath));
     return null;
   }
 }

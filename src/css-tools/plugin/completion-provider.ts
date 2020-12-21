@@ -1,21 +1,10 @@
-import {
-  CompletionItem,
-  CompletionItemKind,
-  CompletionItemProvider,
-  MarkdownString,
-  Position,
-  Range,
-  TextDocument,
-} from 'vscode';
+import { CompletionItem, CompletionItemKind, CompletionItemProvider, MarkdownString, Position, Range, TextDocument } from 'vscode';
 import { CONFIG } from '../config';
 
 export default class implements CompletionItemProvider {
   constructor(private classMatchRegexs: RegExp[]) {}
 
-  provideCompletionItems(
-    document: TextDocument,
-    position: Position,
-  ): CompletionItem[] {
+  provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
     if (CONFIG.caching) {
       return null;
     }

@@ -4,11 +4,7 @@ class Notifier {
   public statusBarItem: vscode.StatusBarItem;
   private timeoutId: NodeJS.Timer;
 
-  constructor(
-    command?: string,
-    alignment?: vscode.StatusBarAlignment,
-    priority?: number,
-  ) {
+  constructor(command?: string, alignment?: vscode.StatusBarAlignment, priority?: number) {
     this.statusBarItem = vscode.window.createStatusBarItem(alignment, priority);
     this.statusBarItem.command = command;
     this.statusBarItem.show();
