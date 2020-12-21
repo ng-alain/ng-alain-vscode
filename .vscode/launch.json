@@ -1,24 +1,19 @@
 {
   "version": "0.2.0",
-  "configurations": [{
-      "name": "Launch Extension",
-      "type": "extensionHost",
+  "configurations": [
+    {
+      "type": "node",
       "request": "launch",
-      "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceRoot}"]
+      "name": "Snippet",
+      "program": "${workspaceFolder}/scripts/snippet.js"
     },
     {
-      "name": "Launch Class Extension",
+      "name": "Extension",
       "type": "extensionHost",
       "request": "launch",
       "runtimeExecutable": "${execPath}",
-      "args": ["--extensionDevelopmentPath=${workspaceRoot}"],
-      "stopOnEntry": false,
-      "sourceMaps": true,
-      "preLaunchTask": "run",
-      "outFiles": [
-        "${workspaceRoot}/out/**/*.js"
-      ]
+      "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
+      "outFiles": ["${workspaceRoot}/out/**/*.js"]
     }
   ]
 }
