@@ -10,6 +10,35 @@ const localize = nls.config({ messageFormat: nls.MessageFormat.both })();
 
 const KEYS = `ng-alain-vscode`;
 const KEYS_AUTOGENERATE = 'AUTOGENERATE:';
+const INGORE_DELON = [
+  'sv__',
+  'se__',
+  'sg__',
+  'sf__',
+  'st__',
+  'alain-default',
+  'avatar-list__',
+  'yn__',
+  'g2-',
+  'page-header',
+  'ellipsis__',
+  'exception__',
+  'footer__',
+  'global-footer',
+  'notice-icon',
+  'number-info',
+  'footer-toolbar',
+  'full-content',
+  'loading-default',
+  'setting-drawer',
+  'onboarding',
+  'result__',
+  'reuse-tab',
+  'quick-menu',
+  'sidebar-nav',
+  'tag-select',
+  'trend__',
+];
 
 function getComment(idx: number, lines: string[]): string {
   if (idx < 0) {
@@ -34,18 +63,18 @@ function getComment(idx: number, lines: string[]): string {
 function interceptComment(type: 'before' | 'after', idx: number, lines: string[]): string {
   let comments: string[] = [];
   let preText = lines[type === 'before' ? --idx : ++idx].trim();
-  while (/^((\*\/)|(\* )|(\/\*))/.test(preText)) {
+  while (/^(\*\/)|(\* ?)|(\/\*)/.test(preText)) {
     if (preText.includes('LICENSE')) {
       break;
     }
-    comments.push(preText.substr(2).trim());
+    comments.push(preText === '*' ? '  ' : preText.substr(2));
     preText = lines[type === 'before' ? --idx : ++idx].trim();
   }
   comments = comments.filter((w) => !!w && w.length > 1);
   if (type === 'before') {
     comments = comments.reverse();
   }
-  return comments.join('\n\n').trim();
+  return comments.join('\n').trim();
 }
 
 function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
@@ -62,7 +91,8 @@ function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
     if (
       res.findIndex((w) => w.name === cls) !== -1 ||
       !/^-?[_a-zA-Z]+[_a-zA-Z0-9-]*$/g.test(cls) || // .a:hover {}
-      (cls.startsWith('ant-') && !cls.includes('__')) // .ant-btn
+      (cls.startsWith('ant-') && !cls.includes('__')) || // .ant-btn
+      INGORE_DELON.findIndex((w) => cls.startsWith(w)) !== -1
     ) {
       continue;
     }

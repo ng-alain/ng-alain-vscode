@@ -21,7 +21,7 @@ async function do_cache() {
     }
     CONFIG.classes = cssRes.nodes;
 
-    notifier.notify('zap', localize('again', 'NG-ALAIN CSS classes cached (click to cache again), enter: $1', cssRes.filePath));
+    notifier.notify('zap', localize('again', 'NG-ALAIN CSS classes cached (click to cache again), enter: {0}', cssRes.filePath));
   } catch (err) {
     notifier.notify('alert', localize('fail', 'Failed to cache the CSS classes in the workspace (click for another attempt)'));
     console.error(`缓存失败，点击重试，或打开 Dev Tools 了解详情`);
