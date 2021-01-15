@@ -1,3 +1,9 @@
 {
-  "ng-alain-vscode.cache": "重新缓存所有 NG-ALAIN 脚手架 CSS 类名定义"
+  "ng-alain-vscode.cache": "重新缓存所有 NG-ALAIN 脚手架 CSS 类名定义",
+  "ng-alain-vscode.i18nStatus": "是否启用国际化快速修复，auto: 当发现依赖 @angular/localize 或 @ngx-translate/core 时表示启用",
+  "ng-alain-vscode.i18nPipeName": "国际化管道名称",
+  "ng-alain-vscode.i18nData": "国际化数据",
+  "ng-alain-vscode.i18nData.path": "文件路径或URL地址",
+  "ng-alain-vscode.i18nData.type": "文件类型，file: 来自本地文件, remote: 来自远程, node: 来自Node文件",
+  "ng-alain-vscode.i18nData.remoteOptions": "远程请求选项（参考：https://www.npmjs.com/package/node-fetch#fetch-options）"
 }

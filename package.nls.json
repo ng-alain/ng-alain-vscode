@@ -1,3 +1,9 @@
 {
-  "ng-alain-vscode.cache": "Cache All ng-alain CSS class definitions"
+  "ng-alain-vscode.cache": "Cache All ng-alain CSS class definitions",
+  "ng-alain-vscode.i18nStatus": "Whether to enable international quick fix, auto: When depend @angular/localize or @ngx-translate/core is enabled",
+  "ng-alain-vscode.i18nPipeName": "Internationalization pipeline name",
+  "ng-alain-vscode.i18nData": "Internationalization data",
+  "ng-alain-vscode.i18nData.path": "File path or url path",
+  "ng-alain-vscode.i18nData.type": "Path type, file: from local file, remote: from remote, node: from node execute file",
+  "ng-alain-vscode.i18nData.remoteOptions": "Rmote options when type is remote (Please refer to https://www.npmjs.com/package/node-fetch#fetch-options)"
 }

@@ -1,0 +1,8 @@
+{
+  "action.title": "将 {0} 抽取为 {1}",
+  "action.title.custom": "将 {0} 抽取为自定义 I18n 变量",
+  "input.box": "请输入 I18n 变量名，按 <回车> 后进行替换",
+  "input.box.required": "变量名必填项",
+  "replace.error": "更新失败，原因：{0}",
+  "load.error": "国际化字典加载失败，原因：{0}"
+}
