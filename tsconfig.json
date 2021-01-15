@@ -5,7 +5,7 @@
     "outDir": "out",
     "lib": ["es2017", "dom"],
     "sourceMap": true,
-    "rootDir": "src/css-tools",
+    "rootDir": "src/main",
     "typeRoots": ["node_modules/@types"]
   },
   "exclude": ["node_modules", ".vscode-test"]
