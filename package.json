@@ -2,7 +2,7 @@
   "name": "ng-alain-vscode",
   "displayName": "NG-ALAIN Snippets",
   "description": "Snippets based on NG-ALAIN",
-  "version": "11.1.1",
+  "version": "11.1.2",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",

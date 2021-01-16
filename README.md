@@ -10,6 +10,7 @@
 
 - Support class intellisense
 - Support Class name hover introduction
+- Extract i18n key
 - Common Angular templates
 
 ## Usage

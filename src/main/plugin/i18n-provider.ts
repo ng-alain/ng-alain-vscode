@@ -237,5 +237,7 @@ export function checkAuto(): void {
     if (['@angular/localize', '@ngx-translate/core'].some((libName) => !!json.dependencies[libName] || !!json.devDependencies[libName])) {
       CONFIG.i18nStatus = 'enabled';
     }
-  } catch {}
+  } catch {
+    CONFIG.i18nStatus = 'disabled';
+  }
 }
