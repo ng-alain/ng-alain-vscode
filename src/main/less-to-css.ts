@@ -3,6 +3,7 @@ import * as less from 'less';
 import { dirname, join } from 'path';
 import { MarkdownString, workspace } from 'vscode';
 import * as nls from 'vscode-nls';
+import { CONFIG } from './config';
 import Notifier from './notifier';
 import { NgAlainImportPlugin } from './plugin-less-import';
 import { LessToCssNode, LessToCssResult } from './types';
@@ -139,10 +140,11 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
   }
 
   notifier.notify('eye', KEYS + localize('compiling', ': Compiling [{0}] project style, less entry:  {1}...', projectName, lessPath));
+  const paths = [join(rootPath, sourceRoot), rootPath, join(rootPath, 'node_modules/'), ...CONFIG.lessBuildPaths].filter((w) => !!w);
   try {
     const lessRes = await less.render(readFileSync(lessPath).toString('utf8'), {
       javascriptEnabled: true,
-      paths: [join(rootPath, sourceRoot), rootPath],
+      paths,
       plugins: [
         new NgAlainImportPlugin({
           prefix: `~`,
@@ -156,7 +158,10 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
       nodes: parseNodes(lessRes.css, notifier),
     };
   } catch (ex) {
-    notifier.notify('alert', KEYS + localize('less-error', ': Less compilation error: {0}, less entry: {1}', ex.message, lessPath));
+    notifier.notify(
+      'alert',
+      KEYS + localize('less-error', ': Less compilation error: {0}, less entry: {1}, paths: {2}', ex.message, lessPath, paths.join(',')),
+    );
     return null;
   }
 }

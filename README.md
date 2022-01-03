@@ -24,6 +24,7 @@ Typing the beginning of `nas-` will automatically appear in the intellisense lis
 | `ng-alain-vscode.i18nStatus` | Whether to enable international quick fix, auto: When depend @angular/localize or @ngx-translate/core is enabled | `auto, enabled, disabled` | `auto` |
 | `ng-alain-vscode.i18nPipeName` | Internationalization pipeline name | `string` | `i18n` |
 | `ng-alain-vscode.i18nData` | Internationalization data | `Array<{ path: string, type: 'file' | 'node' | 'remote'}>` | `[{path: 'src/assets/tmp/i18n/zh-CN.json', type: 'file'}]` |
+| `ng-alain-vscode.lessBuildPaths` | `paths` option of lesss compile | `string[]` | - |
 
 ## Support Language Versions
 
