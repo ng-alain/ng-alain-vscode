@@ -1,7 +1,7 @@
 {
   "parseIng": ": 正在解析有效的ng-alain样式...",
   "notFoundAngularJson": ": 未找到 angular.json 文件",
-  "notFoundDefaultProject": ": 未找到任何默认项目",
+  "notFoundDefaultProject": ": 项目 [{0}] 下未找到 style.less 文件(如果多个项目需要在 angular.json 指定 defaultProject 属性)",
   "compiling": ": 正在编译[{0}]项目的样式，当前Less文件：{1}...",
   "less-error": ": Less 编译异常：{0}，当前Less文件：{1}"
 }

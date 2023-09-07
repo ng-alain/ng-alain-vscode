@@ -135,7 +135,15 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
   const sourceRoot = angularJson.projects[projectName].sourceRoot || 'src';
   const lessPath = join(rootPath, sourceRoot, 'styles.less');
   if (!existsSync(lessPath)) {
-    notifier.notify('hubot', KEYS + localize('notFoundDefaultProject', ': No default project was found'));
+    notifier.notify(
+      'hubot',
+      KEYS +
+        localize(
+          'notFoundDefaultProject',
+          ': No found style.less file in [{0}] project (If multiple projects need to specify defaultProject property in angular.json)',
+          projectName,
+        ),
+    );
     return null;
   }
 
