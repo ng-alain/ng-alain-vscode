@@ -12,7 +12,7 @@ import {
   window,
 } from 'vscode';
 import { join } from 'path';
-import { readJSONSync } from 'fs-extra';
+import { readFileSync } from 'fs';
 import fetch from 'node-fetch';
 import { CONFIG, NAME } from '../config';
 import * as nls from 'vscode-nls';
@@ -175,13 +175,17 @@ function genPath(value: string): string | null {
   return join(workspace.workspaceFolders[0].uri.path, value);
 }
 
+function readJson(filePath: string): any {
+  return JSON.parse(readFileSync(filePath).toString('utf8'));
+}
+
 function loadI18nViaFile(file: string): void {
   const filePath = genPath(file);
   if (filePath == null) {
     return;
   }
   try {
-    const res = readJSONSync(filePath);
+    const res = readJson(filePath);
     pushI18nItem(res);
   } catch (ex) {
     showError(ex);
@@ -233,7 +237,7 @@ export function checkAuto(): void {
   // 检查当前项目是否包含 @angular/localize，@ngx-translate/core
   const packageJson = genPath('package.json');
   try {
-    const json = readJSONSync(packageJson);
+    const json = readJson(packageJson);
     if (['@angular/localize', '@ngx-translate/core'].some((libName) => !!json.dependencies[libName] || !!json.devDependencies[libName])) {
       CONFIG.i18nStatus = 'enabled';
     }
