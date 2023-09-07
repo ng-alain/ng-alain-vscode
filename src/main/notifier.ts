@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 class Notifier {
   public statusBarItem: vscode.StatusBarItem;
-  private timeoutId: NodeJS.Timer;
+  private timeoutId: any;
 
   constructor(command?: string, alignment?: vscode.StatusBarAlignment, priority?: number) {
     this.statusBarItem = vscode.window.createStatusBarItem(alignment, priority);
