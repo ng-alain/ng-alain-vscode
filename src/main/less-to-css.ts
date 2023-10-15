@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'fs';
 import * as less from 'less';
 import { dirname, join } from 'path';
-import { MarkdownString, workspace } from 'vscode';
+import { MarkdownString, Uri, workspace } from 'vscode';
 import * as nls from 'vscode-nls';
 import { CONFIG } from './config';
 import Notifier from './notifier';
@@ -112,15 +112,15 @@ function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
   return res;
 }
 
-export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
-  // 1. find angular.json
-  const angularJsonUris = await workspace.findFiles('angular.json', '**/node_modules/**', 1);
-  if (!angularJsonUris || angularJsonUris.length === 0) {
-    notifier.notify('alert', KEYS + localize('notFoundAngularJson', ': Angular.json file not found'));
-    return null;
+async function getDefaultProjectName(notifier: Notifier, angularJson: any): Promise<string> {
+  const ngAlainUris = await workspace.findFiles('ng-alain.json', '**/node_modules/**', 1);
+  if (ngAlainUris && ngAlainUris.length > 0) {
+    const ngAlainJson = JSON.parse(readFileSync(ngAlainUris[0].fsPath).toString());
+    if (typeof ngAlainJson.defaultProject === 'string') {
+      return ngAlainJson.defaultProject;
+    }
   }
-  // 2. find default project
-  const angularJson = JSON.parse(readFileSync(angularJsonUris[0].fsPath).toString());
+
   let projectName = angularJson.defaultProject;
   if (!projectName) {
     const allProjectNames = Object.keys(angularJson.projects).filter((w) => !w.endsWith('-e2e'));
@@ -130,6 +130,20 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
     }
     projectName = allProjectNames[0];
   }
+  return projectName;
+}
+
+export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
+  // 1. find angular.json
+  const angularJsonUris = await workspace.findFiles('angular.json', '**/node_modules/**', 1);
+  if (!angularJsonUris || angularJsonUris.length === 0) {
+    notifier.notify('alert', KEYS + localize('notFoundAngularJson', ': Angular.json file not found'));
+    return null;
+  }
+  const angularJson = JSON.parse(readFileSync(angularJsonUris[0].fsPath).toString());
+  // 2. find default project
+  let projectName = await getDefaultProjectName(notifier, angularJson);
+  if (projectName == null) return;
 
   const rootPath = dirname(angularJsonUris[0].fsPath);
   const sourceRoot = angularJson.projects[projectName].sourceRoot || 'src';

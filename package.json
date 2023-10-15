@@ -2,7 +2,7 @@
   "name": "ng-alain-vscode",
   "displayName": "NG-ALAIN Snippets",
   "description": "Snippets based on NG-ALAIN",
-  "version": "16.0.0",
+  "version": "16.1.0",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
