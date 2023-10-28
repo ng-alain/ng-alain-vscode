@@ -3,6 +3,7 @@ import * as less from 'less';
 import { dirname, join } from 'path';
 import { MarkdownString, Uri, workspace } from 'vscode';
 import * as nls from 'vscode-nls';
+import { parse } from 'jsonc-parser';
 import { CONFIG } from './config';
 import Notifier from './notifier';
 import { NgAlainImportPlugin } from './plugin-less-import';
@@ -115,7 +116,7 @@ function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
 async function getDefaultProjectName(notifier: Notifier, angularJson: any): Promise<string> {
   const ngAlainUris = await workspace.findFiles('ng-alain.json', '**/node_modules/**', 1);
   if (ngAlainUris && ngAlainUris.length > 0) {
-    const ngAlainJson = JSON.parse(readFileSync(ngAlainUris[0].fsPath).toString());
+    const ngAlainJson = parse(readFileSync(ngAlainUris[0].fsPath).toString());
     if (typeof ngAlainJson.defaultProject === 'string') {
       return ngAlainJson.defaultProject;
     }
@@ -140,7 +141,7 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
     notifier.notify('alert', KEYS + localize('notFoundAngularJson', ': Angular.json file not found'));
     return null;
   }
-  const angularJson = JSON.parse(readFileSync(angularJsonUris[0].fsPath).toString());
+  const angularJson = parse(readFileSync(angularJsonUris[0].fsPath).toString());
   // 2. find default project
   let projectName = await getDefaultProjectName(notifier, angularJson);
   if (projectName == null) return;

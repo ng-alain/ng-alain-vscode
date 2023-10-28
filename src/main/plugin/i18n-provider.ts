@@ -14,6 +14,7 @@ import {
 import { join } from 'path';
 import { readFileSync } from 'fs';
 import fetch from 'node-fetch';
+import { parse } from 'jsonc-parser';
 import { CONFIG, NAME } from '../config';
 import * as nls from 'vscode-nls';
 const localize = nls.config({ messageFormat: nls.MessageFormat.both })();
@@ -176,7 +177,7 @@ function genPath(value: string): string | null {
 }
 
 function readJson(filePath: string): any {
-  return JSON.parse(readFileSync(filePath).toString('utf8'));
+  return parse(readFileSync(filePath).toString('utf8'));
 }
 
 function loadI18nViaFile(file: string): void {
@@ -207,7 +208,7 @@ async function loadI18nViaNode(file: string): Promise<void> {
 
 async function loadI18nViaRemote(url: string): Promise<void> {
   try {
-    const res = JSON.parse(await (await fetch(url, CONFIG.i18nRemoteOptions)).text());
+    const res = parse(await (await fetch(url, CONFIG.i18nRemoteOptions)).text());
     pushI18nItem(res);
   } catch (ex) {
     showError(ex);
