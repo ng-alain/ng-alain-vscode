@@ -9,12 +9,15 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@
 import { _HttpClient } from '@delon/theme';
 
 @Component({
-  selector: 'app-${1}',
-  templateUrl: './${1}.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: '${1}',
+  standalone: true,
+  template: ``,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ${1}Component {
+export class ${2}Component {
   private readonly http = inject(_HttpClient);
   private readonly cdr = inject(ChangeDetectorRef);
+
+  $0
 }
 ```

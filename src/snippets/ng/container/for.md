@@ -1,11 +1,11 @@
 ---
 description:
-  zh-CN: 携带 *ngFor
-  en-US: Include *ngFor for ng-container
+  zh-CN: 携带 @for
+  en-US: Include @for
 ---
 
 ```html
-<ng-container *ngFor="let ${2:i} of ${1:list}">
+@for (i of ${1:list,item}; track $index) {
   $0
-</ng-container>
+}
 ```

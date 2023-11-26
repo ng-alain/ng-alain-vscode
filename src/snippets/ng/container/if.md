@@ -1,11 +1,11 @@
 ---
 description:
-  zh-CN: 携带 *ngIf
-  en-US: Include *ngIf for ng-container
+  zh-CN: 携带 @if
+  en-US: Include @if for ng-container
 ---
 
 ```html
-<ng-container *ngIf="$1">
+@if ($1) {
   $0
-</ng-container>
+}
 ```

@@ -1,7 +1,17 @@
 {
   "nas_component_new-onpush": {
     "prefix": "nas-component-new-onpush",
-    "body": "import {\n  Component,\n  ChangeDetectionStrategy,\n  ChangeDetectorRef,\n} from '@angular/core';\n\n@Component({\n  selector: 'app-${1}',\n  templateUrl: './${1}.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ${1}Component {\n  constructor(private cdr: ChangeDetectorRef) {}\n}",
+    "body": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';\nimport { _HttpClient } from '@delon/theme';\n\n@Component({\n  selector: 'app-${1}',\n  templateUrl: './${1}.component.html',\n  changeDetection: ChangeDetectionStrategy.OnPush,\n})\nexport class ${1}Component {\n  private readonly http = inject(_HttpClient);\n  private readonly cdr = inject(ChangeDetectorRef);\n}",
+    "description": "OnPush Component (OnPush 组件)"
+  },
+  "nas_component_new-standalone-onpush": {
+    "prefix": "nas-component-new-standalone-onpush",
+    "body": "import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';\nimport { _HttpClient } from '@delon/theme';\n\n@Component({\n  selector: '${1}',\n  standalone: true,\n  template: ``,\n  changeDetection: ChangeDetectionStrategy.OnPush\n})\nexport class ${2}Component {\n  private readonly http = inject(_HttpClient);\n  private readonly cdr = inject(ChangeDetectorRef);\n\n  $0\n}",
+    "description": "OnPush Component (OnPush 组件)"
+  },
+  "nas_component_new-standalone": {
+    "prefix": "nas-component-new-standalone",
+    "body": "import { Component, inject } from '@angular/core';\nimport { _HttpClient } from '@delon/theme';\n\n@Component({\n  selector: '${1}',\n  standalone: true,\n  template: ``\n})\nexport class ${2}Component {\n  private readonly http = inject(_HttpClient);\n\n  $0\n}",
     "description": "OnPush Component (OnPush 组件)"
   },
   "nas_http_delete": {

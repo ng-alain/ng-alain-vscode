@@ -8,5 +8,5 @@
     "rootDir": "src/main",
     "typeRoots": ["node_modules/@types"]
   },
-  "exclude": ["node_modules", ".vscode-test"]
+  "exclude": ["node_modules", ".vscode-test", "demo"]
 }

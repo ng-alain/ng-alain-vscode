@@ -224,45 +224,20 @@
     "body": "<sv label=\"${1|失败,取消,重写,过期,警告,原因|}\" type=\"${2|primary,success,danger,warning|}\">$3</sv>\n$0",
     "description": "Type demo for sv (查看属性：列表内容样式)"
   },
-  "nas_container": {
-    "prefix": "nas-container",
-    "body": "<ng-container>$0</ng-container>",
-    "description": "ng-container"
-  },
   "nas_container_for": {
     "prefix": "nas-container-for",
-    "body": "<ng-container *ngFor=\"let ${2:i} of ${1:list}\">\n  $0\n</ng-container>",
-    "description": "Include *ngFor for ng-container (携带 *ngFor)"
+    "body": "@for (i of ${1:list,item}; track $index) {\n  $0\n}",
+    "description": "Include @for (携带 @for)"
   },
   "nas_container_if": {
     "prefix": "nas-container-if",
-    "body": "<ng-container *ngIf=\"$1\">\n  $0\n</ng-container>",
-    "description": "Include *ngIf for ng-container (携带 *ngIf)"
-  },
-  "nas_router_active-mulit": {
-    "prefix": "nas-router-active-mulit",
-    "body": "[routerLinkActive]=\"['$0']\"",
-    "description": "Router with acitve (路由高亮（多类名）)"
-  },
-  "nas_router_active": {
-    "prefix": "nas-router-active",
-    "body": "routerLinkActive=\"$0\"",
-    "description": "Router with acitve (路由高亮)"
-  },
-  "nas_router": {
-    "prefix": "nas-router",
-    "body": "routerLink=\"$0\"",
-    "description": "Router link (路由链接)"
-  },
-  "nas_router_query": {
-    "prefix": "nas-router-query",
-    "body": "routerLink=\"$1\" [queryParams]=\"${2:{ id: 1 }}\"",
-    "description": "Router with parameters (路由链接带参数)"
+    "body": "@if ($1) {\n  $0\n}",
+    "description": "Include @if for ng-container (携带 @if)"
   },
   "nas_switch": {
     "prefix": "nas-switch",
-    "body": "<ng-container [ngSwitch]=\"$1\">\n  <div *ngSwitchCase=\"$2\">$0</div>\n  <ng-container *ngSwitchDefault></ng-container>\n</ng-container>",
-    "description": "Switch syntax (Switch语法)"
+    "body": "@switch (${1}) {\n  @case (${2}) {\n    $0\n  }\n}",
+    "description": "\\@switch syntax (\\@switch 语法)"
   },
   "nas_template": {
     "prefix": "nas-template",
@@ -271,8 +246,8 @@
   },
   "nas_template_outlet": {
     "prefix": "nas-template-outlet",
-    "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ $implicit: ${3:item} \\\\}\"}></ng-template>\n$0",
-    "description": "Include *ngIf for ng-template (携带 *ngIf)"
+    "body": "<ng-template [ngTemplateOutlet]=\"${1:content}\"${2: [ngTemplateOutletContext]=\"{ \\$implicit: ${3:item} \\}\"} />\n$0",
+    "description": "Include ngTemplateOutlet (携带 ngTemplateOutlet)"
   },
   "nas_template_recursive-tree": {
     "prefix": "nas-template-recursive-tree",
