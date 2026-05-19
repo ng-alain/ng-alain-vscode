@@ -2,11 +2,24 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es2020",
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "es2020"
+    ],
     "outDir": "out",
-    "lib": ["es2017", "dom"],
     "sourceMap": true,
     "rootDir": "src/main",
-    "typeRoots": ["node_modules/@types"]
+    "strict": true
   },
-  "exclude": ["node_modules", ".vscode-test", "demo"]
+  "exclude": [
+    "node_modules",
+    ".vscode-test",
+    "examples",
+    "scripts"
+  ],
+  "include": [
+    "src/main/**/*.ts"
+  ]
 }

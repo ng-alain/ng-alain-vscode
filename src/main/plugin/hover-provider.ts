@@ -24,7 +24,7 @@ export default class implements HoverProvider {
     if (classMatch == null || classMatch.length !== 2) {
       return null;
     }
-    const start = classMatch.index + 7;
+    const start = (classMatch.index ?? 0) + 7;
     const end = start + classMatch[1].length;
     const pointerPos = position.character;
     // 检查光标是否在类名上

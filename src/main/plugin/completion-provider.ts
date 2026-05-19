@@ -6,14 +6,14 @@ export default class implements CompletionItemProvider {
 
   provideCompletionItems(document: TextDocument, position: Position): CompletionItem[] {
     if (CONFIG.caching) {
-      return null;
+      return [];
     }
     const start: Position = new Position(position.line, 0);
     const range: Range = new Range(start, position);
     const text: string = document.getText(range);
 
     // Check if the cursor is on a class attribute and retrieve all the css rules in this class attribute
-    let rawClasses: RegExpMatchArray;
+    let rawClasses: RegExpMatchArray | null = null;
     for (const re of this.classMatchRegexs) {
       rawClasses = text.match(re);
       if (rawClasses == null) {
@@ -22,7 +22,7 @@ export default class implements CompletionItemProvider {
 
       break;
     }
-    if (!rawClasses || rawClasses.length === 1) {
+    if (rawClasses == null || rawClasses.length === 1) {
       return [];
     }
 

@@ -21,6 +21,7 @@
 
 | 名称 | 描述 | 类型 | 默认值 |
 |------|-------------|------|---------|
+| `ng-alain-vscode.disabledClass` | 禁用 CSS 类名自动完成 | `boolean` | `false` |
 | `ng-alain-vscode.i18nStatus` | 是否启用国际化快速修复，auto: 当发现依赖 @angular/localize 或 @ngx-translate/core 时表示启用 | `auto, enabled, disabled` | `auto` |
 | `ng-alain-vscode.i18nPipeName` | 国际化管道名称 | `string` | `i18n` |
 | `ng-alain-vscode.i18nData` | 国际化数据配置 | `Array<{ path: string, type: 'file' | 'node' | 'remote'}>` | `[{path: 'src/assets/tmp/i18n/zh-CN.json', type: 'file'}]` |

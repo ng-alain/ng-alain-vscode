@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from 'fs';
 import * as less from 'less';
 import { dirname, join } from 'path';
-import { MarkdownString, Uri, workspace } from 'vscode';
+import { MarkdownString, workspace } from 'vscode';
 import * as nls from 'vscode-nls';
 import { parse } from 'jsonc-parser';
 import { CONFIG } from './config';
@@ -105,7 +105,7 @@ function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
       console.log(`Parse error`);
     }
     res.push({
-      comment: comment.length > 0 ? new MarkdownString(comment) : null,
+      comment: comment.length > 0 ? new MarkdownString(comment) : undefined,
       name: cls,
     });
   }
@@ -113,7 +113,7 @@ function parseNodes(css: string, notifier: Notifier): LessToCssNode[] {
   return res;
 }
 
-async function getDefaultProjectName(notifier: Notifier, angularJson: any): Promise<string> {
+async function getDefaultProjectName(notifier: Notifier, angularJson: any): Promise<string | null> {
   const ngAlainUris = await workspace.findFiles('ng-alain.json', '**/node_modules/**', 1);
   if (ngAlainUris && ngAlainUris.length > 0) {
     const ngAlainJson = parse(readFileSync(ngAlainUris[0].fsPath).toString());
@@ -134,7 +134,7 @@ async function getDefaultProjectName(notifier: Notifier, angularJson: any): Prom
   return projectName;
 }
 
-export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
+export async function LessToCss(notifier: Notifier): Promise<LessToCssResult | null> {
   // 1. find angular.json
   const angularJsonUris = await workspace.findFiles('angular.json', '**/node_modules/**', 1);
   if (!angularJsonUris || angularJsonUris.length === 0) {
@@ -144,7 +144,7 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
   const angularJson = parse(readFileSync(angularJsonUris[0].fsPath).toString());
   // 2. find default project
   let projectName = await getDefaultProjectName(notifier, angularJson);
-  if (projectName == null) return;
+  if (projectName == null) return null;
 
   const rootPath = dirname(angularJsonUris[0].fsPath);
   const sourceRoot = angularJson.projects[projectName].sourceRoot || 'src';
@@ -181,9 +181,10 @@ export async function LessToCss(notifier: Notifier): Promise<LessToCssResult> {
       nodes: parseNodes(lessRes.css, notifier),
     };
   } catch (ex) {
+    const errorMessage = ex instanceof Error ? ex.message : String(ex);
     notifier.notify(
       'alert',
-      KEYS + localize('less-error', ': Less compilation error: {0}, less entry: {1}, paths: {2}', ex.message, lessPath, paths.join(',')),
+      KEYS + localize('less-error', ': Less compilation error: {0}, less entry: {1}, paths: {2}', errorMessage, lessPath, paths.join(',')),
     );
     return null;
   }
