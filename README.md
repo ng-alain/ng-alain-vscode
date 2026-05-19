@@ -2,8 +2,6 @@
 
 ![Plugin in action](help.gif)
 
-# Note: Starting `11` version, the extension language will follow the display language of VSCode, and there is no need to install different versions of the ng-alain-vscode extension, so will no longer be maintained of [Simplified Chinese Version](https://marketplace.visualstudio.com/items?itemName=cipchk.ng-alain-vscode-zh-CN).
-
 [中文](README.zh-CN.md)
 
 ## Features
@@ -21,7 +19,7 @@ Typing the beginning of `nas-` will automatically appear in the intellisense lis
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| `ng-alain-vscode.disabledClass` | Disable CSS class autocomplete | `boolean` | `false` |
+| `ng-alain-vscode.classMode` | CSS class autocomplete mode, `disabled`: off, `hover`: hover only, `enabled`: hover and completion | `disabled | hover | enabled` | `enabled` |
 | `ng-alain-vscode.i18nStatus` | Whether to enable international quick fix, auto: When depend @angular/localize or @ngx-translate/core is enabled | `auto, enabled, disabled` | `auto` |
 | `ng-alain-vscode.i18nPipeName` | Internationalization pipeline name | `string` | `i18n` |
 | `ng-alain-vscode.i18nData` | Internationalization data | `Array<{ path: string, type: 'file' | 'node' | 'remote'}>` | `[{path: 'src/assets/tmp/i18n/zh-CN.json', type: 'file'}]` |

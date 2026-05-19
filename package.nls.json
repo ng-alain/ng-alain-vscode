@@ -1,6 +1,9 @@
 {
   "ng-alain-vscode.cache": "Cache All ng-alain CSS class definitions",
-  "ng-alain-vscode.disabledClass": "Disable CSS class autocomplete",
+  "ng-alain-vscode.classMode": "CSS class autocomplete mode",
+  "ng-alain-vscode.classMode.disabled": "Disable class autocomplete and hover hints",
+  "ng-alain-vscode.classMode.hover": "Keep hover hints only, no completion",
+  "ng-alain-vscode.classMode.enabled": "Enable hover hints and class autocomplete",
   "ng-alain-vscode.i18nStatus": "Whether to enable international quick fix, auto: When depend @angular/localize or @ngx-translate/core is enabled",
   "ng-alain-vscode.i18nPipeName": "Internationalization pipeline name",
   "ng-alain-vscode.i18nData": "Internationalization data",

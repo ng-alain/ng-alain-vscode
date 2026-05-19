@@ -25,7 +25,7 @@ function disposeAll(disposables: Disposable[]): void {
 function syncClassFeatures(): void {
   disposeAll(classFeatureDisposables);
 
-  if (CONFIG.disabledClass) {
+  if (CONFIG.classMode === 'disabled') {
     notifier.hide();
     CONFIG.classes = [];
     return;
@@ -33,15 +33,17 @@ function syncClassFeatures(): void {
 
   notifier.show();
 
-  classFeatureDisposables.push(
-    ...languageSchemes.map((scheme) => {
-      return languages.registerCompletionItemProvider(
-        scheme,
-        new AutoCompletionItemProvider([/\[?ngClass\]?="{[ ]?'([\w\- ]*$)/, /class=["|']([\w\- ]*$)/, /\[class\.([\w\- ]*$)/]),
-        ...completionTriggerChars,
-      );
-    }),
-  );
+  if (CONFIG.classMode === 'enabled') {
+    classFeatureDisposables.push(
+      ...languageSchemes.map((scheme) => {
+        return languages.registerCompletionItemProvider(
+          scheme,
+          new AutoCompletionItemProvider([/\[?ngClass\]?="{[ ]?'([\w\- ]*$)/, /class=["|']([\w\- ]*$)/, /\[class\.([\w\- ]*$)/]),
+          ...completionTriggerChars,
+        );
+      }),
+    );
+  }
 
   classFeatureDisposables.push(languages.registerHoverProvider(languageSchemes, new HoverProvider()));
   classFeatureDisposables.push(
@@ -97,7 +99,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
   context.subscriptions.push(...emmetDisposables);
 
-  if (!CONFIG.disabledClass) {
+  if (CONFIG.classMode !== 'disabled') {
     await do_cache();
   }
 }

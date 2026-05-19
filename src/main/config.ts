@@ -5,11 +5,12 @@ import { LessToCssNode } from './types';
 export const NAME = 'ng-alain-vscode';
 
 export type I18nStatus = 'auto' | 'enabled' | 'disabled';
+export type ClassMode = 'disabled' | 'hover' | 'enabled';
 
 export const CONFIG: {
   caching: boolean;
   classes: LessToCssNode[];
-  disabledClass: boolean;
+  classMode: ClassMode;
   i18nStatus: I18nStatus;
   i18nPipeName: string;
   i18nData: ConfigI18nData[];
@@ -19,7 +20,7 @@ export const CONFIG: {
 } = {
   caching: false,
   classes: [],
-  disabledClass: false,
+  classMode: 'enabled',
   i18nStatus: 'auto',
   i18nPipeName: '',
   i18nData: [],
@@ -32,9 +33,23 @@ export interface ConfigI18nData {
   type: 'file' | 'remote' | 'node';
 }
 
+function resolveClassMode(cog: ReturnType<typeof workspace.getConfiguration>): ClassMode {
+  const classMode = cog.get('classMode');
+  if (classMode === 'disabled' || classMode === 'hover' || classMode === 'enabled') {
+    return classMode;
+  }
+
+  const disabledClass = cog.get('disabledClass');
+  if (typeof disabledClass === 'boolean') {
+    return disabledClass ? 'disabled' : 'enabled';
+  }
+
+  return 'enabled';
+}
+
 export function reloadConfig(): void {
   const cog = workspace.getConfiguration(NAME);
-  CONFIG.disabledClass = cog.get('disabledClass', false);
+  CONFIG.classMode = resolveClassMode(cog);
   CONFIG.i18nStatus = cog.get('i18nStatus', 'auto') as I18nStatus;
   CONFIG.i18nPipeName = cog.get('i18nPipeName', 'i18n');
   CONFIG.i18nData = cog.get('i18nData', []);

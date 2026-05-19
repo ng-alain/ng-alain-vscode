@@ -2,7 +2,7 @@
   "name": "ng-alain-vscode",
   "displayName": "NG-ALAIN Snippets",
   "description": "Snippets based on NG-ALAIN",
-  "version": "17.0.0",
+  "version": "18.0.0",
   "icon": "ng-alain.png",
   "publisher": "cipchk",
   "license": "MIT",
@@ -73,10 +73,20 @@
           ],
           "default": "auto"
         },
-        "ng-alain-vscode.disabledClass": {
-          "description": "%ng-alain-vscode.disabledClass%",
-          "type": "boolean",
-          "default": false
+        "ng-alain-vscode.classMode": {
+          "description": "%ng-alain-vscode.classMode%",
+          "type": "string",
+          "enum": [
+            "disabled",
+            "hover",
+            "enabled"
+          ],
+          "enumDescriptions": [
+            "%ng-alain-vscode.classMode.disabled%",
+            "%ng-alain-vscode.classMode.hover%",
+            "%ng-alain-vscode.classMode.enabled%"
+          ],
+          "default": "enabled"
         },
         "ng-alain-vscode.i18nPipeName": {
           "description": "%ng-alain-vscode.i18nPipeName%",
