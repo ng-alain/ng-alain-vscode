@@ -10,13 +10,25 @@ class Notifier {
     this.statusBarItem.show();
   }
 
+  public show(): void {
+    this.statusBarItem.show();
+  }
+
+  public hide(): void {
+    if (this.timeoutId) {
+      clearTimeout(this.timeoutId);
+      this.timeoutId = undefined;
+    }
+    this.statusBarItem.hide();
+  }
+
   public notify(icon: string, text: string, autoHide: boolean = true): void {
     if (this.timeoutId) {
       clearTimeout(this.timeoutId);
     }
 
     this.statusBarItem.text = `$(${icon}) ${text}`;
-    this.statusBarItem.tooltip = null;
+    this.statusBarItem.tooltip = undefined;
 
     if (autoHide) {
       this.timeoutId = setTimeout(() => {
@@ -24,6 +36,11 @@ class Notifier {
         this.statusBarItem.tooltip = text;
       }, 5000);
     }
+  }
+
+  public dispose(): void {
+    this.hide();
+    this.statusBarItem.dispose();
   }
 }
 

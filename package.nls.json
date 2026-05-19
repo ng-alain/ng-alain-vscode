@@ -1,5 +1,6 @@
 {
   "ng-alain-vscode.cache": "Cache All ng-alain CSS class definitions",
+  "ng-alain-vscode.disabledClass": "Disable CSS class autocomplete",
   "ng-alain-vscode.i18nStatus": "Whether to enable international quick fix, auto: When depend @angular/localize or @ngx-translate/core is enabled",
   "ng-alain-vscode.i18nPipeName": "Internationalization pipeline name",
   "ng-alain-vscode.i18nData": "Internationalization data",

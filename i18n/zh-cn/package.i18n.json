@@ -1,5 +1,6 @@
 {
   "ng-alain-vscode.cache": "重新缓存所有 NG-ALAIN 脚手架 CSS 类名定义",
+  "ng-alain-vscode.disabledClass": "禁用 CSS 类名自动完成",
   "ng-alain-vscode.i18nStatus": "是否启用国际化快速修复，auto: 当发现依赖 @angular/localize 或 @ngx-translate/core 时表示启用",
   "ng-alain-vscode.i18nPipeName": "国际化管道名称",
   "ng-alain-vscode.i18nData": "国际化数据",

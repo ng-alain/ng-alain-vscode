@@ -116,7 +116,7 @@ export function I18nCommand(args: I18nCommandArg): Promise<void> {
       window.showInputBox({
         prompt: localize('input.box', 'Please enter the I18n variable name, press <Enter> to replace'),
         value: args.text,
-        validateInput: (input): string => {
+        validateInput: (input) => {
           if (input.length <= 0) {
             return localize('input.box.required', 'Variable name is required');
           }
@@ -125,8 +125,10 @@ export function I18nCommand(args: I18nCommandArg): Promise<void> {
         },
       }),
     );
-  }).then((val: string) => {
-    const { document } = window.activeTextEditor;
+  }).then((val) => {
+    const uri = window.activeTextEditor?.document.uri;
+    if (uri == null) return;
+
     try {
       const edit = new WorkspaceEdit();
       let text = `'${val}'`;
@@ -138,10 +140,11 @@ export function I18nCommand(args: I18nCommandArg): Promise<void> {
           text = `'${val}' | ${CONFIG.i18nPipeName}`;
           break;
       }
-      edit.replace(document.uri, new Range(args.line, args.start, args.line, args.end), text);
+      edit.replace(uri, new Range(args.line, args.start, args.line, args.end), text);
       workspace.applyEdit(edit);
     } catch (ex) {
-      window.showErrorMessage(localize('replace.error', `Update failed, reason: {0}`, ex.message));
+      const message = ex instanceof Error ? ex.message : String(ex);
+      window.showErrorMessage(localize('replace.error', `Update failed, reason: {0}`, message));
     }
   });
 }
@@ -165,15 +168,17 @@ function pushI18nItem(data: any): void {
   fn(data);
 }
 
-function showError(ex: { message: string }): void {
-  window.showErrorMessage(localize('load.error', `Failed to load the internationalized dictionary, reason: {0}`, ex.message));
+function showError(ex: unknown): void {
+  const message = ex instanceof Error ? ex.message : String(ex);
+  window.showErrorMessage(localize('load.error', `Failed to load the internationalized dictionary, reason: {0}`, message));
 }
 
 function genPath(value: string): string | null {
-  if (workspace.workspaceFolders.length === 0) {
+  const folders = workspace.workspaceFolders ?? [];
+  if (folders.length === 0) {
     return null;
   }
-  return join(workspace.workspaceFolders[0].uri.path, value);
+  return join(folders[0].uri.path, value);
 }
 
 function readJson(filePath: string): any {
@@ -237,6 +242,10 @@ export function checkAuto(): void {
   if (CONFIG.i18nStatus !== 'auto') return;
   // 检查当前项目是否包含 @angular/localize，@ngx-translate/core
   const packageJson = genPath('package.json');
+  if (packageJson == null) {
+    CONFIG.i18nStatus = 'disabled';
+    return;
+  }
   try {
     const json = readJson(packageJson);
     if (['@angular/localize', '@ngx-translate/core'].some((libName) => !!json.dependencies[libName] || !!json.devDependencies[libName])) {

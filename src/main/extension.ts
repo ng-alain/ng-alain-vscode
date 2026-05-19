@@ -10,7 +10,50 @@ const localize = nls.config({ messageFormat: nls.MessageFormat.both })();
 
 const notifier = new Notifier(NAME + '.cache');
 const emmetDisposables: Disposable[] = [];
+const classFeatureDisposables: Disposable[] = [];
 const completionTriggerChars = ['"', "'", ' ', '.'];
+const languageSchemes = [
+  { scheme: 'file', language: 'html' },
+  { scheme: 'file', language: 'typescript' },
+];
+
+function disposeAll(disposables: Disposable[]): void {
+  disposables.forEach((disposable) => disposable.dispose());
+  disposables.length = 0;
+}
+
+function syncClassFeatures(): void {
+  disposeAll(classFeatureDisposables);
+
+  if (CONFIG.disabledClass) {
+    notifier.hide();
+    CONFIG.classes = [];
+    return;
+  }
+
+  notifier.show();
+
+  classFeatureDisposables.push(
+    ...languageSchemes.map((scheme) => {
+      return languages.registerCompletionItemProvider(
+        scheme,
+        new AutoCompletionItemProvider([/\[?ngClass\]?="{[ ]?'([\w\- ]*$)/, /class=["|']([\w\- ]*$)/, /\[class\.([\w\- ]*$)/]),
+        ...completionTriggerChars,
+      );
+    }),
+  );
+
+  classFeatureDisposables.push(languages.registerHoverProvider(languageSchemes, new HoverProvider()));
+  classFeatureDisposables.push(
+    commands.registerCommand('ng-alain-vscode.cache', async () => {
+      if (CONFIG.caching) {
+        return;
+      }
+
+      await do_cache();
+    }),
+  );
+}
 
 async function do_cache() {
   CONFIG.caching = true;
@@ -24,8 +67,7 @@ async function do_cache() {
     notifier.notify('zap', localize('again', 'NG-ALAIN CSS classes cached (click to cache again), enter: {0}', cssRes.filePath));
   } catch (err) {
     notifier.notify('alert', localize('fail', 'Failed to cache the CSS classes in the workspace (click for another attempt)'));
-    console.error(`缓存失败，点击重试，或打开 Dev Tools 了解详情`);
-    window.showErrorMessage(err.message);
+    window.showErrorMessage(err instanceof Error ? err.message : String(err));
   } finally {
     CONFIG.caching = false;
   }
@@ -33,37 +75,19 @@ async function do_cache() {
 
 export async function activate(context: ExtensionContext): Promise<void> {
   reloadConfig();
-  workspace.onDidChangeConfiguration(() => reloadConfig());
 
-  const languageSchemes = [
-    { scheme: 'file', language: 'html' },
-    { scheme: 'file', language: 'typescript' },
-  ];
-
-  // recache
-  emmetDisposables.push(
-    commands.registerCommand('ng-alain-vscode.cache', async () => {
-      if (CONFIG.caching) {
+  context.subscriptions.push(
+    workspace.onDidChangeConfiguration((event) => {
+      if (!event.affectsConfiguration(NAME)) {
         return;
       }
 
-      await do_cache();
+      reloadConfig();
+      syncClassFeatures();
     }),
   );
 
-  // complietion
-  emmetDisposables.push(
-    ...languageSchemes.map((scheme) => {
-      return languages.registerCompletionItemProvider(
-        scheme,
-        new AutoCompletionItemProvider([/\[?ngClass\]?="{[ ]?'([\w\- ]*$)/, /class=["|']([\w\- ]*$)/, /\[class\.([\w\- ]*$)/]),
-        ...completionTriggerChars,
-      );
-    }),
-  );
-
-  // Hover
-  emmetDisposables.push(languages.registerHoverProvider(languageSchemes, new HoverProvider()));
+  syncClassFeatures();
 
   // Quick i18n
   if (CONFIG.i18nStatus === 'enabled') {
@@ -73,9 +97,13 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
   context.subscriptions.push(...emmetDisposables);
 
-  await do_cache();
+  if (!CONFIG.disabledClass) {
+    await do_cache();
+  }
 }
 
 export function deactivate(): void {
-  emmetDisposables.forEach((disposable) => disposable.dispose());
+  notifier.dispose();
+  disposeAll(classFeatureDisposables);
+  disposeAll(emmetDisposables);
 }

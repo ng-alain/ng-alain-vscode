@@ -9,6 +9,7 @@ export type I18nStatus = 'auto' | 'enabled' | 'disabled';
 export const CONFIG: {
   caching: boolean;
   classes: LessToCssNode[];
+  disabledClass: boolean;
   i18nStatus: I18nStatus;
   i18nPipeName: string;
   i18nData: ConfigI18nData[];
@@ -18,6 +19,7 @@ export const CONFIG: {
 } = {
   caching: false,
   classes: [],
+  disabledClass: false,
   i18nStatus: 'auto',
   i18nPipeName: '',
   i18nData: [],
@@ -32,6 +34,7 @@ export interface ConfigI18nData {
 
 export function reloadConfig(): void {
   const cog = workspace.getConfiguration(NAME);
+  CONFIG.disabledClass = cog.get('disabledClass', false);
   CONFIG.i18nStatus = cog.get('i18nStatus', 'auto') as I18nStatus;
   CONFIG.i18nPipeName = cog.get('i18nPipeName', 'i18n');
   CONFIG.i18nData = cog.get('i18nData', []);
